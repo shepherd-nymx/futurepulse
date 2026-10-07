@@ -1,0 +1,6 @@
+{
+  "name": "Future Pulse",
+  "description": "Future Pulse is a Zimbabwean technology company building software, electronics, IoT and automation solutions for real-world problems.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
