@@ -95,7 +95,7 @@ export const AboutSection: React.FC = () => {
           <div className="lg:col-span-6">
             <div className="relative rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-900/60 shadow-2xl group">
               <ImageWithFallback
-                src="/src/assets/images/engineering_circuit_lab_1791396523562.jpg"
+                src="/assets/images/engineering_circuit_lab_1791396523562.jpg"
                 alt="Future Pulse hardware and electronic prototyping workbench"
                 aspectRatio="aspect-[16/10]"
                 fallbackTitle="Future Pulse Prototyping Laboratory"

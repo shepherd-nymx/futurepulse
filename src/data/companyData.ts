@@ -107,7 +107,7 @@ export const UNILINK_PRODUCT: ProductShowcase = {
   deliveryPromise: 'Delivery in as little as 45 minutes!',
   description:
     'UniLink is an errand and grocery delivery platform that connects customers with messengers who purchase goods from local shops and deliver them to the customer’s chosen location.',
-  image: '/src/assets/images/unilink_product_mockup_1791396500695.jpg',
+  image: '/assets/images/unilink_product_mockup_1791396500695.jpg',
   status: 'In Development',
   problemSolved:
     'In university hubs like NUST Main Campus and neighborhood communities across Zimbabwe, acquiring everyday groceries, snacks, and toiletries takes hours due to transit friction. UniLink connects shoppers with local merchants and trusted messengers who deliver in minutes.',
