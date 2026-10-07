@@ -4,6 +4,7 @@
  */
 
 import React from 'react';
+import { GlobalTechBackground } from './components/GlobalTechBackground';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
@@ -26,7 +27,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#05070B] text-slate-100 flex flex-col font-sans selection:bg-blue-600/30 selection:text-white">
+    <div className="min-h-screen bg-[#05070B] text-slate-100 flex flex-col font-sans selection:bg-blue-600/30 selection:text-white relative">
+      {/* Global Animated Tech Background (Neat, Simple, Attractive & Living) */}
+      <GlobalTechBackground />
+
       {/* Sticky Top Navigation */}
       <Navbar onOpenContact={() => scrollTo('#contact')} />
 

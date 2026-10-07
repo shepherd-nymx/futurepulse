@@ -3,7 +3,7 @@ import { ShieldCheck, Plus, CheckCircle, FileText } from 'lucide-react';
 
 export const MilestoneSection: React.FC = () => {
   return (
-    <section id="milestones" className="py-24 sm:py-32 bg-[#06090e] border-t border-white/5 relative">
+    <section id="milestones" className="py-24 sm:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
         <div className="max-w-3xl mb-16">

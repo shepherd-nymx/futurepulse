@@ -11,7 +11,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onAboutClick }) => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-[#05070B] tech-grid-subtle"
+      className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-transparent"
     >
       {/* Dynamic Pulse Canvas background */}
       <PulseCanvas />

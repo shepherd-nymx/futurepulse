@@ -30,7 +30,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
   ];
 
   return (
-    <footer className="bg-[#040609] border-t border-white/10 text-slate-400 text-sm relative">
+    <footer className="bg-[#05070B]/85 backdrop-blur-[2px] border-t border-white/10 text-slate-400 text-sm relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           {/* Brand & Mission Column */}

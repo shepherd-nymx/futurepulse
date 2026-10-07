@@ -9,7 +9,7 @@ export const VisionSection: React.FC<VisionSectionProps> = ({ onContactClick }) 
   return (
     <section
       id="vision"
-      className="py-32 sm:py-44 bg-[#05070B] border-t border-white/5 relative overflow-hidden flex items-center justify-center text-center tech-grid-subtle"
+      className="py-32 sm:py-44 bg-[#05070B]/70 backdrop-blur-[2px] border-t border-white/[0.06] relative overflow-hidden flex items-center justify-center text-center"
     >
       {/* Cinematic Pulse / Circuit Backing */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
