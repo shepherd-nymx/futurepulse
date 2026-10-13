@@ -35,23 +35,22 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           {/* Brand & Mission Column */}
           <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-slate-900 border border-blue-500/30 flex items-center justify-center">
-                <svg
-                  className="w-4 h-4 text-blue-400"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                </svg>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-slate-950 border border-blue-500/40 flex items-center justify-center overflow-hidden shadow-md shadow-blue-500/10 shrink-0">
+                <img
+                  src="/future-pulse-logo.png"
+                  alt="Future Pulse Investments Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <span className="font-['Syne',sans-serif] text-xl font-bold tracking-tight text-white uppercase">
-                {COMPANY_INFO.name}
-              </span>
+              <div>
+                <span className="font-['Syne',sans-serif] text-xl font-bold tracking-tight text-white uppercase block leading-none">
+                  {COMPANY_INFO.name}
+                </span>
+                <span className="text-[10px] font-mono tracking-widest text-blue-400 uppercase block mt-1">
+                  Investments
+                </span>
+              </div>
             </div>
 
             <p className="font-['Syne',sans-serif] text-base font-semibold text-slate-200">
@@ -59,8 +58,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
             </p>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
-              Parent technology company developing practical software platforms, connected electronics,
-              IoT systems, and operational automation. Rooted in Zimbabwe with a long-term engineering vision.
+              We develop and maintain bespoke software platforms, iOS &amp; Android mobile applications,
+              autonomous AI agents, and connected electronic systems. Rooted in Zimbabwe with a long-term engineering vision.
             </p>
 
             <div className="pt-2 text-xs font-mono text-slate-400 space-y-1">
@@ -87,12 +86,46 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
             </div>
           </div>
 
+          {/* Capabilities & What We Maintain Column */}
+          <div className="md:col-span-3 space-y-3">
+            <div className="text-xs font-mono uppercase tracking-widest text-slate-300">
+              We Develop &amp; Maintain
+            </div>
+            <ul className="space-y-1.5 text-xs text-slate-400 font-mono">
+              <li>
+                <a href="#what-we-build" onClick={(e) => { e.preventDefault(); onNavClick('#what-we-build'); }} className="hover:text-blue-400 transition-colors">
+                  • Softwares &amp; Web Platforms
+                </a>
+              </li>
+              <li>
+                <a href="#what-we-build" onClick={(e) => { e.preventDefault(); onNavClick('#what-we-build'); }} className="hover:text-blue-400 transition-colors">
+                  • Mobile Apps (iOS &amp; Android)
+                </a>
+              </li>
+              <li>
+                <a href="#what-we-build" onClick={(e) => { e.preventDefault(); onNavClick('#what-we-build'); }} className="hover:text-blue-400 transition-colors">
+                  • Autonomous AI Agents
+                </a>
+              </li>
+              <li>
+                <a href="#what-we-build" onClick={(e) => { e.preventDefault(); onNavClick('#what-we-build'); }} className="hover:text-blue-400 transition-colors">
+                  • Ongoing System Maintenance
+                </a>
+              </li>
+              <li>
+                <a href="#what-we-build" onClick={(e) => { e.preventDefault(); onNavClick('#what-we-build'); }} className="hover:text-blue-400 transition-colors">
+                  • IoT, Hardware &amp; Circuits
+                </a>
+              </li>
+            </ul>
+          </div>
+
           {/* Quick Navigation Column */}
-          <div className="md:col-span-4 space-y-4">
+          <div className="md:col-span-2 space-y-4">
             <div className="text-xs font-mono uppercase tracking-widest text-slate-300">
               Navigation
             </div>
-            <ul className="grid grid-cols-2 gap-2 text-xs font-medium">
+            <ul className="space-y-1.5 text-xs font-medium">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <a
@@ -101,7 +134,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
                       e.preventDefault();
                       onNavClick(link.href);
                     }}
-                    className="hover:text-white transition-colors py-1 inline-block"
+                    className="hover:text-white transition-colors py-0.5 inline-block"
                   >
                     {link.name}
                   </a>
@@ -165,7 +198,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
         {/* Bottom Bar: Copyright & Location */}
         <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
           <div>
-            © 2026 {COMPANY_INFO.name}. All rights reserved.
+            © 2026 {COMPANY_INFO.legalName || 'Future Pulse Investments'}. All rights reserved.
           </div>
 
           <div className="flex items-center gap-4">

@@ -2,10 +2,25 @@ export interface PillarDetail {
   id: string;
   title: string;
   tagline: string;
+  category?: string;
   description: string;
   iconName: string;
   focusAreas: string[];
   engineeringApproach: string;
+  maintenanceScope?: string[];
+  technologies?: string[];
+}
+
+export interface ServiceOffering {
+  id: string;
+  title: string;
+  tagline: string;
+  badge: string;
+  description: string;
+  iconName: string;
+  deliverables: string[];
+  maintenanceDetails: string[];
+  technologies: string[];
 }
 
 export interface ProductShowcase {

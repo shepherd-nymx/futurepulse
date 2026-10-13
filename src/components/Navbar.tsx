@@ -47,30 +47,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Zone 1: Brand Wordmark (Single Text Element) */}
+            {/* Zone 1: Brand Wordmark with Official Future Pulse Investments Logo */}
             <a
               href="#home"
               onClick={(e) => handleNavClick(e, '#home')}
-              className="group flex items-center gap-2.5 text-slate-100 hover:text-white transition-colors"
+              className="group flex items-center gap-3 text-slate-100 hover:text-white transition-colors"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-slate-900 to-slate-950 border border-blue-500/30 flex items-center justify-center relative overflow-hidden group-hover:border-blue-400 transition-colors">
-                {/* Subtle pulse waveform icon */}
-                <svg
-                  className="w-4 h-4 text-blue-400"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                </svg>
-                <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="w-9 h-9 rounded-xl bg-slate-950 border border-blue-500/40 flex items-center justify-center relative overflow-hidden group-hover:border-blue-400 transition-all shadow-md shadow-blue-500/10 shrink-0">
+                <img
+                  src="/future-pulse-logo.png"
+                  alt="Future Pulse Investments Logo"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                />
               </div>
-              <span className="font-['Syne',sans-serif] text-lg font-bold tracking-tight text-white uppercase">
-                Future Pulse
-              </span>
+              <div className="flex flex-col text-left">
+                <span className="font-['Syne',sans-serif] text-base sm:text-lg font-bold tracking-tight text-white uppercase leading-none">
+                  Future Pulse
+                </span>
+                <span className="text-[9px] font-mono tracking-widest text-blue-400 uppercase leading-none mt-1">
+                  Investments
+                </span>
+              </div>
             </a>
 
             {/* Zone 2: Navigation Links (Text with hover underlines, no pills) */}
@@ -126,7 +123,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
             className="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="fixed top-16 right-0 left-0 bg-[#070a10] border-b border-white/10 px-6 py-8 shadow-2xl flex flex-col gap-4">
+          <div className="fixed top-16 right-0 left-0 bg-[#070a10] border-b border-white/10 px-6 py-6 shadow-2xl flex flex-col gap-4">
+            {/* Mobile Brand Banner */}
+            <div className="flex items-center gap-3 pb-3 border-b border-white/10">
+              <div className="w-10 h-10 rounded-xl bg-slate-950 border border-blue-500/40 overflow-hidden shadow-md shrink-0">
+                <img
+                  src="/future-pulse-logo.png"
+                  alt="Future Pulse Investments Logo"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-left">
+                <div className="font-['Syne',sans-serif] text-base font-bold text-white uppercase leading-tight">
+                  Future Pulse
+                </div>
+                <div className="text-[10px] font-mono text-blue-400 tracking-wider uppercase mt-0.5">
+                  Investments · Zimbabwe
+                </div>
+              </div>
+            </div>
             <nav className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <a

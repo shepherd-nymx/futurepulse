@@ -28,32 +28,49 @@ export const MilestoneSection: React.FC = () => {
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
-              <div className="inline-flex items-center gap-2 text-xs font-mono text-blue-400 uppercase tracking-widest">
-                <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-                <span>Foundational Milestone</span>
+              <div className="flex items-center gap-3.5">
+                <div className="w-12 h-12 rounded-xl bg-slate-950 border border-blue-500/40 overflow-hidden shadow-lg shadow-blue-500/20 shrink-0">
+                  <img
+                    src="/future-pulse-logo.png"
+                    alt="Future Pulse Investments Official Logo"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div className="inline-flex items-center gap-2 text-xs font-mono text-blue-400 uppercase tracking-widest">
+                    <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                    <span>Foundational Milestone · Zimbabwe</span>
+                  </div>
+                  <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">
+                    Official Corporate Entity Seal
+                  </div>
+                </div>
               </div>
 
               <h3 className="font-['Syne',sans-serif] text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-                2026 — FUTURE PULSE REGISTERED
+                2026 — FUTURE PULSE INVESTMENTS REGISTERED
               </h3>
 
               <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
                 What began as ideas, experiments and projects has now grown into the foundation of a
-                technology company.
+                registered technology enterprise.
               </p>
 
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-2xl pt-2">
-                We are actively developing our core products, engineering prototypes in the workshop,
-                and formalizing our organizational structure in Zimbabwe without premature noise.
+                We actively develop and maintain custom software platforms, mobile applications,
+                autonomous AI agents, and connected hardware systems with disciplined engineering rigor.
               </p>
             </div>
 
             <div className="lg:col-span-4 flex flex-col gap-3">
-              <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono">
+              <div className="p-4 rounded-xl bg-slate-900/80 border border-blue-500/30 text-xs font-mono shadow-md">
                 <span className="text-slate-500 block uppercase mb-1">Company Status</span>
                 <div className="flex items-center gap-2 text-white font-semibold text-sm">
-                  <CheckCircle className="w-4 h-4 text-blue-400" />
-                  <span>Officially Registered Entity (2026)</span>
+                  <CheckCircle className="w-4 h-4 text-blue-400 shrink-0" />
+                  <span>Future Pulse Investments (Pvt) Ltd</span>
+                </div>
+                <div className="text-[11px] text-blue-300 font-mono mt-1">
+                  Officially Registered Entity (2026)
                 </div>
               </div>
 
@@ -63,8 +80,8 @@ export const MilestoneSection: React.FC = () => {
               </div>
 
               <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono">
-                <span className="text-slate-500 block uppercase mb-1">Development Phase</span>
-                <span className="text-blue-300 font-semibold text-sm">Active Product Prototyping</span>
+                <span className="text-slate-500 block uppercase mb-1">Operations</span>
+                <span className="text-blue-300 font-semibold text-sm">Software · Mobile · AI · Maintenance</span>
               </div>
             </div>
           </div>

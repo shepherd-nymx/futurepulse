@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Lightbulb, Wrench, PackageCheck, Globe2 } from 'lucide-react';
+import { ArrowRight, Lightbulb, Wrench, PackageCheck, Globe2, RefreshCw } from 'lucide-react';
 import { ImageWithFallback } from './ImageWithFallback';
 
 export const AboutSection: React.FC = () => {
@@ -15,28 +15,36 @@ export const AboutSection: React.FC = () => {
         'Identifying structural and everyday challenges in Zimbabwe where technology can tangibly improve efficiency and quality of life.',
     },
     {
-      label: 'Prototype',
+      label: 'Build',
       icon: Wrench,
       tag: 'Phase 02',
-      summary: 'Hands-On Engineering',
+      summary: 'Engineering & Construction',
       description:
-        'Building physical circuit boards, wiring microcontrollers, and coding software prototypes in the lab to test feasibility.',
+        'Architecting robust software, iOS/Android mobile apps, autonomous AI agents, and custom circuits built with clean, modular code.',
     },
     {
-      label: 'Product',
+      label: 'Deploy',
       icon: PackageCheck,
       tag: 'Phase 03',
-      summary: 'Refined Implementation',
+      summary: 'Production Launch',
       description:
-        'Hardening prototypes into dependable, intuitive systems built to endure local operating realities and network conditions.',
+        'Deploying resilient systems to the cloud and app stores, battle-tested for real-world user traffic and variable connectivity.',
     },
     {
-      label: 'Impact',
-      icon: Globe2,
+      label: 'Maintain',
+      icon: RefreshCw,
       tag: 'Phase 04',
-      summary: 'Scalable Value',
+      summary: '24/7 System Health & SLAs',
       description:
-        'Deploying solutions that solve immediate needs in Zimbabwe with architectural design primed to scale across regional markets.',
+        'Continuously maintaining codebases with proactive monitoring, rapid bug triage, security audits, OS updates, and AI agent prompt tuning.',
+    },
+    {
+      label: 'Scale',
+      icon: Globe2,
+      tag: 'Phase 05',
+      summary: 'Enduring Impact',
+      description:
+        'Expanding functionality and regional footprint with long-term technological stability and dependable partnership.',
     },
   ];
 
@@ -57,9 +65,9 @@ export const AboutSection: React.FC = () => {
             TECHNOLOGY WITH PURPOSE.
           </h2>
           <p className="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed">
-            Future Pulse is a technology company focused on turning ideas into practical products and
-            systems. We work across software, electronics, IoT and automation to develop solutions
-            around real problems.
+            Future Pulse Investments develops and maintains software platforms, mobile applications,
+            autonomous AI agents, and connected electronic systems. We combine digital craftsmanship with
+            dependable, ongoing technical maintenance to solve real-world problems.
           </p>
         </div>
 
@@ -68,26 +76,44 @@ export const AboutSection: React.FC = () => {
           <div className="lg:col-span-6 space-y-6 text-slate-300 text-base leading-relaxed">
             <p>
               Founded and built in Zimbabwe, Future Pulse operates on a straightforward principle:
-              meaningful innovation begins where genuine bottlenecks exist. Rather than duplicating
-              generic software formulas, we tackle both the digital and the physical — engineering
-              smart devices, automation logic, and high-utility applications designed for real-world
-              durability.
+              meaningful innovation begins where genuine bottlenecks exist. Beyond building proprietary platforms
+              like UniLink, we actively develop and maintain high-grade software, mobile apps, and autonomous AI agents
+              for organizations that demand long-term reliability.
             </p>
             <p>
-              While our roots, experiments, and first products are grounded in Zimbabwean communities,
-              our engineering rigor and long-term ambition are designed to scale beyond national borders.
-              We are building a multi-product technology ecosystem from the ground up — grounded,
-              transparent, and focused on lasting value.
+              We don't merely write code and walk away. Technology is a continuous responsibility: we provide
+              dedicated maintenance, zero-downtime security patching, regular OS compatibility updates for iOS and
+              Android, and continuous AI agent fine-tuning. We ensure every system we touch remains resilient,
+              secure, and fast 24 hours a day.
             </p>
 
-            <div className="pt-4 border-t border-white/5 grid grid-cols-2 gap-4 text-xs font-mono text-slate-400">
-              <div>
-                <span className="text-slate-500 block uppercase">Origination</span>
-                <span className="text-slate-200 text-sm font-semibold">Harare, Zimbabwe</span>
+            <div className="pt-4 border-t border-white/5 flex items-center justify-between flex-wrap gap-4 text-xs font-mono text-slate-400">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-slate-950 border border-blue-500/30 overflow-hidden shadow-md shrink-0">
+                  <img
+                    src="/future-pulse-logo.png"
+                    alt="Future Pulse Investments Logo"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <span className="text-white text-sm font-bold block uppercase font-['Syne',sans-serif]">
+                    Future Pulse Investments
+                  </span>
+                  <span className="text-blue-400 text-[11px] block">
+                    Parent Technology Entity · Zimbabwe
+                  </span>
+                </div>
               </div>
-              <div>
-                <span className="text-slate-500 block uppercase">Operational Model</span>
-                <span className="text-slate-200 text-sm font-semibold">Multi-Product Tech Parent</span>
+              <div className="flex items-center gap-6">
+                <div>
+                  <span className="text-slate-500 block uppercase text-[10px]">Origination</span>
+                  <span className="text-slate-200 text-xs font-semibold">Harare, Zimbabwe</span>
+                </div>
+                <div>
+                  <span className="text-slate-500 block uppercase text-[10px]">Operational Model</span>
+                  <span className="text-slate-200 text-xs font-semibold">Multi-Product Tech Parent</span>
+                </div>
               </div>
             </div>
           </div>
@@ -130,7 +156,7 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* Stepper Flow */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
             {progressionSteps.map((step, idx) => {
               const Icon = step.icon;
               const isSelected = activeStep === idx;

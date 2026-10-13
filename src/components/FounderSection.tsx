@@ -78,13 +78,20 @@ export const FounderSection: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80">
-                    <span className="text-slate-500 block uppercase text-[10px] mb-0.5">
-                      Core Engineering Discipline
-                    </span>
-                    <span className="text-slate-200 font-medium">
-                      Electronic Systems & Software Architecture
-                    </span>
+                  <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 flex items-center gap-3">
+                    <img
+                      src="/future-pulse-logo.png"
+                      alt="Future Pulse Investments Logo"
+                      className="w-8 h-8 rounded-lg object-cover border border-blue-500/30 shrink-0"
+                    />
+                    <div>
+                      <span className="text-slate-500 block uppercase text-[10px] mb-0.5">
+                        Founded Enterprise
+                      </span>
+                      <span className="text-white font-medium text-xs">
+                        Future Pulse Investments
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

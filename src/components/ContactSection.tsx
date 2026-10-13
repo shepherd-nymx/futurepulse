@@ -18,7 +18,7 @@ export const ContactSection: React.FC = () => {
     name: '',
     email: '',
     organization: '',
-    reason: 'Partnership',
+    reason: 'Software Development & Maintenance',
     message: '',
   });
 
@@ -28,11 +28,13 @@ export const ContactSection: React.FC = () => {
   const [copiedDraft, setCopiedDraft] = useState(false);
 
   const reasons = [
+    'Software Development & Maintenance',
+    'Mobile App Development (iOS & Android)',
+    'Autonomous AI Agents & Workflows',
+    'System Maintenance & SLA Support',
+    'IoT, Electronics & Hardware Prototyping',
     'Partnership',
-    'Technology',
-    'Investment',
-    'Collaboration',
-    'Media',
+    'Investment & Collaboration',
     'General enquiry',
   ];
 
@@ -87,11 +89,11 @@ export const ContactSection: React.FC = () => {
             <span>Direct Inquiries</span>
           </div>
           <h2 className="font-['Syne',sans-serif] text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
-            LET'S BUILD SOMETHING.
+            LET'S BUILD &amp; MAINTAIN SOMETHING.
           </h2>
           <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed [text-wrap:balance]">
-            Interested in collaborating, partnering, investing, building with us or learning more
-            about Future Pulse and UniLink? Connect directly with founder Shepherd Mutevedzi.
+            Looking to develop or maintain a software platform, native iOS/Android mobile application,
+            autonomous AI agent, or connected IoT system? Connect directly with founder Shepherd Mutevedzi.
           </p>
         </div>
 
@@ -102,22 +104,32 @@ export const ContactSection: React.FC = () => {
               {/* Subtle blue ambient halo */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[80px] pointer-events-none" />
 
-              {/* Founder Monogram & Title */}
-              <div className="flex items-center gap-4 pb-6 border-b border-white/10 relative z-10">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-900/60 to-slate-900 border border-blue-500/40 flex items-center justify-center text-blue-300 font-['Syne',sans-serif] font-bold text-xl shrink-0 shadow-md">
-                  SM
+              {/* Founder Monogram & Company Brand Seal */}
+              <div className="flex items-center justify-between gap-3 pb-6 border-b border-white/10 relative z-10">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-900/60 to-slate-900 border border-blue-500/40 flex items-center justify-center text-blue-300 font-['Syne',sans-serif] font-bold text-xl shrink-0 shadow-md">
+                    SM
+                  </div>
+                  <div>
+                    <h3 className="font-['Syne',sans-serif] text-xl font-bold text-white">
+                      {COMPANY_INFO.founder.name}
+                    </h3>
+                    <div className="text-xs font-mono text-blue-400 font-medium">
+                      Founder · Future Pulse Investments
+                    </div>
+                    <div className="text-[11px] font-mono text-slate-400 flex items-center gap-1 mt-0.5">
+                      <GraduationCap className="w-3 h-3 text-slate-400" />
+                      <span>NUST Electronic Engineering, Zimbabwe</span>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-['Syne',sans-serif] text-xl font-bold text-white">
-                    {COMPANY_INFO.founder.name}
-                  </h3>
-                  <div className="text-xs font-mono text-blue-400 font-medium">
-                    Founder · Future Pulse
-                  </div>
-                  <div className="text-[11px] font-mono text-slate-400 flex items-center gap-1 mt-0.5">
-                    <GraduationCap className="w-3 h-3 text-slate-400" />
-                    <span>NUST Electronic Engineering, Zimbabwe</span>
-                  </div>
+
+                <div className="w-12 h-12 rounded-xl bg-slate-950 border border-blue-500/40 overflow-hidden shadow-md shrink-0">
+                  <img
+                    src="/future-pulse-logo.png"
+                    alt="Future Pulse Investments Logo"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
 

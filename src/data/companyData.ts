@@ -2,11 +2,16 @@ import { PillarDetail, ProductShowcase, JourneyStep, Principle } from '../types'
 
 export const COMPANY_INFO = {
   name: 'Future Pulse',
-  tagline: 'Building Technology. Solving Real Problems.',
+  legalName: 'Future Pulse Investments',
+  tagline: 'Building & Maintaining Technology. Solving Real Problems.',
   location: 'Zimbabwe',
   headquarters: 'Harare, Zimbabwe',
   foundedYear: '2026',
   stage: 'Newly Registered · Early Stage Development',
+  servicesSummary:
+    'We develop and maintain bespoke software platforms, iOS & Android mobile apps, autonomous AI agents, and connected IoT systems.',
+  logo: '/future-pulse-logo.png',
+  symbol: '/future-pulse-symbol.png',
   founder: {
     name: 'Shepherd Mutevedzi',
     title: 'Founder',
@@ -14,10 +19,10 @@ export const COMPANY_INFO = {
     phone: '+263 78 262 7990',
     whatsapp: '+263 78 262 7990',
     email: 'shepherdmutevedzi@gmail.com',
-    bio: 'Shepherd Mutevedzi is an Electronic Engineering student at the National University of Science and Technology (NUST) in Zimbabwe and technology entrepreneur focused on building software, electronics and technology solutions around real-world problems.',
-    focus: 'Electronic Systems, Embedded Architecture & Practical Software Platforms',
+    bio: 'Shepherd Mutevedzi is an Electronic Engineering student at the National University of Science and Technology (NUST) in Zimbabwe and technology entrepreneur focused on developing and maintaining software, mobile applications, AI agents, and electronic engineering solutions around real-world problems.',
+    focus: 'Practical Software, Mobile Apps, Autonomous AI Agents & Embedded Systems',
     quote:
-      'We believe genuine technological progress in Zimbabwe starts by observing real everyday frictions, prototyping without excuses, and building systems resilient enough to make a lasting difference.',
+      'We believe genuine technological progress in Zimbabwe starts by observing real everyday frictions, prototyping without excuses, and building and maintaining systems resilient enough to make a lasting difference.',
   },
   socialPlaceholders: {
     linkedin: 'https://linkedin.com/company/future-pulse-tech',
@@ -32,67 +37,150 @@ export const COMPANY_INFO = {
 export const WHAT_WE_BUILD: PillarDetail[] = [
   {
     id: 'software',
-    title: 'Software',
-    tagline: 'High-utility digital infrastructure',
+    title: 'Software Development & Maintenance',
+    tagline: 'Resilient digital platforms & managed infrastructure',
+    category: 'Software',
     description:
-      'Digital platforms, web applications and software products designed around real user needs.',
+      'We develop and maintain performant web applications, custom enterprise platforms, high-throughput APIs, and mission-critical software systems tailored to client and market needs.',
     iconName: 'Code2',
     focusAreas: [
-      'Web & mobile applications',
-      'Logistics & dispatch logic',
-      'API-first modular architectures',
-      'Offline-tolerant data sync',
+      'Full-stack web applications & portals',
+      'Enterprise workflow & logistics systems',
+      'API-first cloud architectures',
+      'Continuous bug fixes & code refactoring',
+      'Security patches & database optimization',
     ],
     engineeringApproach:
-      'Building performant, lightweight digital platforms that function reliably across diverse connectivity conditions and device capabilities.',
+      'Designing clean, maintainable modular architectures from day one. We take complete responsibility for the ongoing health of the codebase — monitoring uptime, updating dependencies, and keeping systems lightning-fast.',
+    maintenanceScope: [
+      '24/7 uptime & health metric monitoring',
+      'Zero-downtime security patch deployments',
+      'Database indexing & query performance tuning',
+      'Third-party API & dependency compatibility updates',
+    ],
+    technologies: ['TypeScript', 'React', 'Node.js', 'Python', 'PostgreSQL', 'Docker', 'AWS / Cloud'],
+  },
+  {
+    id: 'mobile-apps',
+    title: 'Mobile App Development',
+    tagline: 'Native & cross-platform iOS & Android apps',
+    category: 'Mobile Apps',
+    description:
+      'We engineer intuitive, high-speed mobile applications for iOS and Android, optimized for low bandwidth, offline usability, seamless mobile money payments, and ongoing OS updates.',
+    iconName: 'Smartphone',
+    focusAreas: [
+      'iOS & Android native / cross-platform apps',
+      'Offline-tolerant data synchronization',
+      'Mobile payment integration (EcoCash & cards)',
+      'Real-time GPS dispatch & push notifications',
+      'Ongoing OS upgrade & app store maintenance',
+    ],
+    engineeringApproach:
+      'Building ultra-smooth user experiences that function reliably across diverse hardware specifications and variable network connectivity, backed by proactive app store lifecycle management.',
+    maintenanceScope: [
+      'Annual iOS & Android OS version compatibility updates',
+      'App Store & Google Play compliance maintenance',
+      'Crash analytics triage & rapid patch releases',
+      'Low-bandwidth & battery consumption optimization',
+    ],
+    technologies: ['React Native', 'Flutter', 'iOS / Swift', 'Android / Kotlin', 'Firebase', 'WebSockets'],
+  },
+  {
+    id: 'ai-agents',
+    title: 'Autonomous AI Agents',
+    tagline: 'Self-governing intelligent workflows & LLM pipelines',
+    category: 'AI Agents',
+    description:
+      'We develop and maintain autonomous AI agents, intelligent task automation engines, conversational assistants, and retrieval-augmented reasoning systems (RAG) that execute complex tasks reliably.',
+    iconName: 'Bot',
+    focusAreas: [
+      'Autonomous multi-agent task orchestration',
+      'Intelligent customer support & WhatsApp bots',
+      'Enterprise knowledge retrieval & RAG pipelines',
+      'Automated document extraction & decision agents',
+      'Continuous prompt tuning & accuracy evaluations',
+    ],
+    engineeringApproach:
+      'Grounding large language models with real structured data, custom tool execution, and deterministic guardrails so AI agents run reliably in production without hallucinations or runaway costs.',
+    maintenanceScope: [
+      'Continuous accuracy benchmarking & hallucination auditing',
+      'Vector database embedding refreshes & index maintenance',
+      'API quota, rate-limit & cost-efficiency governance',
+      'Safety policy & guardrail boundary calibrations',
+    ],
+    technologies: ['Gemini API', 'LangChain', 'Vector DBs', 'Python', 'FastAPI', 'Agentic Workflows'],
+  },
+  {
+    id: 'software-maintenance',
+    title: 'Continuous System Maintenance',
+    tagline: 'Long-term operational stability & SLA support',
+    category: 'Maintenance',
+    description:
+      'Software is a living system. We provide dedicated ongoing maintenance, proactive server monitoring, vulnerability remediation, legacy code modernization, and guaranteed technical support.',
+    iconName: 'RefreshCw',
+    focusAreas: [
+      'Proactive system health & uptime monitoring',
+      'Emergency bug fixing & incident response',
+      'Security audits & compliance maintenance',
+      'Legacy software refactoring & modernization',
+      'SLA-backed technical support contracts',
+    ],
+    engineeringApproach:
+      'Preventing downtime before it happens through proactive telemetry, regular automated testing, clean version control, and dependable human engineering support.',
+    maintenanceScope: [
+      'Guaranteed rapid turnaround for critical defects',
+      'Scheduled monthly system health & performance reports',
+      'Automated backup redundancy & disaster recovery testing',
+      'Continuous cloud cost reduction audits',
+    ],
+    technologies: ['CI/CD Pipelines', 'Cloud Monitoring', 'Security Hardening', 'Automated Testing', 'Git DevOps'],
   },
   {
     id: 'iot-electronics',
     title: 'IoT & Electronics',
     tagline: 'Physical hardware engineered for purpose',
+    category: 'IoT & Hardware',
     description:
-      'Connected devices, sensors, monitoring systems and smart electronic solutions.',
+      'Connected devices, telemetry sensors, monitoring hardware, and smart electronic solutions bridging the physical world with cloud and mobile software.',
     iconName: 'Cpu',
     focusAreas: [
-      'Microcontroller prototyping',
-      'Environmental & utility sensors',
-      'Low-power telemetry links',
-      'Custom circuit development',
+      'Microcontroller prototyping (ESP32, STM32)',
+      'Environmental & utility telemetry sensors',
+      'Low-power wireless & cellular data links',
+      'Custom circuit development & PCB layout',
+      'Over-the-air (OTA) firmware maintenance',
     ],
     engineeringApproach:
-      'Bridging physical sensors with digital dashboards to capture granular telemetry, monitor vital resources, and solve localized infrastructure bottlenecks.',
+      'Bridging physical sensors with digital dashboards and mobile apps to capture granular telemetry, monitor vital resources, and solve localized infrastructure bottlenecks.',
+    maintenanceScope: [
+      'Over-the-air (OTA) firmware upgrade distribution',
+      'Sensor calibration & telemetry drift audits',
+      'Hardware battery lifecycle & power optimization',
+    ],
+    technologies: ['ESP32', 'STM32', 'C/C++', 'MQTT', 'Telemetry Gateways', 'PCB Design'],
   },
   {
     id: 'automation',
-    title: 'Automation',
-    tagline: 'Streamlining repetitive processes',
+    title: 'Operational Automation',
+    tagline: 'Streamlining repetitive workflows & operations',
+    category: 'Automation',
     description:
-      'Technology systems that automate processes, improve efficiency and reduce unnecessary manual work.',
+      'Technology systems that automate business workflows, eliminate manual data entry, streamline logistics, and improve operational throughput.',
     iconName: 'Workflow',
     focusAreas: [
-      'Process workflow engines',
-      'Automated dispatch & routing',
-      'Telemetry-triggered triggers',
-      'Smart operational controls',
+      'Process workflow engines & triggers',
+      'Automated dispatch & messenger routing',
+      'Multi-system data integration pipelines',
+      'Operational alerting & notification bots',
     ],
     engineeringApproach:
       'Eliminating friction points in physical and digital operations by designing automated logic that increases throughput and reduces human error.',
-  },
-  {
-    id: 'emerging-tech',
-    title: 'Emerging Technology',
-    tagline: 'Forward-looking applied R&D',
-    description:
-      'Experimental products, prototypes and new technology concepts designed to solve emerging problems.',
-    iconName: 'Sparkles',
-    focusAreas: [
-      'Smart systems prototyping',
-      'Applied R&D testbeds',
-      'Decentralized sensor networks',
-      'Next-generation interfaces',
+    maintenanceScope: [
+      'Workflow trigger health monitoring',
+      'Edge-case error handling and retry mechanisms',
+      'Integration endpoint synchronization',
     ],
-    engineeringApproach:
-      'Investigating nascent technologies through pragmatic experiments, evaluating viability before integrating them into deployable products.',
+    technologies: ['Event-Driven Queues', 'Webhooks', 'Serverless Functions', 'Cron Automation'],
   },
 ];
 
