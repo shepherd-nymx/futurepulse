@@ -3,9 +3,15 @@ import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 interface NavbarProps {
   onOpenContact: () => void;
+  activeView?: 'home' | 'services';
+  onNavigateToView?: (view: 'home' | 'services', targetAnchor?: string) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  onOpenContact,
+  activeView = 'home',
+  onNavigateToView,
+}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -18,21 +24,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'What We Build', href: '#what-we-build' },
-    { name: 'Our Work', href: '#our-work' },
-    { name: 'Vision', href: '#vision' },
-    { name: 'Founder', href: '#founder' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '#home', view: 'home' as const },
+    { name: 'Services & Pricing', href: '#services-pricing', view: 'services' as const },
+    { name: 'About', href: '#about', view: 'home' as const },
+    { name: 'What We Build', href: '#what-we-build', view: 'home' as const },
+    { name: 'Our Work', href: '#our-work', view: 'home' as const },
+    { name: 'Vision', href: '#vision', view: 'home' as const },
+    { name: 'Founder', href: '#founder', view: 'home' as const },
+    { name: 'Contact', href: '#contact', view: 'home' as const },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, linkView: 'home' | 'services') => {
     e.preventDefault();
     setMobileMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+
+    if (onNavigateToView) {
+      onNavigateToView(linkView, href);
+    } else {
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -50,7 +62,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
             {/* Zone 1: Brand Wordmark with Official Future Pulse Investments Logo */}
             <a
               href="#home"
-              onClick={(e) => handleNavClick(e, '#home')}
+              onClick={(e) => handleNavClick(e, '#home', 'home')}
               className="group flex items-center gap-2.5 sm:gap-3 text-slate-100 hover:text-white transition-colors"
             >
               <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-slate-950 border border-blue-500/40 flex items-center justify-center relative overflow-hidden group-hover:border-blue-400 transition-all shadow-md shadow-blue-500/10 shrink-0">
@@ -71,17 +83,26 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
             </a>
 
             {/* Zone 2: Navigation Links (Text with hover underlines, no pills) */}
-            <nav className="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="hover:text-white transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-400 hover:after:w-full after:transition-all after:duration-200"
-                >
-                  {link.name}
-                </a>
-              ))}
+            <nav className="hidden lg:flex items-center gap-6 xl:gap-7 text-sm font-medium">
+              {navLinks.map((link) => {
+                const isActive =
+                  (link.view === 'services' && activeView === 'services') ||
+                  (link.view === 'home' && activeView === 'home' && link.name === 'Home');
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href, link.view)}
+                    className={`py-1 relative transition-colors whitespace-nowrap shrink-0 ${
+                      isActive
+                        ? 'text-white font-semibold after:w-full after:bg-blue-400'
+                        : 'text-slate-300 hover:text-white after:w-0 hover:after:w-full after:bg-blue-400/80'
+                    } after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:transition-all after:duration-200`}
+                  >
+                    {link.name}
+                  </a>
+                );
+              })}
             </nav>
 
             {/* Zone 3: Primary Action (Desktop / Tablet) */}
@@ -144,17 +165,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
               </div>
             </div>
             <nav className="flex flex-col gap-3">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-base font-medium text-slate-200 hover:text-blue-400 py-2 border-b border-white/5 flex items-center justify-between"
-                >
-                  <span>{link.name}</span>
-                  <span className="text-xs font-mono text-slate-500">→</span>
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const isActive =
+                  (link.view === 'services' && activeView === 'services') ||
+                  (link.view === 'home' && activeView === 'home' && link.name === 'Home');
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href, link.view)}
+                    className={`text-base font-medium py-2 border-b border-white/5 flex items-center justify-between transition-colors ${
+                      isActive ? 'text-blue-400 font-semibold' : 'text-slate-200 hover:text-blue-400'
+                    }`}
+                  >
+                    <span>{link.name}</span>
+                    <span className="text-xs font-mono text-slate-500">→</span>
+                  </a>
+                );
+              })}
             </nav>
             <div className="pt-2">
               <button

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { ArrowUp, Check } from 'lucide-react';
+import { ArrowUp, Check, Lock } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 
 interface FooterProps {
-  onNavClick: (href: string) => void;
+  onNavClick: (href: string, view?: 'home' | 'services') => void;
+  onOpenAdminCalc?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
+export const Footer: React.FC<FooterProps> = ({ onNavClick, onOpenAdminCalc }) => {
   const [socialNotice, setSocialNotice] = useState<string | null>(null);
 
   const handleSocialClick = (e: React.MouseEvent, platform: string) => {
@@ -20,13 +21,14 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
   };
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'What We Build', href: '#what-we-build' },
-    { name: 'Our Work', href: '#our-work' },
-    { name: 'Vision', href: '#vision' },
-    { name: 'Founder', href: '#founder' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '#home', view: 'home' as const },
+    { name: 'Services & Pricing', href: '#services-pricing', view: 'services' as const },
+    { name: 'About', href: '#about', view: 'home' as const },
+    { name: 'What We Build', href: '#what-we-build', view: 'home' as const },
+    { name: 'Our Work', href: '#our-work', view: 'home' as const },
+    { name: 'Vision', href: '#vision', view: 'home' as const },
+    { name: 'Founder', href: '#founder', view: 'home' as const },
+    { name: 'Contact', href: '#contact', view: 'home' as const },
   ];
 
   return (
@@ -132,7 +134,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
                     href={link.href}
                     onClick={(e) => {
                       e.preventDefault();
-                      onNavClick(link.href);
+                      onNavClick(link.href, link.view);
                     }}
                     className="hover:text-white transition-colors py-0.5 inline-block"
                   >
@@ -140,6 +142,17 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
                   </a>
                 </li>
               ))}
+              {onOpenAdminCalc && (
+                <li className="pt-2">
+                  <button
+                    onClick={onOpenAdminCalc}
+                    className="text-slate-400 hover:text-blue-400 transition-colors flex items-center gap-1.5 font-mono text-[11px] cursor-pointer"
+                  >
+                    <Lock className="w-3 h-3 text-blue-400" />
+                    <span>Admin Rate Calculator</span>
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
 

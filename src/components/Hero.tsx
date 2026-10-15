@@ -5,9 +5,10 @@ import { PulseCanvas } from './PulseCanvas';
 interface HeroProps {
   onExploreWork: () => void;
   onAboutClick: () => void;
+  onViewPricing?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onExploreWork, onAboutClick }) => {
+export const Hero: React.FC<HeroProps> = ({ onExploreWork, onAboutClick, onViewPricing }) => {
   return (
     <section
       id="home"
@@ -74,6 +75,16 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onAboutClick }) => {
             <span>Explore Our Work</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
           </button>
+
+          {onViewPricing && (
+            <button
+              onClick={onViewPricing}
+              className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold tracking-wide text-emerald-300 hover:text-white bg-emerald-950/40 hover:bg-emerald-900/50 border border-emerald-500/40 hover:border-emerald-400 rounded-lg transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer active:scale-[0.98]"
+            >
+              <span>Services &amp; Pricing</span>
+              <span className="font-mono text-xs opacity-75">($)</span>
+            </button>
+          )}
 
           <button
             onClick={onAboutClick}

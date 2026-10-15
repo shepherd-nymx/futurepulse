@@ -73,3 +73,42 @@ export interface ContactFormData {
   reason: string;
   message: string;
 }
+
+export type ServiceCategory = 'all' | 'web' | 'mobile' | 'seo' | 'addons' | 'iot';
+
+export interface PricingItem {
+  id: string;
+  category: 'web' | 'mobile' | 'seo' | 'addons' | 'iot';
+  categoryLabel: string;
+  title: string;
+  subtitle?: string;
+  startingPrice: number | null; // null for custom quote
+  priceDisplay: string; // e.g. "$150+", "$40/mo", "$100 per platform", "Custom Quote"
+  billingCycle: 'one-time' | 'monthly' | 'per platform' | 'custom';
+  description: string;
+  highlights: string[];
+  scopeNote?: string;
+  badge?: string;
+  isPopular?: boolean;
+}
+
+export interface QuoteRequestData {
+  clientName: string;
+  email: string;
+  phoneOrWhatsapp: string;
+  companyOrOrganization: string;
+  selectedServices: string[];
+  budgetRange: string;
+  timeline: string;
+  projectDescription: string;
+}
+
+export interface AdminQuoteLineItem {
+  id: string;
+  serviceId?: string;
+  name: string;
+  category: string;
+  unitPrice: number;
+  quantity: number;
+  notes?: string;
+}
