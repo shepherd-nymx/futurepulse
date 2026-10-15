@@ -27,9 +27,9 @@ export const COMPANY_INFO = {
   socialPlaceholders: {
     linkedin: 'https://linkedin.com/company/future-pulse-tech',
     x: 'https://x.com/futurepulsetech',
-    instagram: 'https://www.instagram.com/unili.ink',
+    instagram: 'https://www.instagram.com/unili.nk',
     tiktok: 'https://www.tiktok.com/@unilinkgd',
-    instagramHandle: 'unili.ink',
+    instagramHandle: 'unili.nk',
     tiktokHandle: '@unilinkgd',
   },
 };

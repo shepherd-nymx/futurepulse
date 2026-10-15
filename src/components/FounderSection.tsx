@@ -206,7 +206,7 @@ export const FounderSection: React.FC = () => {
                   </a>
                 </div>
 
-                {/* Social Channels: Instagram (unili.ink) & TikTok (@unilinkgd) */}
+                {/* Social Channels: Instagram (unili.nk) & TikTok (@unilinkgd) */}
                 <div className="mt-4 pt-4 border-t border-white/5 flex flex-wrap items-center gap-3">
                   <span className="text-xs font-mono text-slate-500">Social Channels:</span>
 

@@ -229,7 +229,7 @@ export const UniLinkModal: React.FC<UniLinkModalProps> = ({ isOpen, onClose }) =
                   rel="noopener noreferrer"
                   className="text-slate-300 hover:text-white flex items-center gap-1"
                 >
-                  <span>IG: <strong className="text-blue-400">unili.ink</strong></span>
+                  <span>IG: <strong className="text-blue-400">unili.nk</strong></span>
                   <ExternalLink className="w-3 h-3 text-slate-500" />
                 </a>
                 <span className="text-slate-700">·</span>
