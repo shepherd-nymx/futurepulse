@@ -31,8 +31,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
 
   return (
     <footer className="bg-[#05070B]/85 backdrop-blur-[2px] border-t border-white/10 text-slate-400 text-sm relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 sm:gap-12 mb-10 sm:mb-16">
           {/* Brand & Mission Column */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
@@ -59,7 +59,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
               We develop and maintain bespoke software platforms, iOS &amp; Android mobile applications,
-              autonomous AI agents, and connected electronic systems. Rooted in Zimbabwe with a long-term engineering vision.
+              online autonomous AI agents, and connected electronic systems. Rooted in Zimbabwe with a long-term engineering vision.
             </p>
 
             <div className="pt-2 text-xs font-mono text-slate-400 space-y-1">
@@ -104,7 +104,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
               </li>
               <li>
                 <a href="#what-we-build" onClick={(e) => { e.preventDefault(); onNavClick('#what-we-build'); }} className="hover:text-blue-400 transition-colors">
-                  • Autonomous AI Agents
+                  • Online AI Agents
                 </a>
               </li>
               <li>

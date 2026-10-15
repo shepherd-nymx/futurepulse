@@ -6,26 +6,26 @@ export const JourneySection: React.FC = () => {
   const [activeStepIndex, setActiveStepIndex] = useState<number>(5); // Default to 'Company' (where Future Pulse is now)
 
   return (
-    <section id="journey" className="py-24 sm:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
+    <section id="journey" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-10 sm:mb-16">
           <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-blue-400 uppercase mb-3">
             <span>04</span>
             <span className="text-slate-600" aria-hidden="true">/</span>
             <span>Evolutionary Process</span>
           </div>
-          <h2 className="font-['Syne',sans-serif] text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
+          <h2 className="font-['Syne',sans-serif] text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
             THE JOURNEY
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed [text-wrap:balance]">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed [text-wrap:balance]">
             Great technology rarely starts as a finished product. It starts as an idea, gets tested,
             fails, improves and eventually becomes something people can use.
           </p>
         </div>
 
         {/* Stepped Interactive Timeline */}
-        <div className="bg-[#090d15] border border-slate-800/80 rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+        <div className="bg-[#090d15] border border-slate-800/80 rounded-2xl p-4 sm:p-8 lg:p-10 shadow-2xl relative overflow-hidden">
           {/* Subtle pulse line running along the timeline */}
           <div className="hidden lg:block absolute top-[72px] left-12 right-12 h-[2px] bg-slate-800 pointer-events-none">
             <div

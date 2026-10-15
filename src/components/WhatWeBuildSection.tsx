@@ -66,35 +66,35 @@ export const WhatWeBuildSection: React.FC = () => {
   return (
     <section
       id="what-we-build"
-      className="py-24 sm:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative"
+      className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
+        <div className="max-w-3xl mb-8 sm:mb-12">
           <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-blue-400 uppercase mb-3">
             <span>02</span>
             <span className="text-slate-600" aria-hidden="true">/</span>
             <span>Engineering &amp; Core Capabilities</span>
           </div>
-          <h2 className="font-['Syne',sans-serif] text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
+          <h2 className="font-['Syne',sans-serif] text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
             WHAT WE DEVELOP &amp; MAINTAIN
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed max-w-2xl">
             Future Pulse engineers and continuously maintains mission-critical software platforms,
-            native and cross-platform mobile apps, autonomous AI agents, and connected IoT electronics.
+            native and cross-platform mobile apps, online autonomous AI agents, and connected IoT electronics.
             We provide full lifecycle technical stewardship — from prototype to 24/7 production maintenance.
           </p>
         </div>
 
         {/* Filter Navigation Bar */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar text-xs font-mono">
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 sm:mb-10 no-scrollbar text-xs font-mono">
           {categories.map((cat) => {
             const isActive = activeFilter === cat.id;
             return (
               <button
                 key={cat.id}
                 onClick={() => setActiveFilter(cat.id)}
-                className={`px-3.5 py-2 rounded-lg whitespace-nowrap transition-all duration-200 cursor-pointer ${
+                className={`px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-lg whitespace-nowrap transition-all duration-200 cursor-pointer ${
                   isActive
                     ? 'bg-blue-600 text-white font-semibold shadow-lg shadow-blue-600/20'
                     : 'bg-slate-900/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800/80 border border-slate-800/80'
@@ -107,14 +107,14 @@ export const WhatWeBuildSection: React.FC = () => {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {filteredPillars.map((pillar, index) => {
             const Icon = getIcon(pillar.iconName);
             return (
               <div
                 key={pillar.id}
                 onClick={() => setSelectedPillar(pillar)}
-                className="group relative bg-[#090d14] hover:bg-[#0c121d] border border-slate-800/80 hover:border-blue-500/40 rounded-2xl p-7 transition-all duration-300 cursor-pointer flex flex-col justify-between hover:shadow-2xl hover:shadow-blue-950/30"
+                className="group relative bg-[#090d14] hover:bg-[#0c121d] border border-slate-800/80 hover:border-blue-500/40 rounded-2xl p-5 sm:p-7 transition-all duration-300 cursor-pointer flex flex-col justify-between hover:shadow-2xl hover:shadow-blue-950/30"
               >
                 {/* Glow accent element */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-2xl group-hover:bg-blue-500/10 transition-colors pointer-events-none" />

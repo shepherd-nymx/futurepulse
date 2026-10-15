@@ -3,33 +3,33 @@ import { ShieldCheck, Plus, CheckCircle, FileText } from 'lucide-react';
 
 export const MilestoneSection: React.FC = () => {
   return (
-    <section id="milestones" className="py-24 sm:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
+    <section id="milestones" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-10 sm:mb-16">
           <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-blue-400 uppercase mb-3">
             <span>07</span>
             <span className="text-slate-600" aria-hidden="true">/</span>
             <span>Current Stage</span>
           </div>
-          <h2 className="font-['Syne',sans-serif] text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
+          <h2 className="font-['Syne',sans-serif] text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
             WHERE WE ARE
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed [text-wrap:balance]">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed [text-wrap:balance]">
             A newly registered Zimbabwean technology enterprise in its early foundational stage —
             combining clear operational discipline with long-range technical ambition.
           </p>
         </div>
 
         {/* Milestone Card */}
-        <div className="bg-[#090d15] border border-blue-500/30 rounded-2xl p-8 sm:p-12 relative overflow-hidden shadow-2xl mb-12">
+        <div className="bg-[#090d15] border border-blue-500/30 rounded-2xl p-5 sm:p-8 lg:p-12 relative overflow-hidden shadow-2xl mb-12">
           {/* Subtle pulse background halo */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
               <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-xl bg-slate-950 border border-blue-500/40 overflow-hidden shadow-lg shadow-blue-500/20 shrink-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-slate-950 border border-blue-500/40 overflow-hidden shadow-lg shadow-blue-500/20 shrink-0">
                   <img
                     src="/future-pulse-logo.png"
                     alt="Future Pulse Investments Official Logo"
@@ -41,13 +41,13 @@ export const MilestoneSection: React.FC = () => {
                     <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
                     <span>Foundational Milestone · Zimbabwe</span>
                   </div>
-                  <div className="text-[11px] font-mono text-slate-400 uppercase tracking-wider">
+                  <div className="text-[10px] sm:text-[11px] font-mono text-slate-400 uppercase tracking-wider">
                     Official Corporate Entity Seal
                   </div>
                 </div>
               </div>
 
-              <h3 className="font-['Syne',sans-serif] text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+              <h3 className="font-['Syne',sans-serif] text-xl sm:text-2xl md:text-4xl font-extrabold text-white tracking-tight">
                 2026 — FUTURE PULSE INVESTMENTS REGISTERED
               </h3>
 
@@ -58,7 +58,7 @@ export const MilestoneSection: React.FC = () => {
 
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-2xl pt-2">
                 We actively develop and maintain custom software platforms, mobile applications,
-                autonomous AI agents, and connected hardware systems with disciplined engineering rigor.
+                online autonomous AI agents, and connected hardware systems with disciplined engineering rigor.
               </p>
             </div>
 
@@ -81,7 +81,7 @@ export const MilestoneSection: React.FC = () => {
 
               <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-xs font-mono">
                 <span className="text-slate-500 block uppercase mb-1">Operations</span>
-                <span className="text-blue-300 font-semibold text-sm">Software · Mobile · AI · Maintenance</span>
+                <span className="text-blue-300 font-semibold text-sm">Software · Mobile · Online AI · Maintenance</span>
               </div>
             </div>
           </div>

@@ -30,7 +30,7 @@ export const ContactSection: React.FC = () => {
   const reasons = [
     'Software Development & Maintenance',
     'Mobile App Development (iOS & Android)',
-    'Autonomous AI Agents & Workflows',
+    'Online Autonomous AI Agents',
     'System Maintenance & SLA Support',
     'IoT, Electronics & Hardware Prototyping',
     'Partnership',
@@ -79,28 +79,28 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
+    <section id="contact" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-10 sm:mb-16">
           <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-blue-400 uppercase mb-3">
             <span>09</span>
             <span className="text-slate-600" aria-hidden="true">/</span>
             <span>Direct Inquiries</span>
           </div>
-          <h2 className="font-['Syne',sans-serif] text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
+          <h2 className="font-['Syne',sans-serif] text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
             LET'S BUILD &amp; MAINTAIN SOMETHING.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed [text-wrap:balance]">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed [text-wrap:balance]">
             Looking to develop or maintain a software platform, native iOS/Android mobile application,
-            autonomous AI agent, or connected IoT system? Connect directly with founder Shepherd Mutevedzi.
+            online autonomous AI agent, or connected IoT system? Connect directly with founder Shepherd Mutevedzi.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* Left Column: Direct Founder Access Card */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-[#090d15] border border-blue-500/30 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xl relative overflow-hidden">
+            <div className="bg-[#090d15] border border-blue-500/30 rounded-3xl p-5 sm:p-8 space-y-6 shadow-xl relative overflow-hidden">
               {/* Subtle blue ambient halo */}
               <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[80px] pointer-events-none" />
 
@@ -220,7 +220,7 @@ export const ContactSection: React.FC = () => {
 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
-            <div className="bg-[#090d15] border border-slate-800/90 rounded-3xl p-6 sm:p-10 shadow-2xl">
+            <div className="bg-[#090d15] border border-slate-800/90 rounded-3xl p-5 sm:p-8 lg:p-10 shadow-2xl">
               {isSubmitted ? (
                 <div className="py-8 text-center space-y-5 animate-in fade-in duration-300">
                   <div className="w-14 h-14 rounded-full bg-blue-950/80 border border-blue-500/40 flex items-center justify-center text-blue-400 mx-auto">

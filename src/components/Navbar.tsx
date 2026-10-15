@@ -41,8 +41,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-[#05070B]/90 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/40 py-3.5'
-            : 'bg-transparent border-b border-white/5 py-5'
+            ? 'bg-[#05070B]/90 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/40 py-2.5 sm:py-3.5'
+            : 'bg-transparent border-b border-white/5 py-3 sm:py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,9 +51,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
             <a
               href="#home"
               onClick={(e) => handleNavClick(e, '#home')}
-              className="group flex items-center gap-3 text-slate-100 hover:text-white transition-colors"
+              className="group flex items-center gap-2.5 sm:gap-3 text-slate-100 hover:text-white transition-colors"
             >
-              <div className="w-9 h-9 rounded-xl bg-slate-950 border border-blue-500/40 flex items-center justify-center relative overflow-hidden group-hover:border-blue-400 transition-all shadow-md shadow-blue-500/10 shrink-0">
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-slate-950 border border-blue-500/40 flex items-center justify-center relative overflow-hidden group-hover:border-blue-400 transition-all shadow-md shadow-blue-500/10 shrink-0">
                 <img
                   src="/future-pulse-logo.png"
                   alt="Future Pulse Investments Logo"
@@ -61,10 +61,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
                 />
               </div>
               <div className="flex flex-col text-left">
-                <span className="font-['Syne',sans-serif] text-base sm:text-lg font-bold tracking-tight text-white uppercase leading-none">
+                <span className="font-['Syne',sans-serif] text-sm sm:text-base lg:text-lg font-bold tracking-tight text-white uppercase leading-none">
                   Future Pulse
                 </span>
-                <span className="text-[9px] font-mono tracking-widest text-blue-400 uppercase leading-none mt-1">
+                <span className="text-[8px] sm:text-[9px] font-mono tracking-widest text-blue-400 uppercase leading-none mt-1">
                   Investments
                 </span>
               </div>
@@ -84,7 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
               ))}
             </nav>
 
-            {/* Zone 3: Primary Action */}
+            {/* Zone 3: Primary Action (Desktop / Tablet) */}
             <div className="hidden sm:flex items-center gap-3">
               <button
                 onClick={onOpenContact}
@@ -95,13 +95,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
               </button>
             </div>
 
-            {/* Mobile Hamburger Button */}
+            {/* Mobile Hamburger & Quick CTA */}
             <div className="flex items-center gap-2 lg:hidden">
               <button
                 onClick={onOpenContact}
-                className="sm:hidden px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-500 rounded-md transition-colors"
+                className="hidden xs:inline-flex px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-colors items-center gap-1 shadow-sm"
               >
-                Let's Build
+                <span>Let's Build</span>
+                <ArrowUpRight className="w-3 h-3" />
               </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

@@ -9,7 +9,7 @@ export const COMPANY_INFO = {
   foundedYear: '2026',
   stage: 'Newly Registered · Early Stage Development',
   servicesSummary:
-    'We develop and maintain bespoke software platforms, iOS & Android mobile apps, autonomous AI agents, and connected IoT systems.',
+    'We develop and maintain bespoke software platforms, iOS & Android mobile apps, online AI agents, and connected IoT systems.',
   logo: '/future-pulse-logo.png',
   symbol: '/future-pulse-symbol.png',
   founder: {
@@ -19,8 +19,8 @@ export const COMPANY_INFO = {
     phone: '+263 78 262 7990',
     whatsapp: '+263 78 262 7990',
     email: 'shepherdmutevedzi@gmail.com',
-    bio: 'Shepherd Mutevedzi is an Electronic Engineering student at the National University of Science and Technology (NUST) in Zimbabwe and technology entrepreneur focused on developing and maintaining software, mobile applications, AI agents, and electronic engineering solutions around real-world problems.',
-    focus: 'Practical Software, Mobile Apps, Autonomous AI Agents & Embedded Systems',
+    bio: 'Shepherd Mutevedzi is an Electronic Engineering student at the National University of Science and Technology (NUST) in Zimbabwe and technology entrepreneur focused on developing and maintaining software, mobile applications, online AI agents, and electronic engineering solutions around real-world problems.',
+    focus: 'Practical Software, Mobile Apps, Online AI Agents & Embedded Systems',
     quote:
       'We believe genuine technological progress in Zimbabwe starts by observing real everyday frictions, prototyping without excuses, and building and maintaining systems resilient enough to make a lasting difference.',
   },
@@ -87,21 +87,21 @@ export const WHAT_WE_BUILD: PillarDetail[] = [
   },
   {
     id: 'ai-agents',
-    title: 'Autonomous AI Agents',
-    tagline: 'Self-governing intelligent workflows & LLM pipelines',
+    title: 'Online Autonomous AI Agents',
+    tagline: 'Intelligent online agents & autonomous cloud workflows',
     category: 'AI Agents',
     description:
-      'We develop and maintain autonomous AI agents, intelligent task automation engines, conversational assistants, and retrieval-augmented reasoning systems (RAG) that execute complex tasks reliably.',
+      'We develop and maintain autonomous AI agents that run online, executing web workflows, intelligent data pipelines, automated web research, and retrieval-augmented reasoning systems (RAG) reliably in production.',
     iconName: 'Bot',
     focusAreas: [
-      'Autonomous multi-agent task orchestration',
-      'Intelligent customer support & WhatsApp bots',
+      'Autonomous multi-agent online orchestration',
+      'Web-based workflows & online research agents',
       'Enterprise knowledge retrieval & RAG pipelines',
-      'Automated document extraction & decision agents',
+      'Automated online data extraction & decision agents',
       'Continuous prompt tuning & accuracy evaluations',
     ],
     engineeringApproach:
-      'Grounding large language models with real structured data, custom tool execution, and deterministic guardrails so AI agents run reliably in production without hallucinations or runaway costs.',
+      'Grounding large language models with real structured data, custom tool execution, and deterministic guardrails so online AI agents run reliably in production without hallucinations or runaway compute costs.',
     maintenanceScope: [
       'Continuous accuracy benchmarking & hallucination auditing',
       'Vector database embedding refreshes & index maintenance',
@@ -171,7 +171,7 @@ export const WHAT_WE_BUILD: PillarDetail[] = [
       'Process workflow engines & triggers',
       'Automated dispatch & messenger routing',
       'Multi-system data integration pipelines',
-      'Operational alerting & notification bots',
+      'Operational alerting & automated notification pipelines',
     ],
     engineeringApproach:
       'Eliminating friction points in physical and digital operations by designing automated logic that increases throughput and reduces human error.',

@@ -21,19 +21,19 @@ export const OurWorkSection: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section id="our-work" className="py-24 sm:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
+    <section id="our-work" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-10 sm:mb-16">
           <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-blue-400 uppercase mb-3">
             <span>03</span>
             <span className="text-slate-600" aria-hidden="true">/</span>
             <span>Product Portfolio</span>
           </div>
-          <h2 className="font-['Syne',sans-serif] text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
+          <h2 className="font-['Syne',sans-serif] text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
             FROM IDEAS TO PRODUCTS.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
             Future Pulse develops and operates dedicated technology products built around real user
             needs. As our engineering capacity scales, our portfolio of physical and digital products
             will continue expanding.
@@ -69,7 +69,7 @@ export const OurWorkSection: React.FC = () => {
           <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#16284F]/30 rounded-full blur-[120px] pointer-events-none" />
           <div className="absolute bottom-0 right-0 w-80 h-80 bg-emerald-600/5 rounded-full blur-[100px] pointer-events-none" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-10 lg:p-12 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-4 sm:p-8 lg:p-12 relative z-10">
             {/* Left Content Column */}
             <div className="lg:col-span-7 flex flex-col justify-between h-full space-y-6">
               <div>
@@ -155,10 +155,10 @@ export const OurWorkSection: React.FC = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 pt-2">
                 <button
                   onClick={() => setIsModalOpen(true)}
-                  className="px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-500 rounded-xl transition-all duration-200 shadow-md shadow-blue-900/30 flex items-center gap-2 group cursor-pointer active:scale-[0.98]"
+                  className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 text-xs font-semibold uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-500 rounded-xl transition-all duration-200 shadow-md shadow-blue-900/30 flex items-center justify-center gap-2 group cursor-pointer active:scale-[0.98]"
                 >
                   <span>Explore UniLink Platform</span>
                   <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -168,7 +168,7 @@ export const OurWorkSection: React.FC = () => {
                   href={UNILINK_PRODUCT.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-xl transition-all duration-200 flex items-center gap-2 active:scale-[0.98]"
+                  className="w-full sm:w-auto px-5 sm:px-6 py-3 sm:py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 border border-slate-700/80 rounded-xl transition-all duration-200 flex items-center justify-center gap-2 active:scale-[0.98]"
                 >
                   <span>Open unilinkbase.com</span>
                   <ExternalLink className="w-3.5 h-3.5 text-blue-400" />
@@ -178,7 +178,7 @@ export const OurWorkSection: React.FC = () => {
                   href={`https://wa.me/${COMPANY_INFO.founder.whatsapp.replace(/[^0-9]/g, '')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-3.5 text-xs font-mono text-emerald-400 hover:text-emerald-300 bg-emerald-950/40 hover:bg-emerald-950/70 border border-emerald-600/30 rounded-xl transition-colors flex items-center gap-1.5"
+                  className="w-full sm:w-auto px-4 py-3 sm:py-3.5 text-xs font-mono text-emerald-400 hover:text-emerald-300 bg-emerald-950/40 hover:bg-emerald-950/70 border border-emerald-600/30 rounded-xl transition-colors flex items-center justify-center gap-1.5"
                 >
                   <PhoneCall className="w-3.5 h-3.5" />
                   <span>WhatsApp Help: {COMPANY_INFO.founder.whatsapp}</span>

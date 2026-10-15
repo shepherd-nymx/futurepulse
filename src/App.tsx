@@ -27,7 +27,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#05070B] text-slate-100 flex flex-col font-sans selection:bg-blue-600/30 selection:text-white relative">
+    <div className="min-h-screen bg-[#05070B] text-slate-100 flex flex-col font-sans selection:bg-blue-600/30 selection:text-white relative overflow-x-hidden w-full">
       {/* Global Animated Tech Background (Neat, Simple, Attractive & Living) */}
       <GlobalTechBackground />
 
@@ -35,7 +35,7 @@ export default function App() {
       <Navbar onOpenContact={() => scrollTo('#contact')} />
 
       {/* Main Content Sections */}
-      <main className="flex-1">
+      <main className="flex-1 w-full overflow-x-hidden">
         {/* Hero Section */}
         <Hero
           onExploreWork={() => scrollTo('#our-work')}

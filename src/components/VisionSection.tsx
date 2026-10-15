@@ -9,7 +9,7 @@ export const VisionSection: React.FC<VisionSectionProps> = ({ onContactClick }) 
   return (
     <section
       id="vision"
-      className="py-32 sm:py-44 bg-[#05070B]/70 backdrop-blur-[2px] border-t border-white/[0.06] relative overflow-hidden flex items-center justify-center text-center"
+      className="py-20 sm:py-36 md:py-44 bg-[#05070B]/70 backdrop-blur-[2px] border-t border-white/[0.06] relative overflow-hidden flex items-center justify-center text-center"
     >
       {/* Cinematic Pulse / Circuit Backing */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
@@ -55,12 +55,12 @@ export const VisionSection: React.FC<VisionSectionProps> = ({ onContactClick }) 
         </div>
 
         {/* Cinematic Headline */}
-        <h2 className="font-['Syne',sans-serif] text-4xl sm:text-6xl md:text-7xl font-extrabold text-white tracking-tight leading-[1.08] mb-8 [text-wrap:balance]">
+        <h2 className="font-['Syne',sans-serif] text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-[1.12] sm:leading-[1.08] mb-6 sm:mb-8 [text-wrap:balance]">
           THIS IS ONLY THE BEGINNING.
         </h2>
 
         {/* Narrative */}
-        <p className="text-base sm:text-xl md:text-2xl text-slate-300 font-normal leading-relaxed max-w-3xl mb-12 [text-wrap:balance]">
+        <p className="text-sm sm:text-lg md:text-xl text-slate-300 font-normal leading-relaxed max-w-3xl mb-8 sm:mb-12 [text-wrap:balance]">
           Future Pulse is being built with a long-term vision: to develop technology products that
           solve meaningful problems, create opportunities and contribute to the growth of
           Zimbabwe's technology ecosystem and Africa's digital future.

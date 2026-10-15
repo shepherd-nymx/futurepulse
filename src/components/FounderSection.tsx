@@ -22,19 +22,19 @@ export const FounderSection: React.FC = () => {
   };
 
   return (
-    <section id="founder" className="py-24 sm:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
+    <section id="founder" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-10 sm:mb-16">
           <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-blue-400 uppercase mb-3">
             <span>06</span>
             <span className="text-slate-600" aria-hidden="true">/</span>
             <span>Leadership & Engineering</span>
           </div>
-          <h2 className="font-['Syne',sans-serif] text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
+          <h2 className="font-['Syne',sans-serif] text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
             THE PERSON BEHIND THE BUILD
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed [text-wrap:balance]">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed [text-wrap:balance]">
             Future Pulse is founded and engineered by Shepherd Mutevedzi — combining electronic
             systems engineering with grounded Zimbabwean community problem-solving.
           </p>
@@ -44,7 +44,7 @@ export const FounderSection: React.FC = () => {
         <div className="bg-[#090d15] border border-slate-800/90 rounded-3xl overflow-hidden shadow-2xl relative">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
             {/* Left: Minimalist Technical Identity Card */}
-            <div className="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between bg-gradient-to-b from-[#0a1120] to-[#070b14] border-b lg:border-b-0 lg:border-r border-slate-800/80 tech-grid-subtle">
+            <div className="lg:col-span-5 p-5 sm:p-8 lg:p-12 flex flex-col justify-between bg-gradient-to-b from-[#0a1120] to-[#070b14] border-b lg:border-b-0 lg:border-r border-slate-800/80 tech-grid-subtle">
               <div>
                 {/* Tech Monogram Emblem */}
                 <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-900/60 to-slate-900 border border-blue-500/40 flex items-center justify-center text-white shadow-xl mb-6 relative overflow-hidden group">
@@ -104,7 +104,7 @@ export const FounderSection: React.FC = () => {
             </div>
 
             {/* Right: Founder Profile & Direct Contact Channels */}
-            <div className="lg:col-span-7 p-8 sm:p-12 space-y-6">
+            <div className="lg:col-span-7 p-5 sm:p-8 lg:p-12 space-y-6">
               <div>
                 <span className="text-xs font-mono uppercase tracking-widest text-blue-400 font-semibold">
                   Engineering Leadership

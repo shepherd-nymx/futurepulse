@@ -27,17 +27,17 @@ export const UniLinkPhoneMockup: React.FC = () => {
   };
 
   return (
-    <div className="relative mx-auto max-w-[340px] sm:max-w-[360px] select-none">
+    <div className="relative mx-auto max-w-[300px] xs:max-w-[340px] sm:max-w-[360px] select-none">
       {/* 45-Minute Delivery Badge */}
-      <div className="absolute -top-4 -right-4 z-20 bg-[#16284F] text-white p-3 rounded-2xl border-2 border-blue-400 shadow-xl flex items-center gap-2.5">
-        <div className="w-8 h-8 rounded-full bg-blue-500/20 border border-blue-400/40 flex items-center justify-center text-blue-300">
-          <Clock className="w-4 h-4" />
+      <div className="absolute -top-3 right-0 sm:-top-4 sm:-right-4 z-20 bg-[#16284F] text-white p-2.5 sm:p-3 rounded-xl sm:rounded-2xl border-2 border-blue-400 shadow-xl flex items-center gap-2 sm:gap-2.5">
+        <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-blue-500/20 border border-blue-400/40 flex items-center justify-center text-blue-300">
+          <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
         </div>
         <div className="text-left">
-          <span className="text-[10px] uppercase font-mono tracking-wider block text-slate-300">
+          <span className="text-[9px] sm:text-[10px] uppercase font-mono tracking-wider block text-slate-300">
             Delivery in
           </span>
-          <span className="font-['Syne',sans-serif] text-sm font-extrabold text-white">
+          <span className="font-['Syne',sans-serif] text-xs sm:text-sm font-extrabold text-white">
             As Little As 45 Mins!
           </span>
         </div>

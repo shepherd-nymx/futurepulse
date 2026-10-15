@@ -49,24 +49,24 @@ export const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-24 sm:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative overflow-hidden">
+    <section id="about" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-10 sm:mb-16">
           <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-blue-400 uppercase mb-3">
             <span>01</span>
             <span className="text-slate-600" aria-hidden="true">/</span>
             <span>About Future Pulse</span>
           </div>
-          <h2 className="font-['Syne',sans-serif] text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight [text-wrap:balance]">
+          <h2 className="font-['Syne',sans-serif] text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight [text-wrap:balance]">
             TECHNOLOGY WITH PURPOSE.
           </h2>
-          <p className="mt-6 text-base sm:text-lg text-slate-300 leading-relaxed">
+          <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
             Future Pulse Investments develops and maintains software platforms, mobile applications,
-            autonomous AI agents, and connected electronic systems. We combine digital craftsmanship with
+            online autonomous AI agents, and connected electronic systems. We combine digital craftsmanship with
             dependable, ongoing technical maintenance to solve real-world problems.
           </p>
         </div>
@@ -77,13 +77,13 @@ export const AboutSection: React.FC = () => {
             <p>
               Founded and built in Zimbabwe, Future Pulse operates on a straightforward principle:
               meaningful innovation begins where genuine bottlenecks exist. Beyond building proprietary platforms
-              like UniLink, we actively develop and maintain high-grade software, mobile apps, and autonomous AI agents
+              like UniLink, we actively develop and maintain high-grade software, mobile apps, and online AI agents
               for organizations that demand long-term reliability.
             </p>
             <p>
               We don't merely write code and walk away. Technology is a continuous responsibility: we provide
               dedicated maintenance, zero-downtime security patching, regular OS compatibility updates for iOS and
-              Android, and continuous AI agent fine-tuning. We ensure every system we touch remains resilient,
+              Android, and continuous online AI agent fine-tuning. We ensure every system we touch remains resilient,
               secure, and fast 24 hours a day.
             </p>
 

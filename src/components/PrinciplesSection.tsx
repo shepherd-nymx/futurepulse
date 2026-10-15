@@ -17,33 +17,33 @@ export const PrinciplesSection: React.FC = () => {
   };
 
   return (
-    <section id="principles" className="py-24 sm:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
+    <section id="principles" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-10 sm:mb-16">
           <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-blue-400 uppercase mb-3">
             <span>05</span>
             <span className="text-slate-600" aria-hidden="true">/</span>
             <span>Core Principles</span>
           </div>
-          <h2 className="font-['Syne',sans-serif] text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
+          <h2 className="font-['Syne',sans-serif] text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
             WHY WE BUILD
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed [text-wrap:balance]">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed [text-wrap:balance]">
             Our operating philosophy guides how we evaluate ideas, structure engineering experiments,
             and construct lasting products.
           </p>
         </div>
 
         {/* 4 Principles Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 lg:gap-8">
           {PRINCIPLES.map((principle, index) => {
             const Icon = getIcon(index);
 
             return (
               <div
                 key={principle.number}
-                className="group relative bg-[#090d14] hover:bg-[#0c1320] border border-slate-800/80 hover:border-blue-500/30 rounded-2xl p-8 sm:p-9 transition-all duration-300 flex flex-col justify-between"
+                className="group relative bg-[#090d14] hover:bg-[#0c1320] border border-slate-800/80 hover:border-blue-500/30 rounded-2xl p-5 sm:p-8 lg:p-9 transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
