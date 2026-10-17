@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { ContactFormData } from '../types';
 import { COMPANY_INFO } from '../data/companyData';
+import { supabase } from '../lib/supabase';
 
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -55,16 +56,23 @@ export const ContactSection: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
-    // Simulating preparation and offering direct mailto handoff
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 500);
+    const { error } = await supabase.from('contact_messages').insert({
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      organization: formData.organization?.trim() || null,
+      reason: formData.reason,
+      message: formData.message.trim(),
+    });
+    if (error) {
+      console.error('Failed to save inquiry:', error);
+    }
+    setIsSubmitting(false);
+    setIsSubmitted(true);
   };
 
   const handleCopyInquiry = () => {
