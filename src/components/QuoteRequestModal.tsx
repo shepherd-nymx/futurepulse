@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, MessageSquare, Mail, Copy, Check, Sparkles, AlertCircle } from 'lucide-react';
+import { X, MessageSquare, Mail, Copy, Check, Sparkles, CircleAlert as AlertCircle } from 'lucide-react';
 import { PricingItem, QuoteRequestData } from '../types';
 import { SERVICES_PRICING_ITEMS } from '../data/servicesPricingData';
 import { COMPANY_INFO } from '../data/companyData';

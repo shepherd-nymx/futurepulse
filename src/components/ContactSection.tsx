@@ -1,15 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Send,
-  CheckCircle2,
-  AlertCircle,
-  Copy,
-  Check,
-  Phone,
-  MessageSquare,
-  Mail,
-  GraduationCap,
-} from 'lucide-react';
+import { Send, CircleCheck as CheckCircle2, CircleAlert as AlertCircle, Copy, Check, Phone, MessageSquare, Mail, GraduationCap } from 'lucide-react';
 import { ContactFormData } from '../types';
 import { COMPANY_INFO } from '../data/companyData';
 import { supabase } from '../lib/supabase';
