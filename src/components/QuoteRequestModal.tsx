@@ -3,7 +3,7 @@ import { X, MessageSquare, Mail, Copy, Check, Sparkles, CircleAlert as AlertCirc
 import { PricingItem, QuoteRequestData } from '../types';
 import { SERVICES_PRICING_ITEMS } from '../data/servicesPricingData';
 import { COMPANY_INFO } from '../data/companyData';
-import { supabase } from '../lib/supabase';
+import { supabase, isSupabaseConfigured } from '../lib/supabase';
 
 interface QuoteRequestModalProps {
   isOpen: boolean;
@@ -109,18 +109,24 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
 
   const handleSendAndSave = async (send: () => void) => {
     if (!validateForm()) return;
-    const { error } = await supabase.from('quote_requests').insert({
-      client_name: formData.clientName.trim(),
-      email: formData.email.trim() || null,
-      phone_or_whatsapp: formData.phoneOrWhatsapp.trim() || null,
-      company_or_organization: formData.companyOrOrganization.trim() || null,
-      selected_services: formData.selectedServices,
-      budget_range: formData.budgetRange,
-      timeline: formData.timeline,
-      project_description: formData.projectDescription.trim() || null,
-    });
-    if (error) {
-      console.error('Failed to save quote request:', error);
+    if (isSupabaseConfigured) {
+      try {
+        const { error } = await supabase.from('quote_requests').insert({
+          client_name: formData.clientName.trim(),
+          email: formData.email.trim() || null,
+          phone_or_whatsapp: formData.phoneOrWhatsapp.trim() || null,
+          company_or_organization: formData.companyOrOrganization.trim() || null,
+          selected_services: formData.selectedServices,
+          budget_range: formData.budgetRange,
+          timeline: formData.timeline,
+          project_description: formData.projectDescription.trim() || null,
+        });
+        if (error) {
+          console.error('Failed to save quote request to Supabase:', error);
+        }
+      } catch (err) {
+        console.warn('Supabase insert skipped or failed:', err);
+      }
     }
     send();
   };

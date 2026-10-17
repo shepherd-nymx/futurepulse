@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Send, CircleCheck as CheckCircle2, CircleAlert as AlertCircle, Copy, Check, Phone, MessageSquare, Mail, GraduationCap } from 'lucide-react';
 import { ContactFormData } from '../types';
 import { COMPANY_INFO } from '../data/companyData';
-import { supabase } from '../lib/supabase';
+import { supabase, isSupabaseConfigured } from '../lib/supabase';
 
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -51,15 +51,21 @@ export const ContactSection: React.FC = () => {
     if (!validate()) return;
 
     setIsSubmitting(true);
-    const { error } = await supabase.from('contact_messages').insert({
-      name: formData.name.trim(),
-      email: formData.email.trim(),
-      organization: formData.organization?.trim() || null,
-      reason: formData.reason,
-      message: formData.message.trim(),
-    });
-    if (error) {
-      console.error('Failed to save inquiry:', error);
+    if (isSupabaseConfigured) {
+      try {
+        const { error } = await supabase.from('contact_messages').insert({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          organization: formData.organization?.trim() || null,
+          reason: formData.reason,
+          message: formData.message.trim(),
+        });
+        if (error) {
+          console.error('Failed to save inquiry to Supabase:', error);
+        }
+      } catch (err) {
+        console.warn('Supabase insert skipped or failed:', err);
+      }
     }
     setIsSubmitting(false);
     setIsSubmitted(true);
