@@ -18,23 +18,52 @@ import { VisionSection } from './components/VisionSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ServicesPricingView } from './components/ServicesPricingView';
+import { LegalComplianceView } from './components/LegalComplianceView';
 import { AdminQuoteGeneratorModal } from './components/AdminQuoteGeneratorModal';
+import { CookieComplianceBanner } from './components/CookieComplianceBanner';
+import { ProjectsPortfolioSection } from './components/ProjectsPortfolioSection';
+import { LEGAL_POLICIES } from './data/legalPoliciesData';
 
 export default function App() {
-  const [activeView, setActiveView] = useState<'home' | 'services'>(() => {
-    return window.location.hash === '#services-pricing' ? 'services' : 'home';
-  });
+  const getInitialViewAndPolicy = (): {
+    view: 'home' | 'services' | 'legal';
+    policyId: string;
+  } => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash === 'services-pricing') {
+      return { view: 'services', policyId: 'privacy-policy' };
+    }
+
+    const matchedPolicy = LEGAL_POLICIES.find(
+      (p) => p.slug === hash || p.id === hash
+    );
+    if (matchedPolicy || hash === 'legal' || hash === 'legal-compliance') {
+      return {
+        view: 'legal',
+        policyId: matchedPolicy ? matchedPolicy.id : 'privacy-policy',
+      };
+    }
+
+    return { view: 'home', policyId: 'privacy-policy' };
+  };
+
+  const [activeView, setActiveView] = useState<'home' | 'services' | 'legal'>(
+    () => getInitialViewAndPolicy().view
+  );
+  const [activeLegalPolicy, setActiveLegalPolicy] = useState<string>(
+    () => getInitialViewAndPolicy().policyId
+  );
 
   const [adminModalOpen, setAdminModalOpen] = useState(false);
 
-  // Sync state with URL hash
+  // Sync state with URL hash on forward/back navigation
   useEffect(() => {
     const handleHashChange = () => {
-      if (window.location.hash === '#services-pricing') {
-        setActiveView('services');
+      const parsed = getInitialViewAndPolicy();
+      setActiveView(parsed.view);
+      setActiveLegalPolicy(parsed.policyId);
+      if (parsed.view === 'services' || parsed.view === 'legal') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        setActiveView('home');
       }
     };
 
@@ -49,14 +78,23 @@ export default function App() {
     }
   };
 
-  const handleNavigateToView = (view: 'home' | 'services', targetAnchor?: string) => {
+  const handleNavigateToView = (
+    view: 'home' | 'services' | 'legal',
+    targetAnchor?: string
+  ) => {
     if (view === 'services') {
       setActiveView('services');
       window.location.hash = '#services-pricing';
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (view === 'legal') {
+      setActiveView('legal');
+      const slug = targetAnchor ? targetAnchor.replace('#', '') : 'privacy-policy';
+      setActiveLegalPolicy(slug);
+      window.location.hash = `#${slug}`;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       setActiveView('home');
-      if (targetAnchor && targetAnchor !== '#services-pricing') {
+      if (targetAnchor && targetAnchor !== '#services-pricing' && targetAnchor !== '#legal') {
         window.location.hash = targetAnchor;
         setTimeout(() => {
           scrollTo(targetAnchor);
@@ -66,6 +104,13 @@ export default function App() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     }
+  };
+
+  const handleOpenLegalPolicy = (policySlug: string) => {
+    setActiveView('legal');
+    setActiveLegalPolicy(policySlug);
+    window.location.hash = `#${policySlug}`;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -88,12 +133,19 @@ export default function App() {
             onBackToHome={() => handleNavigateToView('home', '#home')}
             onOpenContact={() => handleNavigateToView('home', '#contact')}
           />
+        ) : activeView === 'legal' ? (
+          /* Dedicated Legal & Regulatory Compliance Page */
+          <LegalComplianceView
+            initialPolicyId={activeLegalPolicy}
+            onBackToHome={() => handleNavigateToView('home', '#home')}
+            onNavigateToServices={() => handleNavigateToView('services')}
+          />
         ) : (
           /* Core Corporate Overview View */
           <>
             {/* Hero Section */}
             <Hero
-              onExploreWork={() => scrollTo('#our-work')}
+              onExploreWork={() => scrollTo('#portfolio')}
               onAboutClick={() => scrollTo('#about')}
               onViewPricing={() => handleNavigateToView('services')}
             />
@@ -104,8 +156,11 @@ export default function App() {
             {/* What We Build: 4 Core Pillars Bento Grid */}
             <WhatWeBuildSection />
 
-            {/* Our Work: UniLink Showcase & More Products in Development */}
+            {/* Our Work: UniLink Showcase & Product Ecosystem */}
             <OurWorkSection />
+
+            {/* Projects Portfolio: Categorized Portfolio (Web, Mobile, Software) */}
+            <ProjectsPortfolioSection />
 
             {/* The Journey: Evolution Timeline */}
             <JourneySection />
@@ -128,11 +183,15 @@ export default function App() {
         )}
       </main>
 
-      {/* Footer */}
+      {/* Footer with Legal & Compliance Policy Links */}
       <Footer
         onNavClick={(href, view) => handleNavigateToView(view || 'home', href)}
         onOpenAdminCalc={() => setAdminModalOpen(true)}
+        onOpenLegal={handleOpenLegalPolicy}
       />
+
+      {/* Cookie & Regulatory Compliance Banner */}
+      <CookieComplianceBanner onOpenPolicy={handleOpenLegalPolicy} />
 
       {/* Global Admin Quotation Generator Modal */}
       <AdminQuoteGeneratorModal

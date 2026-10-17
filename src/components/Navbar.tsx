@@ -3,8 +3,8 @@ import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 interface NavbarProps {
   onOpenContact: () => void;
-  activeView?: 'home' | 'services';
-  onNavigateToView?: (view: 'home' | 'services', targetAnchor?: string) => void;
+  activeView?: 'home' | 'services' | 'legal';
+  onNavigateToView?: (view: 'home' | 'services' | 'legal', targetAnchor?: string) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -28,13 +28,13 @@ export const Navbar: React.FC<NavbarProps> = ({
     { name: 'Services & Pricing', href: '#services-pricing', view: 'services' as const },
     { name: 'About', href: '#about', view: 'home' as const },
     { name: 'What We Build', href: '#what-we-build', view: 'home' as const },
-    { name: 'Our Work', href: '#our-work', view: 'home' as const },
+    { name: 'Portfolio', href: '#portfolio', view: 'home' as const },
     { name: 'Vision', href: '#vision', view: 'home' as const },
     { name: 'Founder', href: '#founder', view: 'home' as const },
     { name: 'Contact', href: '#contact', view: 'home' as const },
   ];
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, linkView: 'home' | 'services') => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, linkView: 'home' | 'services' | 'legal') => {
     e.preventDefault();
     setMobileMenuOpen(false);
 
