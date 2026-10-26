@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import {
   ArrowLeft,
   Check,
-  Sparkles,
   Lock,
   Search,
   ArrowUpRight,
@@ -24,6 +23,7 @@ import {
 import { QuoteRequestModal } from './QuoteRequestModal';
 import { AdminQuoteGeneratorModal } from './AdminQuoteGeneratorModal';
 import { COMPANY_INFO } from '../data/companyData';
+import { TechBackgroundDecor } from './TechBackgroundDecor';
 
 interface ServicesPricingViewProps {
   onBackToHome: () => void;
@@ -76,7 +76,14 @@ export const ServicesPricingView: React.FC<ServicesPricingViewProps> = ({
   };
 
   return (
-    <div className="relative w-full min-h-screen text-slate-100 pb-20 pt-20 sm:pt-24">
+    <div className="relative w-full min-h-screen text-slate-100 pb-20 pt-20 sm:pt-24 overflow-hidden">
+      {/* High-Tech Telemetry & Services Blueprint Decor */}
+      <TechBackgroundDecor
+        variant="telemetry"
+        glowColor="emerald"
+        glowPosition="top-right"
+        telemetryLabel="FP-SERVICES // PRICING-SPEC"
+      />
       {/* Top Breadcrumb & Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
@@ -109,7 +116,7 @@ export const ServicesPricingView: React.FC<ServicesPricingViewProps> = ({
       {/* Hero Header Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12 sm:mb-16">
         <div className="inline-flex items-center gap-2 text-xs font-mono text-blue-400 uppercase tracking-widest mb-3">
-          <Sparkles className="w-3.5 h-3.5" />
+          <Layers className="w-3.5 h-3.5" />
           <span>Future Pulse Investments · Services Catalog</span>
         </div>
 

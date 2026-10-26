@@ -4,7 +4,7 @@ import {
   ArrowUpRight,
   Cpu,
   Layers,
-  Sparkles,
+  Lightbulb,
   Workflow,
   Clock,
   ExternalLink,
@@ -16,12 +16,20 @@ import { UNILINK_PRODUCT, COMPANY_INFO } from '../data/companyData';
 import { UniLinkModal } from './UniLinkModal';
 import { UniLinkLogo } from './UniLinkLogo';
 import { UniLinkPhoneMockup } from './UniLinkPhoneMockup';
+import { TechBackgroundDecor } from './TechBackgroundDecor';
 
 export const OurWorkSection: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section id="our-work" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
+    <section id="our-work" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden">
+      {/* High-Tech Network Flow & Telemetry Background Decor */}
+      <TechBackgroundDecor
+        variant="flow"
+        glowColor="blue"
+        glowPosition="bottom-left"
+        telemetryLabel="FP-ECOSYSTEM // DEPLOYED-PRODUCTS"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mb-10 sm:mb-16">
@@ -43,7 +51,7 @@ export const OurWorkSection: React.FC = () => {
         {/* Corporate to Product Hierarchy Visual */}
         <div className="mb-12 bg-slate-950/70 border border-slate-800/80 rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono">
           <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-blue-400 shadow-[0_0_8px_#38bdf8]" />
+            <span className="w-2 h-2 rounded-full bg-blue-400" />
             <span className="text-white font-semibold">Future Pulse</span>
             <span className="text-slate-500">— Parent Technology Company</span>
           </div>
@@ -257,7 +265,7 @@ export const OurWorkSection: React.FC = () => {
 
             <div className="p-5 rounded-xl bg-slate-900/50 border border-slate-800/80">
               <div className="w-8 h-8 rounded-lg bg-slate-800 text-blue-400 flex items-center justify-center mb-3">
-                <Sparkles className="w-4 h-4" />
+                <Lightbulb className="w-4 h-4" />
               </div>
               <h4 className="font-['Syne',sans-serif] text-base font-bold text-white mb-1">
                 Emerging Concepts

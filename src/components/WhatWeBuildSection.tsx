@@ -6,7 +6,6 @@ import {
   RefreshCw,
   Cpu,
   Workflow,
-  Sparkles,
   ChevronRight,
   CheckCircle2,
   X,
@@ -17,6 +16,7 @@ import {
 } from 'lucide-react';
 import { WHAT_WE_BUILD } from '../data/companyData';
 import { PillarDetail } from '../types';
+import { TechBackgroundDecor } from './TechBackgroundDecor';
 
 export const WhatWeBuildSection: React.FC = () => {
   const [selectedPillar, setSelectedPillar] = useState<PillarDetail | null>(null);
@@ -37,7 +37,7 @@ export const WhatWeBuildSection: React.FC = () => {
       case 'Workflow':
         return Workflow;
       default:
-        return Sparkles;
+        return Layers;
     }
   };
 
@@ -66,8 +66,15 @@ export const WhatWeBuildSection: React.FC = () => {
   return (
     <section
       id="what-we-build"
-      className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative"
+      className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden"
     >
+      {/* High-Tech Isometric Matrix & Telemetry Background Decor */}
+      <TechBackgroundDecor
+        variant="matrix"
+        glowColor="cyan"
+        glowPosition="top-right"
+        telemetryLabel="FP-CAPABILITIES // SYSTEM-CORE"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mb-8 sm:mb-12">

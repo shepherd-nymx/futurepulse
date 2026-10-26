@@ -2,7 +2,6 @@ import React, { useState, useMemo } from 'react';
 import {
   ExternalLink,
   ArrowUpRight,
-  Sparkles,
   Layers,
   Globe,
   Smartphone,
@@ -22,6 +21,7 @@ import {
   ProjectItem,
 } from '../data/projectsData';
 import { ImageWithFallback } from './ImageWithFallback';
+import { TechBackgroundDecor } from './TechBackgroundDecor';
 
 export const ProjectsPortfolioSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>('all');
@@ -37,7 +37,7 @@ export const ProjectsPortfolioSection: React.FC = () => {
       case 'Live Product':
         return (
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 shadow-sm shadow-emerald-950/50">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
             <span>Live Product</span>
           </span>
         );
@@ -89,14 +89,21 @@ export const ProjectsPortfolioSection: React.FC = () => {
   return (
     <section
       id="portfolio"
-      className="py-16 sm:py-28 md:py-32 bg-[#05070B]/80 backdrop-blur-[2px] border-t border-white/[0.06] relative scroll-mt-20"
+      className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative scroll-mt-20 overflow-hidden"
     >
+      {/* High-Tech Circuit & Live Portfolio Telemetry Decor */}
+      <TechBackgroundDecor
+        variant="circuit"
+        glowColor="cyan"
+        glowPosition="top-right"
+        telemetryLabel="FP-PORTFOLIO // LIVE-PROJECTS"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-blue-400 uppercase mb-3">
-              <Sparkles className="w-3.5 h-3.5" />
+              <Layers className="w-3.5 h-3.5" />
               <span>Projects &amp; Deployments</span>
             </div>
             <h2 className="font-['Syne',sans-serif] text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">

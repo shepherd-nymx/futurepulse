@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { LEGAL_POLICIES, LegalPolicy } from '../data/legalPoliciesData';
 import { COMPANY_INFO } from '../data/companyData';
+import { TechBackgroundDecor } from './TechBackgroundDecor';
 
 interface LegalComplianceViewProps {
   initialPolicyId?: string;
@@ -77,7 +78,14 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
   };
 
   return (
-    <div className="relative w-full min-h-screen text-slate-100 pb-20 pt-20 sm:pt-24">
+    <div className="relative w-full min-h-screen text-slate-100 pb-20 pt-20 sm:pt-24 overflow-hidden">
+      {/* High-Tech Circuit & Compliance Telemetry Decor */}
+      <TechBackgroundDecor
+        variant="circuit"
+        glowColor="blue"
+        glowPosition="top-left"
+        telemetryLabel="FP-COMPLIANCE // REGULATORY-ZW"
+      />
       {/* Top Breadcrumb Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-white/10">

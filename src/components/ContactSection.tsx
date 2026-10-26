@@ -3,6 +3,7 @@ import { Send, CircleCheck as CheckCircle2, CircleAlert as AlertCircle, Copy, Ch
 import { ContactFormData } from '../types';
 import { COMPANY_INFO } from '../data/companyData';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
+import { TechBackgroundDecor } from './TechBackgroundDecor';
 
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -83,7 +84,14 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
+    <section id="contact" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden">
+      {/* High-Tech Transmission Matrix & Comms Decor */}
+      <TechBackgroundDecor
+        variant="matrix"
+        glowColor="blue"
+        glowPosition="split"
+        telemetryLabel="FP-COMMS // TRANSMISSION-SECURE"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
         <div className="max-w-3xl mb-10 sm:mb-16">

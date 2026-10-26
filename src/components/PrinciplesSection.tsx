@@ -1,6 +1,7 @@
 import React from 'react';
 import { Target, Compass, RefreshCw, Hourglass } from 'lucide-react';
 import { PRINCIPLES } from '../data/companyData';
+import { TechBackgroundDecor } from './TechBackgroundDecor';
 
 export const PrinciplesSection: React.FC = () => {
   const getIcon = (index: number) => {
@@ -17,7 +18,14 @@ export const PrinciplesSection: React.FC = () => {
   };
 
   return (
-    <section id="principles" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
+    <section id="principles" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden">
+      {/* High-Tech Topographic & Principle Grid Decor */}
+      <TechBackgroundDecor
+        variant="topography"
+        glowColor="blue"
+        glowPosition="top-left"
+        telemetryLabel="FP-PRINCIPLES // CORE-TENETS"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
         <div className="max-w-3xl mb-10 sm:mb-16">

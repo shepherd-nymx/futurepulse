@@ -32,11 +32,11 @@ html, body {
   filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.75));
 }
 
-/* Neat & Simple Engineering Grids */
+/* Neat & High-Definition Engineering Grids */
 .tech-grid-neat {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+    linear-gradient(to right, rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 45%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 45%, transparent 100%);
@@ -44,14 +44,23 @@ html, body {
 
 .tech-grid-subtle {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 
 .tech-grid-dots {
-  background-image: radial-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(56, 189, 248, 0.18) 1.2px, transparent 1.2px);
   background-size: 32px 32px;
+}
+
+@keyframes pulseTrack {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -500;
+  }
 }
 
 /* Ambient Floating Glowing Orbs (Deep, Luxurious, Organic) */

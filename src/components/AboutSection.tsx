@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Lightbulb, Wrench, PackageCheck, Globe2, RefreshCw } from 'lucide-react';
 import { ImageWithFallback } from './ImageWithFallback';
+import { TechBackgroundDecor } from './TechBackgroundDecor';
 
 export const AboutSection: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
@@ -49,9 +50,14 @@ export const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
+    <section id="about" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden">
+      {/* High-Tech Circuit & Telemetry Background Decor */}
+      <TechBackgroundDecor
+        variant="circuit"
+        glowColor="blue"
+        glowPosition="top-left"
+        telemetryLabel="FP-ARCH // PURPOSE-DRIVEN"
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}

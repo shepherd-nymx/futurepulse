@@ -11,7 +11,6 @@ import {
   FileText,
   Calculator,
   AlertCircle,
-  Sparkles,
 } from 'lucide-react';
 import { AdminQuoteLineItem } from '../types';
 import { SERVICES_PRICING_ITEMS } from '../data/servicesPricingData';

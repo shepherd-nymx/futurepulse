@@ -1,9 +1,17 @@
 import React from 'react';
 import { ShieldCheck, Plus, CheckCircle, FileText } from 'lucide-react';
+import { TechBackgroundDecor } from './TechBackgroundDecor';
 
 export const MilestoneSection: React.FC = () => {
   return (
-    <section id="milestones" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
+    <section id="milestones" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden">
+      {/* High-Tech Telemetry Target & Stage Decor */}
+      <TechBackgroundDecor
+        variant="telemetry"
+        glowColor="blue"
+        glowPosition="center"
+        telemetryLabel="FP-STATUS // 2026-ACTIVE"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
         <div className="max-w-3xl mb-10 sm:mb-16">

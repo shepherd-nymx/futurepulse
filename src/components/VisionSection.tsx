@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { TechBackgroundDecor } from './TechBackgroundDecor';
 
 interface VisionSectionProps {
   onContactClick: () => void;
@@ -9,8 +10,15 @@ export const VisionSection: React.FC<VisionSectionProps> = ({ onContactClick }) 
   return (
     <section
       id="vision"
-      className="py-20 sm:py-36 md:py-44 bg-[#05070B]/70 backdrop-blur-[2px] border-t border-white/[0.06] relative overflow-hidden flex items-center justify-center text-center"
+      className="py-20 sm:py-36 md:py-44 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden flex items-center justify-center text-center"
     >
+      {/* High-Tech Flow & Future Horizon Decor */}
+      <TechBackgroundDecor
+        variant="flow"
+        glowColor="cyan"
+        glowPosition="center"
+        telemetryLabel="FP-VISION // LONG-TERM-HORIZON"
+      />
       {/* Cinematic Pulse / Circuit Backing */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
         {/* Subtle circular pulse waves echoing outward */}

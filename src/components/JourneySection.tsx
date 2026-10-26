@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import { Check, ChevronRight } from 'lucide-react';
 import { JOURNEY_STEPS } from '../data/companyData';
+import { TechBackgroundDecor } from './TechBackgroundDecor';
 
 export const JourneySection: React.FC = () => {
   const [activeStepIndex, setActiveStepIndex] = useState<number>(5); // Default to 'Company' (where Future Pulse is now)
 
   return (
-    <section id="journey" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
+    <section id="journey" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden">
+      {/* High-Tech Telemetry & Timeline Decor */}
+      <TechBackgroundDecor
+        variant="telemetry"
+        glowColor="indigo"
+        glowPosition="center"
+        telemetryLabel="FP-EVOLUTION // TIMELINE-01"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
         <div className="max-w-3xl mb-10 sm:mb-16">

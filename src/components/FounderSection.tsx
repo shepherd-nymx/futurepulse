@@ -11,6 +11,7 @@ import {
   ExternalLink,
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
+import { TechBackgroundDecor } from './TechBackgroundDecor';
 
 export const FounderSection: React.FC = () => {
   const [copiedChannel, setCopiedChannel] = useState<string | null>(null);
@@ -22,7 +23,14 @@ export const FounderSection: React.FC = () => {
   };
 
   return (
-    <section id="founder" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/75 backdrop-blur-[2px] border-t border-white/[0.06] relative">
+    <section id="founder" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden">
+      {/* High-Tech Circuit & Leadership Telemetry Decor */}
+      <TechBackgroundDecor
+        variant="circuit"
+        glowColor="cyan"
+        glowPosition="bottom-right"
+        telemetryLabel="FP-LEADERSHIP // FOUNDER-OFFICE"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
         <div className="max-w-3xl mb-10 sm:mb-16">

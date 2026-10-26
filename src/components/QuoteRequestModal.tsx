@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, MessageSquare, Mail, Copy, Check, Sparkles, CircleAlert as AlertCircle } from 'lucide-react';
+import { X, MessageSquare, Mail, Copy, Check, FileText, CircleAlert as AlertCircle } from 'lucide-react';
 import { PricingItem, QuoteRequestData } from '../types';
 import { SERVICES_PRICING_ITEMS } from '../data/servicesPricingData';
 import { COMPANY_INFO } from '../data/companyData';
@@ -172,7 +172,7 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
         <div className="p-5 sm:p-6 border-b border-white/10 flex items-start justify-between bg-white/[0.02]">
           <div>
             <div className="flex items-center gap-2 text-xs font-mono text-blue-400 uppercase tracking-widest mb-1">
-              <Sparkles className="w-3.5 h-3.5" />
+              <FileText className="w-3.5 h-3.5" />
               <span>Future Pulse Investments · Quotation Request</span>
             </div>
             <h2 className="font-['Syne',sans-serif] text-xl sm:text-2xl font-bold tracking-tight text-white">
