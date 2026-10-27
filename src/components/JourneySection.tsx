@@ -15,6 +15,7 @@ export const JourneySection: React.FC = () => {
         objectPosition="center 40%"
         brightness="brightness-[0.78] sm:brightness-[0.84] contrast-[1.12] saturate-[1.12]"
         overlayOpacity="bg-[#05070B]/70"
+        driftVariant="drift-2"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}

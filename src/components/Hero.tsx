@@ -28,20 +28,25 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onAboutClick, onViewP
         <img
           src="/assets/images/tech_mountain_hero_bg_1793028752338.jpg"
           alt="Technological mountain landscape with glowing topography contour lines"
-          className={`w-full h-full object-cover object-[center_32%] sm:object-[center_36%] transform scale-105 transition-all duration-1000 ease-out filter brightness-[0.72] sm:brightness-[0.76] contrast-[1.14] saturate-[1.08] ${
-            bgLoaded ? 'opacity-85 sm:opacity-90 scale-100' : 'opacity-0 scale-105'
-          }`}
+          className={`w-full h-full object-cover object-[center_32%] sm:object-[center_36%] transform filter brightness-[0.76] sm:brightness-[0.80] contrast-[1.14] saturate-[1.08] animate-cinematic-drift-1 ${
+            bgLoaded ? 'opacity-85 sm:opacity-90' : 'opacity-0'
+          } transition-opacity duration-1000 ease-out`}
           loading="eager"
           fetchPriority="high"
           referrerPolicy="no-referrer"
           onLoad={() => setBgLoaded(true)}
         />
 
+        {/* Anamorphic Light Sheen Sweep */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="w-[340px] h-full bg-gradient-to-r from-transparent via-sky-400/10 to-transparent animate-energy-sheen pointer-events-none" />
+        </div>
+
         {/* Top Scrim - Guarantees pristine contrast and legibility for sticky navigation */}
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#05070B]/90 via-[#05070B]/45 to-transparent pointer-events-none" />
 
         {/* Radial Center Vignette - Centers visual focus and lifts foreground typography */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,rgba(5,7,11,0.4)_0%,rgba(5,7,11,0.72)_55%,rgba(5,7,11,0.96)_100%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,rgba(5,7,11,0.36)_0%,rgba(5,7,11,0.68)_55%,rgba(5,7,11,0.96)_100%)] pointer-events-none" />
 
         {/* Lateral Edge Softening - Merges side boundaries into deep dark background */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#05070B]/85 via-transparent to-[#05070B]/85 pointer-events-none" />

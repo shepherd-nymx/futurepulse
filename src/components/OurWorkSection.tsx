@@ -30,6 +30,7 @@ export const OurWorkSection: React.FC = () => {
         objectPosition="center 30%"
         brightness="brightness-[0.80] sm:brightness-[0.86] contrast-[1.12] saturate-[1.12]"
         overlayOpacity="bg-[#05070B]/68"
+        driftVariant="zoom"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}

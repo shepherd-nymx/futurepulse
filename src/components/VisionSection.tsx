@@ -19,6 +19,7 @@ export const VisionSection: React.FC<VisionSectionProps> = ({ onContactClick }) 
         objectPosition="center 40%"
         brightness="brightness-[0.82] sm:brightness-[0.88] contrast-[1.14] saturate-[1.12]"
         overlayOpacity="bg-[#05070B]/66"
+        driftVariant="zoom"
       />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
