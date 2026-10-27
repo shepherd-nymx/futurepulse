@@ -20,15 +20,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onAboutClick, onViewP
         Occupies the top ~60% of the screen and smoothly dissolves downwards
         into the obsidian void with multi-stop gradient masks and ambient scrims.
       */}
-      <div
-        className="absolute inset-x-0 top-0 h-[54vh] sm:h-[62vh] md:h-[70vh] lg:h-[74vh] max-h-[820px] pointer-events-none overflow-hidden select-none z-0"
-        style={{
-          maskImage:
-            'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.96) 32%, rgba(0,0,0,0.65) 65%, rgba(0,0,0,0.2) 86%, rgba(0,0,0,0) 100%)',
-          WebkitMaskImage:
-            'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.96) 32%, rgba(0,0,0,0.65) 65%, rgba(0,0,0,0.2) 86%, rgba(0,0,0,0) 100%)',
-        }}
-      >
+      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none z-0">
         {/* Fallback ambient mesh while image loads */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#090D16] via-[#05070B] to-[#05070B]" />
 

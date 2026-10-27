@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { Check, ChevronRight } from 'lucide-react';
 import { JOURNEY_STEPS } from '../data/companyData';
-import { TechBackgroundDecor } from './TechBackgroundDecor';
+import { SectionTechBackdrop } from './SectionTechBackdrop';
 
 export const JourneySection: React.FC = () => {
   const [activeStepIndex, setActiveStepIndex] = useState<number>(5); // Default to 'Company' (where Future Pulse is now)
 
   return (
-    <section id="journey" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden">
-      {/* High-Tech Telemetry & Timeline Decor */}
-      <TechBackgroundDecor
-        variant="telemetry"
-        glowColor="indigo"
-        glowPosition="center"
-        telemetryLabel="FP-EVOLUTION // TIMELINE-01"
+    <section id="journey" className="py-16 sm:py-28 md:py-32 bg-[#05070B] border-t border-white/[0.06] relative overflow-hidden">
+      {/* High-Impact Futuristic Cyber City Panoramic Backdrop */}
+      <SectionTechBackdrop
+        imageSrc="/assets/images/futuristic_cyber_city_bg_1793119940671.jpg"
+        alt="Illuminated futuristic smart cyber city representing technological journey"
+        objectPosition="center 40%"
+        brightness="brightness-[0.78] sm:brightness-[0.84] contrast-[1.12] saturate-[1.12]"
+        overlayOpacity="bg-[#05070B]/70"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
@@ -67,7 +68,7 @@ export const JourneySection: React.FC = () => {
                     <div
                       className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] ${
                         isCurrent
-                          ? 'bg-blue-500 text-white font-bold animate-pulse'
+                          ? 'bg-blue-500 text-white font-bold shadow-md shadow-blue-500/30'
                           : isPassed
                           ? 'bg-blue-950 text-blue-400 border border-blue-500/40'
                           : 'bg-slate-800 text-slate-500'

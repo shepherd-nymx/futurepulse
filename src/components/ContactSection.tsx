@@ -3,7 +3,7 @@ import { Send, CircleCheck as CheckCircle2, CircleAlert as AlertCircle, Copy, Ch
 import { ContactFormData } from '../types';
 import { COMPANY_INFO } from '../data/companyData';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
-import { TechBackgroundDecor } from './TechBackgroundDecor';
+import { SectionTechBackdrop } from './SectionTechBackdrop';
 
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
@@ -84,13 +84,14 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden">
-      {/* High-Tech Transmission Matrix & Comms Decor */}
-      <TechBackgroundDecor
-        variant="matrix"
-        glowColor="blue"
-        glowPosition="split"
-        telemetryLabel="FP-COMMS // TRANSMISSION-SECURE"
+    <section id="contact" className="py-16 sm:py-28 md:py-32 bg-[#05070B] border-t border-white/[0.06] relative overflow-hidden">
+      {/* High-Impact Global Communications Mesh Panoramic Backdrop */}
+      <SectionTechBackdrop
+        imageSrc="/assets/images/global_satellite_mesh_bg_1793119939637.jpg"
+        alt="Global satellite communications and telecommunications network mesh"
+        objectPosition="center 40%"
+        brightness="brightness-[0.78] sm:brightness-[0.84] contrast-[1.12] saturate-[1.12]"
+        overlayOpacity="bg-[#05070B]/72"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}

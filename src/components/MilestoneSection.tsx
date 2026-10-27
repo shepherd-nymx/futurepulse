@@ -1,16 +1,17 @@
 import React from 'react';
 import { ShieldCheck, Plus, CheckCircle, FileText } from 'lucide-react';
-import { TechBackgroundDecor } from './TechBackgroundDecor';
+import { SectionTechBackdrop } from './SectionTechBackdrop';
 
 export const MilestoneSection: React.FC = () => {
   return (
-    <section id="milestones" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden">
-      {/* High-Tech Telemetry Target & Stage Decor */}
-      <TechBackgroundDecor
-        variant="telemetry"
-        glowColor="blue"
-        glowPosition="center"
-        telemetryLabel="FP-STATUS // 2026-ACTIVE"
+    <section id="milestones" className="py-16 sm:py-28 md:py-32 bg-[#05070B] border-t border-white/[0.06] relative overflow-hidden">
+      {/* High-Impact Smart City Infrastructure Backdrop */}
+      <SectionTechBackdrop
+        imageSrc="/assets/images/futuristic_cyber_city_bg_1793119940671.jpg"
+        alt="High-tech smart city infrastructure and corporate foundational milestone"
+        objectPosition="center 30%"
+        brightness="brightness-[0.78] sm:brightness-[0.84] contrast-[1.12] saturate-[1.12]"
+        overlayOpacity="bg-[#05070B]/70"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
@@ -46,7 +47,7 @@ export const MilestoneSection: React.FC = () => {
                 </div>
                 <div>
                   <div className="inline-flex items-center gap-2 text-xs font-mono text-blue-400 uppercase tracking-widest">
-                    <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-blue-400" />
                     <span>Foundational Milestone · Zimbabwe</span>
                   </div>
                   <div className="text-[10px] sm:text-[11px] font-mono text-slate-400 uppercase tracking-wider">

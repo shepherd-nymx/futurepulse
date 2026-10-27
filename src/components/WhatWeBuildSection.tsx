@@ -16,7 +16,7 @@ import {
 } from 'lucide-react';
 import { WHAT_WE_BUILD } from '../data/companyData';
 import { PillarDetail } from '../types';
-import { TechBackgroundDecor } from './TechBackgroundDecor';
+import { SectionTechBackdrop } from './SectionTechBackdrop';
 
 export const WhatWeBuildSection: React.FC = () => {
   const [selectedPillar, setSelectedPillar] = useState<PillarDetail | null>(null);
@@ -66,14 +66,15 @@ export const WhatWeBuildSection: React.FC = () => {
   return (
     <section
       id="what-we-build"
-      className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden"
+      className="py-16 sm:py-28 md:py-32 bg-[#05070B] border-t border-white/[0.06] relative overflow-hidden"
     >
-      {/* High-Tech Isometric Matrix & Telemetry Background Decor */}
-      <TechBackgroundDecor
-        variant="matrix"
-        glowColor="cyan"
-        glowPosition="top-right"
-        telemetryLabel="FP-CAPABILITIES // SYSTEM-CORE"
+      {/* High-Impact Quantum Cyber Circuit Panoramic Backdrop (Slow Fade like the Mountain) */}
+      <SectionTechBackdrop
+        imageSrc="/assets/images/quantum_cyber_circuit_bg_1793119308617.jpg"
+        alt="Quantum computing processor architecture and glowing circuit tracks"
+        objectPosition="center 30%"
+        brightness="brightness-[0.80] sm:brightness-[0.85] contrast-[1.12] saturate-[1.12]"
+        overlayOpacity="bg-[#05070B]/68"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Lightbulb, Wrench, PackageCheck, Globe2, RefreshCw } from 'lucide-react';
 import { ImageWithFallback } from './ImageWithFallback';
-import { TechBackgroundDecor } from './TechBackgroundDecor';
+import { SectionTechBackdrop } from './SectionTechBackdrop';
 
 export const AboutSection: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
@@ -50,13 +50,14 @@ export const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden">
-      {/* High-Tech Circuit & Telemetry Background Decor */}
-      <TechBackgroundDecor
-        variant="circuit"
-        glowColor="blue"
-        glowPosition="top-left"
-        telemetryLabel="FP-ARCH // PURPOSE-DRIVEN"
+    <section id="about" className="py-16 sm:py-28 md:py-32 bg-[#05070B] border-t border-white/[0.06] relative overflow-hidden">
+      {/* High-Impact Robot & AI Advancement Panoramic Backdrop (Slow Fade like the Mountain) */}
+      <SectionTechBackdrop
+        imageSrc="/assets/images/robot_ai_advancement_bg_1793119275086.jpg"
+        alt="Advanced cybernetic intelligence and AI neural network advancement"
+        objectPosition="center 35%"
+        brightness="brightness-[0.80] sm:brightness-[0.85] contrast-[1.12] saturate-[1.12]"
+        overlayOpacity="bg-[#05070B]/68"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -67,10 +68,10 @@ export const AboutSection: React.FC = () => {
             <span className="text-slate-600" aria-hidden="true">/</span>
             <span>About Future Pulse</span>
           </div>
-          <h2 className="font-['Syne',sans-serif] text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight [text-wrap:balance]">
+          <h2 className="font-['Syne',sans-serif] text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight [text-wrap:balance] drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
             TECHNOLOGY WITH PURPOSE.
           </h2>
-          <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed">
+          <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-slate-200 leading-relaxed drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
             Future Pulse Investments develops and maintains software platforms, mobile applications,
             online autonomous AI agents, and connected electronic systems. We combine digital craftsmanship with
             dependable, ongoing technical maintenance to solve real-world problems.
@@ -136,7 +137,7 @@ export const AboutSection: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#06090e] via-transparent to-transparent opacity-80" />
               <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-slate-300 backdrop-blur-md bg-black/40 px-3.5 py-2 rounded-lg border border-white/10">
                 <span className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-blue-400" />
                   Hardware & Systems R&D
                 </span>
                 <span className="text-slate-400">Harare Workbench</span>

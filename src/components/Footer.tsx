@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ArrowUp, Check, Lock, Scale, ShieldCheck, FileText } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { LEGAL_POLICIES } from '../data/legalPoliciesData';
-import { TechBackgroundDecor } from './TechBackgroundDecor';
+import { SectionTechBackdrop } from './SectionTechBackdrop';
 
 interface FooterProps {
   onNavClick: (href: string, view?: 'home' | 'services') => void;
@@ -39,14 +39,14 @@ export const Footer: React.FC<FooterProps> = ({
   ];
 
   return (
-    <footer className="bg-[#05070B]/75 border-t border-white/10 text-slate-400 text-sm relative overflow-hidden">
-      {/* High-Tech Circuit & Terminal Footer Decor */}
-      <TechBackgroundDecor
-        variant="circuit"
-        glowColor="blue"
-        glowPosition="bottom-left"
-        telemetryLabel="FP-TERMINAL // HARARE-ZW"
-        showCoordinates={false}
+    <footer className="bg-[#05070B] border-t border-white/10 text-slate-400 text-sm relative overflow-hidden">
+      {/* High-Impact Cyber City Terminal Panoramic Backdrop */}
+      <SectionTechBackdrop
+        imageSrc="/assets/images/futuristic_cyber_city_bg_1793119940671.jpg"
+        alt="Futuristic cyber city and corporate terminal infrastructure"
+        objectPosition="center 70%"
+        brightness="brightness-[0.74] sm:brightness-[0.80] contrast-[1.12] saturate-[1.1]"
+        overlayOpacity="bg-[#05070B]/82"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 sm:gap-12 mb-10 sm:mb-16">

@@ -21,7 +21,7 @@ import {
   ProjectItem,
 } from '../data/projectsData';
 import { ImageWithFallback } from './ImageWithFallback';
-import { TechBackgroundDecor } from './TechBackgroundDecor';
+import { SectionTechBackdrop } from './SectionTechBackdrop';
 
 export const ProjectsPortfolioSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>('all');
@@ -89,14 +89,15 @@ export const ProjectsPortfolioSection: React.FC = () => {
   return (
     <section
       id="portfolio"
-      className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative scroll-mt-20 overflow-hidden"
+      className="py-16 sm:py-28 md:py-32 bg-[#05070B] border-t border-white/[0.06] relative scroll-mt-20 overflow-hidden"
     >
-      {/* High-Tech Circuit & Live Portfolio Telemetry Decor */}
-      <TechBackgroundDecor
-        variant="circuit"
-        glowColor="cyan"
-        glowPosition="top-right"
-        telemetryLabel="FP-PORTFOLIO // LIVE-PROJECTS"
+      {/* High-Impact Datacenter Architecture Panoramic Backdrop */}
+      <SectionTechBackdrop
+        imageSrc="/assets/images/cybernetic_data_datacenter_bg_1793119940367.jpg"
+        alt="Futuristic cyber server datacenter infrastructure and glowing LED racks"
+        objectPosition="center 35%"
+        brightness="brightness-[0.78] sm:brightness-[0.84] contrast-[1.12] saturate-[1.12]"
+        overlayOpacity="bg-[#05070B]/70"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}

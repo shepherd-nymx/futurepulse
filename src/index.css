@@ -49,10 +49,6 @@ html, body {
   background-size: 48px 48px;
 }
 
-.tech-grid-dots {
-  background-image: radial-gradient(rgba(56, 189, 248, 0.18) 1.2px, transparent 1.2px);
-  background-size: 32px 32px;
-}
 
 @keyframes pulseTrack {
   0% {

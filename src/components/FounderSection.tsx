@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { TechBackgroundDecor } from './TechBackgroundDecor';
+import { SectionTechBackdrop } from './SectionTechBackdrop';
 
 export const FounderSection: React.FC = () => {
   const [copiedChannel, setCopiedChannel] = useState<string | null>(null);
@@ -23,26 +24,27 @@ export const FounderSection: React.FC = () => {
   };
 
   return (
-    <section id="founder" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden">
-      {/* High-Tech Circuit & Leadership Telemetry Decor */}
-      <TechBackgroundDecor
-        variant="circuit"
-        glowColor="cyan"
-        glowPosition="bottom-right"
-        telemetryLabel="FP-LEADERSHIP // FOUNDER-OFFICE"
+    <section id="founder" className="py-16 sm:py-28 md:py-32 bg-[#05070B] border-t border-white/[0.06] relative overflow-hidden">
+      <SectionTechBackdrop
+        imageSrc="/assets/images/robot_ai_advancement_bg_1793119275086.jpg"
+        alt="Cybernetic humanoid robot and glowing AI advancement neural sphere"
+        objectPosition="center 30%"
+        brightness="brightness-[0.80] sm:brightness-[0.85] contrast-[1.12] saturate-[1.12]"
+        overlayOpacity="bg-[#05070B]/68"
       />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}
         <div className="max-w-3xl mb-10 sm:mb-16">
           <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-blue-400 uppercase mb-3">
             <span>06</span>
             <span className="text-slate-600" aria-hidden="true">/</span>
-            <span>Leadership & Engineering</span>
+            <span>Leadership &amp; Engineering</span>
           </div>
-          <h2 className="font-['Syne',sans-serif] text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
+          <h2 className="font-['Syne',sans-serif] text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance] drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
             THE PERSON BEHIND THE BUILD
           </h2>
-          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed [text-wrap:balance]">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-slate-200 leading-relaxed [text-wrap:balance] drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
             Future Pulse is founded and engineered by Shepherd Mutevedzi — combining electronic
             systems engineering with grounded Zimbabwean community problem-solving.
           </p>
@@ -106,7 +108,7 @@ export const FounderSection: React.FC = () => {
 
               {/* Status Note */}
               <div className="mt-8 pt-6 border-t border-white/5 flex items-center gap-2 text-xs font-mono text-slate-400">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-emerald-400" />
                 <span>Active in R&D and platform development</span>
               </div>
             </div>

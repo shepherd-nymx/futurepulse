@@ -23,7 +23,7 @@ import {
 import { QuoteRequestModal } from './QuoteRequestModal';
 import { AdminQuoteGeneratorModal } from './AdminQuoteGeneratorModal';
 import { COMPANY_INFO } from '../data/companyData';
-import { TechBackgroundDecor } from './TechBackgroundDecor';
+import { SectionTechBackdrop } from './SectionTechBackdrop';
 
 interface ServicesPricingViewProps {
   onBackToHome: () => void;
@@ -76,13 +76,14 @@ export const ServicesPricingView: React.FC<ServicesPricingViewProps> = ({
   };
 
   return (
-    <div className="relative w-full min-h-screen text-slate-100 pb-20 pt-20 sm:pt-24 overflow-hidden">
-      {/* High-Tech Telemetry & Services Blueprint Decor */}
-      <TechBackgroundDecor
-        variant="telemetry"
-        glowColor="emerald"
-        glowPosition="top-right"
-        telemetryLabel="FP-SERVICES // PRICING-SPEC"
+    <div className="relative w-full min-h-screen text-slate-100 pb-20 pt-20 sm:pt-24 overflow-hidden bg-[#05070B]">
+      {/* High-Impact Enterprise Datacenter Architecture Panoramic Backdrop */}
+      <SectionTechBackdrop
+        imageSrc="/assets/images/cybernetic_data_datacenter_bg_1793119940367.jpg"
+        alt="Futuristic cyber server datacenter infrastructure and glowing LED racks"
+        objectPosition="center 30%"
+        brightness="brightness-[0.78] sm:brightness-[0.84] contrast-[1.12] saturate-[1.12]"
+        overlayOpacity="bg-[#05070B]/72"
       />
       {/* Top Breadcrumb & Navigation Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">

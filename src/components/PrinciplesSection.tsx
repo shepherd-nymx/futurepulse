@@ -1,7 +1,7 @@
 import React from 'react';
 import { Target, Compass, RefreshCw, Hourglass } from 'lucide-react';
 import { PRINCIPLES } from '../data/companyData';
-import { TechBackgroundDecor } from './TechBackgroundDecor';
+import { SectionTechBackdrop } from './SectionTechBackdrop';
 
 export const PrinciplesSection: React.FC = () => {
   const getIcon = (index: number) => {
@@ -18,13 +18,14 @@ export const PrinciplesSection: React.FC = () => {
   };
 
   return (
-    <section id="principles" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden">
-      {/* High-Tech Topographic & Principle Grid Decor */}
-      <TechBackgroundDecor
-        variant="topography"
-        glowColor="blue"
-        glowPosition="top-left"
-        telemetryLabel="FP-PRINCIPLES // CORE-TENETS"
+    <section id="principles" className="py-16 sm:py-28 md:py-32 bg-[#05070B] border-t border-white/[0.06] relative overflow-hidden">
+      {/* High-Impact Structural Quantum Architecture Backdrop */}
+      <SectionTechBackdrop
+        imageSrc="/assets/images/quantum_cyber_circuit_bg_1793119308617.jpg"
+        alt="Engineering foundational architecture and circuit design principles"
+        objectPosition="center 40%"
+        brightness="brightness-[0.78] sm:brightness-[0.84] contrast-[1.12] saturate-[1.12]"
+        overlayOpacity="bg-[#05070B]/72"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Lead */}

@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import { LEGAL_POLICIES, LegalPolicy } from '../data/legalPoliciesData';
 import { COMPANY_INFO } from '../data/companyData';
-import { TechBackgroundDecor } from './TechBackgroundDecor';
+import { SectionTechBackdrop } from './SectionTechBackdrop';
 
 interface LegalComplianceViewProps {
   initialPolicyId?: string;
@@ -78,13 +78,14 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
   };
 
   return (
-    <div className="relative w-full min-h-screen text-slate-100 pb-20 pt-20 sm:pt-24 overflow-hidden">
-      {/* High-Tech Circuit & Compliance Telemetry Decor */}
-      <TechBackgroundDecor
-        variant="circuit"
-        glowColor="blue"
-        glowPosition="top-left"
-        telemetryLabel="FP-COMPLIANCE // REGULATORY-ZW"
+    <div className="relative w-full min-h-screen text-slate-100 pb-20 pt-20 sm:pt-24 overflow-hidden bg-[#05070B]">
+      {/* High-Impact Security & Legal Architecture Panoramic Backdrop */}
+      <SectionTechBackdrop
+        imageSrc="/assets/images/quantum_cyber_circuit_bg_1793119308617.jpg"
+        alt="Cryptographic circuitry and systems integrity architecture"
+        objectPosition="center 30%"
+        brightness="brightness-[0.76] sm:brightness-[0.82] contrast-[1.12] saturate-[1.12]"
+        overlayOpacity="bg-[#05070B]/72"
       />
       {/* Top Breadcrumb Navigation */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">

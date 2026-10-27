@@ -16,19 +16,20 @@ import { UNILINK_PRODUCT, COMPANY_INFO } from '../data/companyData';
 import { UniLinkModal } from './UniLinkModal';
 import { UniLinkLogo } from './UniLinkLogo';
 import { UniLinkPhoneMockup } from './UniLinkPhoneMockup';
-import { TechBackgroundDecor } from './TechBackgroundDecor';
+import { SectionTechBackdrop } from './SectionTechBackdrop';
 
 export const OurWorkSection: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section id="our-work" className="py-16 sm:py-28 md:py-32 bg-[#05070B]/55 border-t border-white/[0.06] relative overflow-hidden">
-      {/* High-Tech Network Flow & Telemetry Background Decor */}
-      <TechBackgroundDecor
-        variant="flow"
-        glowColor="blue"
-        glowPosition="bottom-left"
-        telemetryLabel="FP-ECOSYSTEM // DEPLOYED-PRODUCTS"
+    <section id="our-work" className="py-16 sm:py-28 md:py-32 bg-[#05070B] border-t border-white/[0.06] relative overflow-hidden">
+      {/* High-Impact Global Satellite Mesh Panoramic Backdrop */}
+      <SectionTechBackdrop
+        imageSrc="/assets/images/global_satellite_mesh_bg_1793119939637.jpg"
+        alt="Global satellite communications and telecommunications network mesh"
+        objectPosition="center 30%"
+        brightness="brightness-[0.80] sm:brightness-[0.86] contrast-[1.12] saturate-[1.12]"
+        overlayOpacity="bg-[#05070B]/68"
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
