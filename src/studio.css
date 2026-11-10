@@ -2204,3 +2204,54 @@
 .studio-site .studio-container:has(.fp-dialog) {
   z-index: 80;
 }
+
+/* Persistent WhatsApp shortcut, below dialogs and clear of the privacy notice. */
+.fp-whatsapp {
+  position: fixed;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: calc(24px + env(safe-area-inset-bottom));
+  z-index: 54;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  border: 1px solid #ffffff45;
+  box-shadow: 0 8px 30px #0005, 0 0 24px #25d36626;
+  animation: fp-whatsapp-fly 4s ease-in-out infinite;
+}
+.fp-whatsapp svg { width: 29px; height: 29px; }
+.fp-whatsapp-label {
+  position: absolute;
+  right: calc(100% + 12px);
+  white-space: nowrap;
+  padding: 8px 13px;
+  border-radius: 20px;
+  background: #191822;
+  border: 1px solid #ffffff20;
+  color: #f4f0ff;
+  font-size: 12px;
+  opacity: 0;
+  transform: translateX(6px);
+  transition: opacity .2s, transform .2s;
+  pointer-events: none;
+}
+.fp-whatsapp:hover, .fp-whatsapp:focus-visible { animation-play-state: paused; }
+.fp-whatsapp:hover .fp-whatsapp-label,
+.fp-whatsapp:focus-visible .fp-whatsapp-label { opacity: 1; transform: translateX(0); }
+.fp-whatsapp:focus-visible { outline: 3px solid #c3b1ff; outline-offset: 5px; }
+@keyframes fp-whatsapp-fly {
+  0%, 100% { transform: translateY(0) rotate(-3deg); }
+  50% { transform: translateY(-10px) rotate(3deg); }
+}
+@media (max-width: 700px) {
+  .fp-whatsapp { right: 18px; bottom: calc(20px + env(safe-area-inset-bottom)); width: 54px; height: 54px; }
+  .studio-privacy { bottom: calc(100px + env(safe-area-inset-bottom)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fp-whatsapp { animation: none; }
+  .fp-whatsapp-label { transition: none; }
+}
+@media print { .fp-whatsapp { display: none; } }

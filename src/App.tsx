@@ -18,6 +18,7 @@ import { CookieComplianceBanner } from "./components/CookieComplianceBanner";
 import { ProjectsPortfolioSection } from "./components/ProjectsPortfolioSection";
 import { StudioProcess, StudioStory } from "./components/StudioStory";
 import { BrandMotionBackground } from "./components/BrandMotionBackground";
+import { FloatingWhatsApp } from "./components/FloatingWhatsApp";
 import { LEGAL_POLICIES } from "./data/legalPoliciesData";
 
 export default function App() {
@@ -211,6 +212,7 @@ export default function App() {
 
         {/* Cookie & Regulatory Compliance Banner */}
         <CookieComplianceBanner onOpenPolicy={handleOpenLegalPolicy} />
+        <FloatingWhatsApp />
 
         {/* Global Admin Quotation Generator Modal */}
         <AdminQuoteGeneratorModal
