@@ -17,6 +17,7 @@ import { AdminQuoteGeneratorModal } from "./components/AdminQuoteGeneratorModal"
 import { CookieComplianceBanner } from "./components/CookieComplianceBanner";
 import { ProjectsPortfolioSection } from "./components/ProjectsPortfolioSection";
 import { StudioProcess, StudioStory } from "./components/StudioStory";
+import { BrandMotionBackground } from "./components/BrandMotionBackground";
 import { LEGAL_POLICIES } from "./data/legalPoliciesData";
 
 export default function App() {
@@ -150,6 +151,7 @@ export default function App() {
       <div className="studio-site min-h-screen bg-[#080a0f] text-slate-100 flex flex-col font-sans selection:bg-blue-600/30 selection:text-white relative overflow-x-hidden w-full">
         {/* Global Animated Tech Background */}
 
+        <BrandMotionBackground />
         <ReadingProgress />
 
         {/* Sticky Top Navigation */}
