@@ -76,7 +76,7 @@ export const ServicesPricingView: React.FC<ServicesPricingViewProps> = ({
   };
 
   return (
-    <div className="relative w-full min-h-screen text-slate-100 pb-20 pt-20 sm:pt-24 overflow-hidden bg-[#05070B]">
+    <div className="studio-services relative w-full min-h-screen text-slate-100 pb-20 pt-20 sm:pt-24 overflow-hidden bg-[#05070B]">
       {/* High-Impact Enterprise Datacenter Architecture Panoramic Backdrop */}
       <SectionTechBackdrop
         imageSrc="/assets/images/cybernetic_data_datacenter_bg_1793119940367.jpg"
@@ -115,18 +115,18 @@ export const ServicesPricingView: React.FC<ServicesPricingViewProps> = ({
       </div>
 
       {/* Hero Header Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12 sm:mb-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 studio-page-intro text-center mb-12 sm:mb-16">
         <div className="inline-flex items-center gap-2 text-xs font-mono text-blue-400 uppercase tracking-widest mb-3">
           <Layers className="w-3.5 h-3.5" />
           <span>Future Pulse Investments · Services Catalog</span>
         </div>
 
         <h1 className="font-['Syne',sans-serif] text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl mx-auto leading-tight sm:leading-[1.15] [text-wrap:balance]">
-          Engineering Services &amp; Starting Rates
+          A considered build.<br />A clear starting point.
         </h1>
 
         <p className="mt-4 sm:mt-6 text-sm sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed [text-wrap:balance]">
-          Transparent, upfront pricing in USD for websites, mobile applications, SEO optimization, ongoing digital maintenance, and connected IoT systems. Designed to give founders and enterprises absolute clarity.
+          Explore starting rates in USD for websites, mobile apps, AI, maintenance and connected systems. The final scope is shaped around your project.
         </p>
 
         {/* Global Key Badges (clean unboxed inline text) */}

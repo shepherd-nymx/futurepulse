@@ -1,7 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo } from "react";
 import {
   ExternalLink,
   ArrowUpRight,
+  ArrowRight,
   Layers,
   Globe,
   Smartphone,
@@ -13,49 +14,59 @@ import {
   MapPin,
   Building2,
   ShieldCheck,
-} from 'lucide-react';
+} from "lucide-react";
 import {
   PROJECTS_LIST,
   PROJECT_CATEGORIES,
   ProjectCategory,
   ProjectItem,
-} from '../data/projectsData';
-import { ImageWithFallback } from './ImageWithFallback';
-import { SectionTechBackdrop } from './SectionTechBackdrop';
+} from "../data/projectsData";
+import { ImageWithFallback } from "./ImageWithFallback";
+import { UniLinkModal } from "./UniLinkModal";
+import { UniLinkPhoneMockup } from "./UniLinkPhoneMockup";
 
 export const ProjectsPortfolioSection: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<ProjectCategory>('all');
-  const [selectedProjectForModal, setSelectedProjectForModal] = useState<ProjectItem | null>(null);
+  const [showConcepts, setShowConcepts] = useState(false);
+  const [uniLinkOpen, setUniLinkOpen] = useState(false);
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<ProjectCategory>("all");
+  const [selectedProjectForModal, setSelectedProjectForModal] =
+    useState<ProjectItem | null>(null);
 
-  const filteredProjects = useMemo(() => {
-    if (activeCategory === 'all') return PROJECTS_LIST;
-    return PROJECTS_LIST.filter((p) => p.category === activeCategory);
-  }, [activeCategory]);
+  const filteredProjects = useMemo(
+    () =>
+      PROJECTS_LIST.filter(
+        (p) =>
+          (showConcepts || !p.isPlaceholder) &&
+          (activeCategory === "all" || p.category === activeCategory),
+      ),
+    [activeCategory, showConcepts],
+  );
 
-  const getStatusBadge = (status: ProjectItem['status']) => {
+  const getStatusBadge = (status: ProjectItem["status"]) => {
     switch (status) {
-      case 'Live Product':
+      case "Live Product":
         return (
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 shadow-sm shadow-emerald-950/50">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
             <span>Live Product</span>
           </span>
         );
-      case 'In Development':
+      case "In Development":
         return (
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-blue-950/80 border border-blue-500/40 text-blue-300">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
             <span>In Development</span>
           </span>
         );
-      case 'Active Prototype':
+      case "Active Prototype":
         return (
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-cyan-950/80 border border-cyan-500/40 text-cyan-300">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
             <span>Active Prototype</span>
           </span>
         );
-      case 'Ready to Configure':
+      case "Ready to Configure":
         return (
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono font-semibold bg-amber-950/70 border border-amber-500/40 text-amber-300">
             <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
@@ -67,11 +78,11 @@ export const ProjectsPortfolioSection: React.FC = () => {
 
   const getCategoryIcon = (catId: string) => {
     switch (catId) {
-      case 'web':
+      case "web":
         return <Globe className="w-3.5 h-3.5 text-blue-400" />;
-      case 'mobile':
+      case "mobile":
         return <Smartphone className="w-3.5 h-3.5 text-indigo-400" />;
-      case 'software':
+      case "software":
         return <Cpu className="w-3.5 h-3.5 text-purple-400" />;
       default:
         return <Layers className="w-3.5 h-3.5 text-blue-400" />;
@@ -80,198 +91,207 @@ export const ProjectsPortfolioSection: React.FC = () => {
 
   const handleCardClick = (project: ProjectItem) => {
     if (project.liveUrl && project.isExternal) {
-      window.open(project.liveUrl, '_blank', 'noopener,noreferrer');
+      window.open(project.liveUrl, "_blank", "noopener,noreferrer");
     } else {
       setSelectedProjectForModal(project);
     }
   };
 
   return (
-    <section
-      id="portfolio"
-      className="py-16 sm:py-28 md:py-32 bg-[#05070B] border-t border-white/[0.06] relative scroll-mt-20 overflow-hidden"
-    >
-      {/* High-Impact Datacenter Architecture Panoramic Backdrop */}
-      <SectionTechBackdrop
-        imageSrc="/assets/images/cybernetic_data_datacenter_bg_1793119940367.jpg"
-        alt="Futuristic cyber server datacenter infrastructure and glowing LED racks"
-        objectPosition="center 35%"
-        brightness="brightness-[0.78] sm:brightness-[0.84] contrast-[1.12] saturate-[1.12]"
-        overlayOpacity="bg-[#05070B]/70"
-      />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-14">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-blue-400 uppercase mb-3">
-              <Layers className="w-3.5 h-3.5" />
-              <span>Projects &amp; Deployments</span>
-            </div>
-            <h2 className="font-['Syne',sans-serif] text-2xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight [text-wrap:balance]">
-              FEATURED ENGINEERING PORTFOLIO.
+    <section id="portfolio" className="studio-section studio-work">
+      <div className="studio-container">
+        <div className="studio-section-top" data-reveal>
+          <div>
+            <p className="studio-eyebrow">01 / THINGS WE’RE BUILDING</p>
+            <h2 className="studio-heading">
+              From “what if”
+              <br />
+              <em>to out in the world.</em>
             </h2>
-            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed [text-wrap:balance]">
-              Explore our real-world software platforms, mobile applications, and digital engineering solutions built to tackle practical challenges in Zimbabwe and beyond.
-            </p>
           </div>
-
-          <div className="text-xs font-mono text-slate-400 shrink-0">
-            <span className="text-emerald-400 font-semibold">●</span> Live &amp; In-Development Deployments
-          </div>
+          <p className="studio-description">
+            Our own products are where ideas meet real life. Explore what’s
+            live, what’s taking shape, and the thinking behind each build.
+          </p>
         </div>
-
-        {/* Category Filters Bar */}
-        <div className="mb-8 sm:mb-12 flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-          {PROJECT_CATEGORIES.map((cat) => {
-            const isActive = activeCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id as ProjectCategory)}
-                className={`px-4 py-2 rounded-xl text-xs font-medium transition-all flex items-center gap-2 cursor-pointer whitespace-nowrap ${
-                  isActive
-                    ? 'bg-blue-600 text-white font-semibold shadow-md shadow-blue-600/30 border border-blue-400/40'
-                    : 'bg-slate-900/70 hover:bg-slate-800 text-slate-300 hover:text-white border border-white/5'
-                }`}
-              >
-                {getCategoryIcon(cat.id)}
-                <span>{cat.label}</span>
-                <span
-                  className={`text-[10px] font-mono px-1.5 py-0.2 rounded-md ${
-                    isActive ? 'bg-blue-700 text-white' : 'bg-slate-950 text-slate-400'
-                  }`}
-                >
-                  {cat.count}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className={`rounded-2xl border transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1 ${
-                project.isPlaceholder
-                  ? 'bg-slate-950/50 border-dashed border-white/15 hover:border-amber-500/40'
-                  : 'bg-slate-950/80 border-white/10 hover:border-blue-500/40 shadow-xl shadow-black/50 hover:shadow-blue-950/20'
-              }`}
+        <div
+          className="studio-filter-row"
+          role="group"
+          aria-label="Filter projects"
+        >
+          {PROJECT_CATEGORIES.map((cat) => (
+            <button
+              aria-pressed={activeCategory === cat.id}
+              className={activeCategory === cat.id ? "is-active" : ""}
+              key={cat.id}
+              onClick={() => setActiveCategory(cat.id as ProjectCategory)}
             >
-              {/* Card Thumbnail Area */}
-              <div className="relative aspect-video w-full overflow-hidden bg-slate-900 border-b border-white/10">
-                <ImageWithFallback
-                  src={project.thumbnail}
-                  alt={project.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent pointer-events-none" />
-
-                {/* Status Badge in Top Right */}
-                <div className="absolute top-3 right-3 z-10">
-                  {getStatusBadge(project.status)}
-                </div>
-
-                {/* Category in Top Left */}
-                <div className="absolute top-3 left-3 z-10">
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono uppercase tracking-wider bg-black/70 backdrop-blur-md border border-white/10 text-slate-300">
-                    {project.categoryLabel}
-                  </span>
-                </div>
-              </div>
-
-              {/* Card Body */}
-              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="font-['Syne',sans-serif] text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
-                    {project.name}
-                  </h3>
-
-                  <p className="text-xs font-mono text-blue-400 mt-1 mb-3">
-                    {project.tagline}
-                  </p>
-
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
-                    {project.description}
-                  </p>
-
-                  {/* Highlights checklist if present */}
-                  {project.highlights && project.highlights.length > 0 && (
-                    <ul className="space-y-1.5 mb-4 text-xs text-slate-400">
-                      {project.highlights.slice(0, 3).map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-1.5">
-                          <Check className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5" />
-                          <span className="leading-snug">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-
-                {/* Tech Stack Tags & CTA Button */}
-                <div className="pt-4 border-t border-white/5 space-y-4">
-                  {/* Technology Pills */}
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.technologies.map((tech, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-0.5 rounded text-[11px] font-mono text-slate-400 bg-white/[0.03] border border-white/5"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Action Link Button */}
-                  {project.liveUrl ? (
-                    project.isExternal ? (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-md shadow-blue-600/20 flex items-center justify-center gap-1.5 active:scale-[0.98]"
-                      >
-                        <span>{project.linkText || 'Visit Live Project'}</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => setSelectedProjectForModal(project)}
-                        className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold uppercase tracking-wider text-slate-200 hover:text-white bg-slate-900 hover:bg-slate-800 border border-white/10 hover:border-white/20 transition-all flex items-center justify-center gap-1.5 cursor-pointer active:scale-[0.98]"
-                      >
-                        <span>{project.linkText || 'View Project Details'}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-blue-400" />
-                      </button>
-                    )
-                  ) : null}
-                </div>
-              </div>
-            </div>
+              {cat.id === "all"
+                ? "All work"
+                : cat.id === "web"
+                  ? "Web experiences"
+                  : cat.id === "mobile"
+                    ? "Mobile apps"
+                    : "Software"}
+              <span>
+                {
+                  PROJECTS_LIST.filter(
+                    (p) =>
+                      (showConcepts || !p.isPlaceholder) &&
+                      (cat.id === "all" || p.category === cat.id),
+                  ).length
+                }
+              </span>
+            </button>
           ))}
         </div>
-
-        {/* Portfolio Custom Inquiry Strip */}
-        <div className="mt-12 sm:mt-16 p-6 rounded-2xl bg-gradient-to-r from-blue-950/30 via-slate-950 to-blue-950/30 border border-blue-500/25 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-          <div className="space-y-1">
-            <h4 className="font-['Syne',sans-serif] text-base font-bold text-white">
-              Have an Idea for a Web Platform, Mobile App, or IoT Solution?
-            </h4>
-            <p className="text-xs text-slate-400">
-              Future Pulse Investments engineers production-grade digital solutions tailored to your operational requirements.
-            </p>
-          </div>
-
-          <a
-            href="#services-pricing"
-            className="px-5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-md shadow-blue-600/25 shrink-0 whitespace-nowrap"
+        <div className="grid studio-project-grid">
+          {filteredProjects.map((project) =>
+            project.id === "unilink" ? (
+              <article className="project-feature group" key={project.id}>
+                <div className="project-feature-copy">
+                  <span className="project-status">
+                    <i /> LIVE PRODUCT / LOCAL DELIVERY
+                  </span>
+                  <h3>
+                    Everyday errands.
+                    <br />
+                    <em>A little easier.</em>
+                  </h3>
+                  <p>
+                    UNILINK connects customers with local shops and messengers.
+                    Groceries, essentials and everyday deliveries, brought
+                    together in one place.
+                  </p>
+                  <div className="project-tags">
+                    <span>Web application</span>
+                    <span>Zimbabwe</span>
+                  </div>
+                  <div className="project-actions">
+                    <a
+                      className="studio-button dark"
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Explore UNILINK <ArrowUpRight size={16} />
+                    </a>
+                    <button
+                      className="studio-text-link"
+                      onClick={() => setUniLinkOpen(true)}
+                    >
+                      The product story <ArrowRight size={15} />
+                    </button>
+                  </div>
+                </div>
+                <div className="project-feature-preview">
+                  <div className="preview-orbit" />
+                  <div className="phone-preview" inert aria-hidden="true">
+                    <UniLinkPhoneMockup />
+                  </div>
+                  <button
+                    className="preview-try"
+                    onClick={() => setPreviewOpen(true)}
+                  >
+                    Try the interface <ArrowUpRight size={13} />
+                  </button>
+                  <span className="preview-caption">
+                    UNILINK / INTERFACE PREVIEW
+                  </span>
+                </div>
+              </article>
+            ) : (
+              <article
+                className={`project-card group ${project.isPlaceholder ? "project-concept" : ""}`}
+                key={project.id}
+              >
+                <button
+                  className="project-image"
+                  onClick={() => handleCardClick(project)}
+                  aria-label={`Explore ${project.name}`}
+                >
+                  <ImageWithFallback
+                    src={project.thumbnail}
+                    alt={project.name}
+                    className="w-full h-full object-cover"
+                  />
+                  <span>
+                    <ArrowUpRight size={23} />
+                  </span>
+                </button>
+                <div className="project-card-meta">
+                  <span>{project.categoryLabel}</span>
+                  <span
+                    className={
+                      project.status === "Live Product" ? "status-live" : ""
+                    }
+                  >
+                    {project.status === "Live Product"
+                      ? "Live website"
+                      : project.status === "Ready to Configure"
+                        ? "Concept template"
+                        : project.status}
+                  </span>
+                </div>
+                <button
+                  className="project-title"
+                  onClick={() => handleCardClick(project)}
+                >
+                  {project.name.replace("[", "").replace("]", "")}{" "}
+                  <ArrowUpRight size={20} />
+                </button>
+                <p>{project.tagline}</p>
+              </article>
+            ),
+          )}
+        </div>
+        <div className="work-bottom">
+          <span>Real products. Ongoing exploration.</span>
+          <button
+            className="studio-text-link"
+            onClick={() => setShowConcepts(!showConcepts)}
+            aria-expanded={showConcepts}
           >
-            Request Quotation →
-          </a>
+            {showConcepts
+              ? "Hide concept templates"
+              : "Explore concept templates"}{" "}
+            <ArrowRight size={14} />
+          </button>
         </div>
       </div>
-
+      {previewOpen && (
+        <div
+          className="fp-dialog studio-product-demo fixed inset-0 flex items-center justify-center p-4 bg-black/85"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Interactive UNILINK preview"
+          onClick={() => setPreviewOpen(false)}
+          onKeyDown={(e) => {
+            if (e.key === "Escape") setPreviewOpen(false);
+          }}
+        >
+          <div className="demo-surface" onClick={(e) => e.stopPropagation()}>
+            <div className="demo-header">
+              <span>UNILINK / INTERACTIVE DEMO</span>
+              <button
+                autoFocus
+                aria-label="Close interactive preview"
+                onClick={() => setPreviewOpen(false)}
+              >
+                <X size={20} />
+              </button>
+            </div>
+            <div className="demo-phone">
+              <UniLinkPhoneMockup />
+            </div>
+            <p>Explore the interface. Open UNILINK to use the live product.</p>
+          </div>
+        </div>
+      )}
+      <UniLinkModal
+        isOpen={uniLinkOpen}
+        onClose={() => setUniLinkOpen(false)}
+      />
       {/* Interactive Project Details Modal (for UniStay or other showcased prototypes) */}
       {selectedProjectForModal && (
         <div className="fp-dialog fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
@@ -332,21 +352,22 @@ export const ProjectsPortfolioSection: React.FC = () => {
               </div>
 
               {/* Highlights */}
-              {selectedProjectForModal.highlights && selectedProjectForModal.highlights.length > 0 && (
-                <div>
-                  <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">
-                    Key Architectural Capabilities
-                  </h4>
-                  <ul className="space-y-2 text-xs text-slate-300">
-                    {selectedProjectForModal.highlights.map((h, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              {selectedProjectForModal.highlights &&
+                selectedProjectForModal.highlights.length > 0 && (
+                  <div>
+                    <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">
+                      Key Architectural Capabilities
+                    </h4>
+                    <ul className="space-y-2 text-xs text-slate-300">
+                      {selectedProjectForModal.highlights.map((h, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
               {/* Technologies */}
               <div>
@@ -369,17 +390,23 @@ export const ProjectsPortfolioSection: React.FC = () => {
               <div className="p-3.5 rounded-xl bg-blue-950/30 border border-blue-500/30 text-xs font-mono text-slate-300 leading-relaxed flex items-start gap-2.5">
                 <Info className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                 <div>
-                  {selectedProjectForModal.status === 'Live Product' && (
-                    <span>This product is actively operating and serving real users in Zimbabwe.</span>
-                  )}
-                  {selectedProjectForModal.status === 'In Development' && (
+                  {selectedProjectForModal.status === "Live Product" && (
                     <span>
-                      UniStay is actively being engineered under Future Pulse’s incubation pipeline for campus student housing in Zimbabwe. Alpha testing will commence soon.
+                      This product is actively operating and serving real users
+                      in Zimbabwe.
                     </span>
                   )}
-                  {selectedProjectForModal.status === 'Ready to Configure' && (
+                  {selectedProjectForModal.status === "In Development" && (
                     <span>
-                      This is a placeholder card in <code>src/data/projectsData.ts</code>. You can easily populate this entry with your client's project name, screenshot, and live URL.
+                      UniStay is actively being engineered under Future Pulse’s
+                      incubation pipeline for campus student housing in
+                      Zimbabwe. Alpha testing will commence soon.
+                    </span>
+                  )}
+                  {selectedProjectForModal.status === "Ready to Configure" && (
+                    <span>
+                      An illustrative concept that can be adapted for a future
+                      project. This is not a completed client engagement.
                     </span>
                   )}
                 </div>
@@ -392,7 +419,8 @@ export const ProjectsPortfolioSection: React.FC = () => {
                 Future Pulse Investments · Harare, Zimbabwe
               </span>
 
-              {selectedProjectForModal.liveUrl && selectedProjectForModal.isExternal ? (
+              {selectedProjectForModal.liveUrl &&
+              selectedProjectForModal.isExternal ? (
                 <a
                   href={selectedProjectForModal.liveUrl}
                   target="_blank"

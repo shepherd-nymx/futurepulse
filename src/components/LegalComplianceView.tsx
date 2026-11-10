@@ -78,7 +78,7 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
   };
 
   return (
-    <div className="relative w-full min-h-screen text-slate-100 pb-20 pt-20 sm:pt-24 overflow-hidden bg-[#05070B]">
+    <div className="studio-legal relative w-full min-h-screen text-slate-100 pb-20 pt-20 sm:pt-24 overflow-hidden bg-[#05070B]">
       {/* High-Impact Security & Legal Architecture Panoramic Backdrop */}
       <SectionTechBackdrop
         imageSrc="/assets/images/quantum_cyber_circuit_bg_1793119308617.jpg"
@@ -129,14 +129,14 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
       </div>
 
       {/* Hero Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10 sm:mb-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 studio-page-intro text-center mb-10 sm:mb-14">
         <div className="inline-flex items-center gap-2 text-xs font-mono text-blue-400 uppercase tracking-widest mb-3">
           <Scale className="w-4 h-4" />
           <span>Future Pulse Investments · Compliance Center</span>
         </div>
 
         <h1 className="font-['Syne',sans-serif] text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl mx-auto leading-tight sm:leading-[1.15] [text-wrap:balance]">
-          Legal &amp; Regulatory Policies
+          Clarity, in writing.
         </h1>
 
         <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed [text-wrap:balance]">

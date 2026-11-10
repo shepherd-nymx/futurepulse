@@ -1,185 +1,125 @@
-import React, { useState } from 'react';
-import { motion, useReducedMotion } from 'motion/react';
-import { ArrowDown, ArrowRight, Code2, Smartphone, Bot, RefreshCw, Cpu } from 'lucide-react';
-
+import React from "react";
+import { motion, useReducedMotion } from "motion/react";
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Code2,
+  Cpu,
+  Bot,
+  Smartphone,
+} from "lucide-react";
+import { SignalCore } from "./SignalCore";
 interface HeroProps {
   onExploreWork: () => void;
   onAboutClick: () => void;
   onViewPricing?: () => void;
+  onContactClick?: () => void;
 }
-
-export const Hero: React.FC<HeroProps> = ({ onExploreWork, onAboutClick, onViewPricing }) => {
+export const Hero: React.FC<HeroProps> = ({
+  onExploreWork,
+  onAboutClick,
+  onViewPricing,
+  onContactClick,
+}) => {
   const reduced = useReducedMotion();
-  const [bgLoaded, setBgLoaded] = useState(false);
-
   return (
-    <section
-      id="home"
-      className="relative min-h-[100dvh] flex items-center justify-center pt-20 sm:pt-28 pb-12 sm:pb-20 overflow-hidden bg-transparent"
-    >
-      {/* 
-        Tech Mountain Hero Backdrop:
-        Occupies the top ~60% of the screen and smoothly dissolves downwards
-        into the obsidian void with multi-stop gradient masks and ambient scrims.
-      */}
-      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none z-0">
-        {/* Fallback ambient mesh while image loads */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#090D16] via-[#05070B] to-[#05070B]" />
-
-        {/* Technological Mountain Image with luminous topography contour lines */}
-        <img
-          src="/assets/images/tech_mountain_hero_bg_1793028752338.jpg"
-          alt="Technological mountain landscape with glowing topography contour lines"
-          className={`w-full h-full object-cover object-[center_32%] sm:object-[center_36%] transform filter brightness-[0.76] sm:brightness-[0.80] contrast-[1.14] saturate-[1.08] animate-cinematic-drift-1 ${
-            bgLoaded ? 'opacity-85 sm:opacity-90' : 'opacity-0'
-          } transition-opacity duration-1000 ease-out`}
-          loading="eager"
-          fetchPriority="high"
-          referrerPolicy="no-referrer"
-          onLoad={() => setBgLoaded(true)}
-        />
-
-        {/* Anamorphic Light Sheen Sweep */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="w-[340px] h-full bg-gradient-to-r from-transparent via-sky-400/10 to-transparent animate-energy-sheen pointer-events-none" />
-        </div>
-
-        {/* Top Scrim - Guarantees pristine contrast and legibility for sticky navigation */}
-        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#05070B]/90 via-[#05070B]/45 to-transparent pointer-events-none" />
-
-        {/* Radial Center Vignette - Centers visual focus and lifts foreground typography */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_42%,rgba(5,7,11,0.36)_0%,rgba(5,7,11,0.68)_55%,rgba(5,7,11,0.96)_100%)] pointer-events-none" />
-
-        {/* Lateral Edge Softening - Merges side boundaries into deep dark background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#05070B]/85 via-transparent to-[#05070B]/85 pointer-events-none" />
-
-        {/* Bottom Slow Fade - Silky dissolution into the page flow */}
-        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#05070B] via-[#05070B]/85 to-transparent pointer-events-none" />
-      </div>
-
-      {/* Atmospheric lighting gradient - restrained cool blue and cyan accents */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[380px] bg-blue-600/12 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[480px] h-[240px] bg-cyan-500/8 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[300px] h-[300px] bg-sky-500/5 rounded-full blur-[100px] pointer-events-none" />
-
-      {/* Circuit track lines subtle SVG overlay */}
-      <svg
-        className="absolute inset-0 w-full h-full opacity-[0.04] pointer-events-none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <line x1="10%" y1="0" x2="10%" y2="100%" stroke="white" strokeWidth="1" strokeDasharray="6 6" />
-        <line x1="90%" y1="0" x2="90%" y2="100%" stroke="white" strokeWidth="1" strokeDasharray="6 6" />
-        <line x1="0" y1="40%" x2="100%" y2="40%" stroke="white" strokeWidth="1" strokeDasharray="4 8" />
-      </svg>
-
-      <div data-hero-content className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center w-full">
-        {/* Official Entity Crest & Lead-in */}
-        <div className="flex items-center gap-2.5 sm:gap-3.5 mb-5 sm:mb-7 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl bg-slate-950/85 border border-blue-500/30 shadow-xl shadow-black/50 backdrop-blur-md max-w-full">
-          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-slate-950 border border-blue-400/40 overflow-hidden shadow-inner shrink-0 relative group">
-            <img
-              src="/future-pulse-logo.png"
-              alt="Future Pulse Investments Logo"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-            />
+    <section id="home" className="studio-hero">
+      <div className="studio-container hero-layout">
+        <div className="hero-copy" data-hero-content>
+          <div className="studio-eyebrow">
+            <span className="signal-dot" /> Independent thinking. Practical
+            technology.
           </div>
-          <div className="text-left font-mono min-w-0">
-            <div className="text-[11px] sm:text-sm font-bold text-white tracking-wider uppercase flex items-center gap-1.5 truncate">
-              <span>Future Pulse Investments</span>
-              <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 shrink-0" />
-            </div>
-            <div className="text-[9px] sm:text-[11px] text-slate-400 tracking-wider sm:tracking-widest uppercase truncate">
-              Parent Technology Company · Zimbabwe
-            </div>
-          </div>
-        </div>
-
-        {/* Primary Headline with fluid mobile sizing, balanced layout, and clear shadow */}
-        <h1 data-hero-title className="font-['Syne',sans-serif] text-[1.4rem] xs:text-[1.75rem] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.18] sm:leading-[1.08] mb-5 sm:mb-8 max-w-4xl px-1 sm:px-0 drop-shadow-[0_4px_28px_rgba(0,0,0,0.9)]">
-          <motion.span className="block" initial={reduced ? false : { opacity: 0, y: 34, filter: 'blur(8px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} transition={{ duration: 0.9, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}>BUILDING TECHNOLOGY.</motion.span>
-          <motion.span initial={reduced ? false : { opacity: 0, y: 34, filter: 'blur(8px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} transition={{ duration: 0.9, delay: 0.28, ease: [0.16, 1, 0.3, 1] }} className="bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent block mt-1 sm:mt-2">
-            SOLVING REAL PROBLEMS.
-          </motion.span>
-        </h1>
-
-        {/* Supporting Narrative highlighting Software, Mobile Apps, AI Agents & Maintenance */}
-        <p className="text-xs sm:text-base md:text-xl text-slate-200 font-normal leading-relaxed max-w-2xl sm:max-w-3xl mb-6 sm:mb-8 px-2 sm:px-0 [text-wrap:balance] drop-shadow-[0_2px_14px_rgba(0,0,0,0.85)]">
-          Future Pulse Investments develops and maintains bespoke software platforms, native iOS &amp; Android mobile
-          applications, online autonomous AI agents, and connected IoT systems built to solve real-world problems.
-        </p>
-
-        {/* Action CTAs */}
-        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto max-w-xs sm:max-w-none mx-auto sm:mx-0 mb-6 sm:mb-8">
-          <button
-            onClick={onExploreWork}
-            className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold tracking-wide text-white bg-blue-600 hover:bg-blue-500 rounded-lg transition-all duration-200 shadow-lg shadow-blue-600/30 hover:shadow-blue-500/40 flex items-center justify-center gap-2 group cursor-pointer active:scale-[0.98]"
-          >
-            <span>Explore Our Work</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-          </button>
-
-          {onViewPricing && (
-            <button
-              onClick={onViewPricing}
-              className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold tracking-wide text-emerald-300 hover:text-white bg-slate-950/80 hover:bg-emerald-950/60 border border-emerald-500/40 hover:border-emerald-400 rounded-lg backdrop-blur-md transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer active:scale-[0.98] shadow-md shadow-black/40"
+          <h1 data-hero-title>
+            Good ideas.
+            <br />
+            Built into
+            <br />
+            <motion.span
+              initial={reduced ? false : { opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.9,
+                delay: 0.25,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="hero-serif"
             >
-              <span>Services &amp; Pricing</span>
-              <span className="font-mono text-xs opacity-75">($)</span>
+              real impact.
+            </motion.span>
+          </h1>
+          <p className="hero-description">
+            Software, mobile apps, AI agents and connected systems.
+            <br className="desktop-break" /> Thoughtfully built in Zimbabwe.
+            Made for everyday life.
+          </p>
+          <div className="hero-actions">
+            <button
+              className="studio-button primary"
+              onClick={onContactClick || onAboutClick}
+            >
+              Bring your idea to life <ArrowUpRight size={18} />
             </button>
-          )}
-
-          <button
-            onClick={onAboutClick}
-            className="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-medium tracking-wide text-slate-200 hover:text-white bg-slate-950/80 hover:bg-slate-900 border border-slate-700/70 rounded-lg backdrop-blur-md transition-all duration-200 flex items-center justify-center cursor-pointer active:scale-[0.98] shadow-md shadow-black/40"
-          >
-            About Future Pulse
+            <button className="studio-text-link" onClick={onExploreWork}>
+              Explore our work <ArrowDown size={16} />
+            </button>
+          </div>
+          <button onClick={onViewPricing} className="hero-pricing-link">
+            Have a project in mind? Explore services & pricing{" "}
+            <ArrowUpRight size={13} />
           </button>
         </div>
-
-        {/* Interactive We Develop & Maintain Capabilities Strip */}
-        <div className="w-full max-w-3xl pt-5 sm:pt-6 border-t border-white/10 backdrop-blur-xs">
-          <div className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-slate-400 mb-2.5 sm:mb-3 flex items-center justify-center gap-2">
-            <span>We Develop &amp; Maintain</span>
+        <div className="hero-art" data-reveal>
+          <div className="art-coordinate art-coordinate-top">
+            <span>FUTURE PULSE / ENGINEERING POSSIBILITIES</span>
+            <span>01 — 04</span>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5">
-            {[
-              { label: 'Softwares & Web Systems', icon: Code2 },
-              { label: 'Mobile Apps (iOS & Android)', icon: Smartphone },
-              { label: 'Online AI Agents', icon: Bot },
-              { label: 'Ongoing System Maintenance', icon: RefreshCw },
-              { label: 'IoT & Smart Electronics', icon: Cpu },
-            ].map((cap) => {
-              const Icon = cap.icon;
-              return (
-                <a
-                  key={cap.label}
-                  href="#what-we-build"
-                  className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-950/85 hover:bg-slate-900/90 border border-slate-800/90 hover:border-blue-500/50 text-[11px] sm:text-xs font-mono text-slate-300 hover:text-white transition-all flex items-center gap-1.5 group/item shadow-sm backdrop-blur-md"
-                >
-                  <Icon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-blue-400 group-hover/item:text-blue-300 transition-colors" />
-                  <span>{cap.label}</span>
-                </a>
-              );
-            })}
+          <div className="signal-sculpture">
+            <div className="sculpture-glow" />
+            <SignalCore />
+            <span className="core-label">
+              THE NEXT THING
+              <br />
+              <b>starts with a pulse.</b>
+            </span>
+            <span className="orbit-tag tag-code">
+              <Code2 size={16} /> Software
+            </span>
+            <span className="orbit-tag tag-ai">
+              <Bot size={16} /> AI & automation
+            </span>
+          </div>
+          <div className="art-caption">
+            <span className="signal-dot" />
+            <span>
+              Built with purpose.
+              <br />
+              <b>Designed to keep moving.</b>
+            </span>
+            <ArrowUpRight className="art-arrow" size={20} />
           </div>
         </div>
-
-        {/* Stage Transparency Note (Quiet Editorial Index) */}
-        <div className="mt-8 sm:mt-12 pt-4 sm:pt-6 border-t border-white/5 flex flex-wrap items-center justify-center gap-x-4 sm:gap-x-6 gap-y-1 sm:gap-y-2 text-[10px] sm:text-xs text-slate-400 font-mono">
-          <span>Future Pulse Investments</span>
-          <span className="text-slate-700 hidden xs:inline" aria-hidden="true">/</span>
-          <span>Softwares · Mobile Apps · AI Agents · Maintenance</span>
-          <span className="text-slate-700 hidden xs:inline" aria-hidden="true">/</span>
-          <span>Harare, Zimbabwe</span>
+      </div>
+      <div className="studio-container hero-foot">
+        <span>
+          HARARE, ZIMBABWE <span className="foot-line" />
+        </span>
+        <div>
+          <span>
+            <Code2 size={14} /> Software
+          </span>
+          <span>
+            <Smartphone size={14} /> Mobile
+          </span>
+          <span>
+            <Bot size={14} /> AI agents
+          </span>
+          <span>
+            <Cpu size={14} /> IoT
+          </span>
         </div>
-
-        {/* Scroll cue */}
-        <a
-          href="#about"
-          className="mt-6 sm:mt-10 text-slate-400 hover:text-blue-400 transition-colors flex flex-col items-center gap-1.5 text-xs font-mono group"
-          aria-label="Scroll to about section"
-        >
-          <span className="tracking-wider">SCROLL</span>
-          <ArrowDown className="w-4 h-4 animate-bounce text-slate-400 group-hover:text-blue-400 transition-colors" />
+        <a href="#portfolio" aria-label="Scroll to our work">
+          DISCOVER <ArrowDown size={14} />
         </a>
       </div>
     </section>
