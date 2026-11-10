@@ -26,7 +26,7 @@ export default function App() {
     view: "home" | "services" | "legal";
     policyId: string;
   } => {
-    const hash = window.location.hash.replace("#", "");
+    const hash = typeof window === "undefined" ? "" : window.location.hash.replace("#", "");
     if (hash === "services-pricing") {
       return { view: "services", policyId: "privacy-policy" };
     }
