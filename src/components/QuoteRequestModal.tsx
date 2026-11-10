@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { X, MessageSquare, Mail, Copy, Check, FileText, CircleAlert as AlertCircle } from 'lucide-react';
-import { PricingItem, QuoteRequestData } from '../types';
-import { SERVICES_PRICING_ITEMS } from '../data/servicesPricingData';
-import { COMPANY_INFO } from '../data/companyData';
-import { supabase, isSupabaseConfigured } from '../lib/supabase';
+import React, { useState, useEffect } from "react";
+import {
+  X,
+  MessageSquare,
+  Mail,
+  Copy,
+  Check,
+  FileText,
+  CircleAlert as AlertCircle,
+} from "lucide-react";
+import { PricingItem, QuoteRequestData } from "../types";
+import { SERVICES_PRICING_ITEMS } from "../data/servicesPricingData";
+import { COMPANY_INFO } from "../data/companyData";
+import { supabase, isSupabaseConfigured } from "../lib/supabase";
 
 interface QuoteRequestModalProps {
   isOpen: boolean;
@@ -17,14 +25,14 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
   preSelectedService,
 }) => {
   const [formData, setFormData] = useState<QuoteRequestData>({
-    clientName: '',
-    email: '',
-    phoneOrWhatsapp: '',
-    companyOrOrganization: '',
+    clientName: "",
+    email: "",
+    phoneOrWhatsapp: "",
+    companyOrOrganization: "",
     selectedServices: [],
-    budgetRange: '$300 - $800',
-    timeline: 'Standard (2-4 weeks)',
-    projectDescription: '',
+    budgetRange: "$300 - $800",
+    timeline: "Standard (2-4 weeks)",
+    projectDescription: "",
   });
 
   const [copied, setCopied] = useState(false);
@@ -40,7 +48,10 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
     } else {
       setFormData((prev) => ({
         ...prev,
-        selectedServices: prev.selectedServices.length > 0 ? prev.selectedServices : ['web-starter'],
+        selectedServices:
+          prev.selectedServices.length > 0
+            ? prev.selectedServices
+            : ["web-starter"],
       }));
     }
     setErrorMessage(null);
@@ -55,7 +66,9 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
         if (prev.selectedServices.length === 1) return prev; // Keep at least one
         return {
           ...prev,
-          selectedServices: prev.selectedServices.filter((id) => id !== serviceId),
+          selectedServices: prev.selectedServices.filter(
+            (id) => id !== serviceId,
+          ),
         };
       } else {
         return {
@@ -70,16 +83,18 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
     return formData.selectedServices
       .map((id) => SERVICES_PRICING_ITEMS.find((s) => s.id === id)?.title)
       .filter(Boolean)
-      .join(', ');
+      .join(", ");
   };
 
   const validateForm = () => {
     if (!formData.clientName.trim()) {
-      setErrorMessage('Please provide your name.');
+      setErrorMessage("Please provide your name.");
       return false;
     }
     if (!formData.phoneOrWhatsapp.trim() && !formData.email.trim()) {
-      setErrorMessage('Please provide either a WhatsApp/Phone number or an Email address.');
+      setErrorMessage(
+        "Please provide either a WhatsApp/Phone number or an Email address.",
+      );
       return false;
     }
     setErrorMessage(null);
@@ -91,9 +106,9 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
     return `*FUTURE PULSE INVESTMENTS — QUOTATION INQUIRY*
 ━━━━━━━━━━━━━━━━━━━━━
 👤 *Client Name:* ${formData.clientName}
-🏢 *Company / Org:* ${formData.companyOrOrganization || 'Not specified'}
-📱 *WhatsApp/Phone:* ${formData.phoneOrWhatsapp || 'Not provided'}
-✉️ *Email:* ${formData.email || 'Not provided'}
+🏢 *Company / Org:* ${formData.companyOrOrganization || "Not specified"}
+📱 *WhatsApp/Phone:* ${formData.phoneOrWhatsapp || "Not provided"}
+✉️ *Email:* ${formData.email || "Not provided"}
 
 🛠️ *Requested Service(s):*
 ${servicesList}
@@ -102,7 +117,7 @@ ${servicesList}
 ⏱️ *Desired Timeline:* ${formData.timeline}
 
 📝 *Project Overview & Requirements:*
-${formData.projectDescription.trim() || 'No additional notes provided. Please contact me to discuss full technical requirements.'}
+${formData.projectDescription.trim() || "No additional notes provided. Please contact me to discuss full technical requirements."}
 ━━━━━━━━━━━━━━━━━━━━━
 _Sent via Future Pulse Investments Services & Pricing Portal_`;
   };
@@ -111,21 +126,22 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
     if (!validateForm()) return;
     if (isSupabaseConfigured) {
       try {
-        const { error } = await supabase.from('quote_requests').insert({
+        const { error } = await supabase.from("quote_requests").insert({
           client_name: formData.clientName.trim(),
           email: formData.email.trim() || null,
           phone_or_whatsapp: formData.phoneOrWhatsapp.trim() || null,
-          company_or_organization: formData.companyOrOrganization.trim() || null,
+          company_or_organization:
+            formData.companyOrOrganization.trim() || null,
           selected_services: formData.selectedServices,
           budget_range: formData.budgetRange,
           timeline: formData.timeline,
           project_description: formData.projectDescription.trim() || null,
         });
         if (error) {
-          console.error('Failed to save quote request to Supabase:', error);
+          console.error("Failed to save quote request to Supabase:", error);
         }
       } catch (err) {
-        console.warn('Supabase insert skipped or failed:', err);
+        console.warn("Supabase insert skipped or failed:", err);
       }
     }
     send();
@@ -133,17 +149,17 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
 
   const handleWhatsAppSend = () => {
     handleSendAndSave(() => {
-      const cleanNumber = COMPANY_INFO.founder.whatsapp.replace(/[^0-9]/g, '');
+      const cleanNumber = COMPANY_INFO.founder.whatsapp.replace(/[^0-9]/g, "");
       const text = encodeURIComponent(generateMessageBody());
       const waUrl = `https://wa.me/${cleanNumber}?text=${text}`;
-      window.open(waUrl, '_blank', 'noopener,noreferrer');
+      window.open(waUrl, "_blank", "noopener,noreferrer");
     });
   };
 
   const handleEmailSend = () => {
     handleSendAndSave(() => {
       const subject = encodeURIComponent(
-        `Quotation Request: ${formData.companyOrOrganization ? formData.companyOrOrganization + ' - ' : ''}${formData.clientName}`
+        `Quotation Request: ${formData.companyOrOrganization ? formData.companyOrOrganization + " - " : ""}${formData.clientName}`,
       );
       const body = encodeURIComponent(generateMessageBody());
       const mailtoUrl = `mailto:${COMPANY_INFO.founder.email}?subject=${subject}&body=${body}`;
@@ -176,10 +192,11 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
               <span>Future Pulse Investments · Quotation Request</span>
             </div>
             <h2 className="font-['Syne',sans-serif] text-xl sm:text-2xl font-bold tracking-tight text-white">
-              Request a Project Quotation
+              Let’s shape your project.
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-1">
-              Fill in your details below. We deliver fast, transparent quotations directly via WhatsApp and Email.
+              Tell us a little about your idea. We’ll prepare your inquiry for
+              WhatsApp or email, with your chosen services included.
             </p>
           </div>
           <button
@@ -211,7 +228,9 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
                 required
                 placeholder="e.g. Shepherd Mutevedzi"
                 value={formData.clientName}
-                onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, clientName: e.target.value })
+                }
                 className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors text-sm"
               />
             </div>
@@ -224,7 +243,12 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
                 type="text"
                 placeholder="e.g. Apex Logistics / University"
                 value={formData.companyOrOrganization}
-                onChange={(e) => setFormData({ ...formData, companyOrOrganization: e.target.value })}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    companyOrOrganization: e.target.value,
+                  })
+                }
                 className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors text-sm"
               />
             </div>
@@ -237,7 +261,9 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
                 type="tel"
                 placeholder="+263 78 000 0000"
                 value={formData.phoneOrWhatsapp}
-                onChange={(e) => setFormData({ ...formData, phoneOrWhatsapp: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, phoneOrWhatsapp: e.target.value })
+                }
                 className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors text-sm"
               />
             </div>
@@ -250,7 +276,9 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
                 type="email"
                 placeholder="client@example.com"
                 value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors text-sm"
               />
             </div>
@@ -263,7 +291,9 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
             </label>
             <div className="flex flex-wrap gap-2 max-h-40 overflow-y-auto p-1.5 rounded-xl bg-slate-950/60 border border-white/5">
               {SERVICES_PRICING_ITEMS.map((service) => {
-                const isSelected = formData.selectedServices.includes(service.id);
+                const isSelected = formData.selectedServices.includes(
+                  service.id,
+                );
                 return (
                   <button
                     key={service.id}
@@ -271,12 +301,14 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
                     onClick={() => toggleService(service.id)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all flex items-center gap-1.5 cursor-pointer whitespace-nowrap ${
                       isSelected
-                        ? 'bg-blue-600 text-white shadow-sm shadow-blue-500/25 border border-blue-400/50'
-                        : 'bg-slate-900 text-slate-400 hover:text-slate-200 border border-white/10 hover:border-white/20'
+                        ? "bg-blue-600 text-white shadow-sm shadow-blue-500/25 border border-blue-400/50"
+                        : "bg-slate-900 text-slate-400 hover:text-slate-200 border border-white/10 hover:border-white/20"
                     }`}
                   >
                     <span>{service.title}</span>
-                    <span className="font-mono text-[10px] opacity-80">({service.priceDisplay})</span>
+                    <span className="font-mono text-[10px] opacity-80">
+                      ({service.priceDisplay})
+                    </span>
                     {isSelected && <Check className="w-3 h-3 ml-0.5" />}
                   </button>
                 );
@@ -292,7 +324,9 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
               </label>
               <select
                 value={formData.budgetRange}
-                onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, budgetRange: e.target.value })
+                }
                 className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white focus:outline-none focus:border-blue-500 transition-colors text-sm font-mono"
               >
                 <option value="Under $300">Under $300 USD</option>
@@ -300,7 +334,9 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
                 <option value="$800 - $1,500">$800 - $1,500 USD</option>
                 <option value="$1,500 - $3,000">$1,500 - $3,000 USD</option>
                 <option value="$3,000+">$3,000+ USD</option>
-                <option value="Not sure / Need assessment">Not sure / Need assessment</option>
+                <option value="Not sure / Need assessment">
+                  Not sure / Need assessment
+                </option>
               </select>
             </div>
 
@@ -310,13 +346,21 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
               </label>
               <select
                 value={formData.timeline}
-                onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
+                onChange={(e) =>
+                  setFormData({ ...formData, timeline: e.target.value })
+                }
                 className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white focus:outline-none focus:border-blue-500 transition-colors text-sm font-mono"
               >
                 <option value="Urgent (1-2 weeks)">Urgent (1 - 2 weeks)</option>
-                <option value="Standard (2-4 weeks)">Standard (2 - 4 weeks)</option>
-                <option value="Flexible (1-2 months)">Flexible (1 - 2 months)</option>
-                <option value="Ongoing Maintenance / Retainer">Ongoing SLA / Maintenance</option>
+                <option value="Standard (2-4 weeks)">
+                  Standard (2 - 4 weeks)
+                </option>
+                <option value="Flexible (1-2 months)">
+                  Flexible (1 - 2 months)
+                </option>
+                <option value="Ongoing Maintenance / Retainer">
+                  Ongoing SLA / Maintenance
+                </option>
               </select>
             </div>
           </div>
@@ -330,14 +374,19 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
               rows={3}
               placeholder="Tell us about your project goals, key features, reference websites, or hardware constraints..."
               value={formData.projectDescription}
-              onChange={(e) => setFormData({ ...formData, projectDescription: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, projectDescription: e.target.value })
+              }
               className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900/90 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors text-sm leading-relaxed"
             />
           </div>
 
           {/* Transparency Micro-Notice */}
           <div className="p-3 rounded-xl bg-slate-950 border border-white/5 text-[11px] font-mono text-slate-400 leading-normal">
-            ℹ️ <span className="text-slate-300 font-semibold">Note:</span> Listed prices are starting estimates in USD. Hosting, domain registrations, store accounts, and IoT components are charged separately.
+            ℹ️ <span className="text-slate-300 font-semibold">Note:</span>{" "}
+            Listed prices are starting estimates in USD. Hosting, domain
+            registrations, store accounts, and IoT components are charged
+            separately.
           </div>
         </div>
 
@@ -348,8 +397,12 @@ _Sent via Future Pulse Investments Services & Pricing Portal_`;
             onClick={handleCopy}
             className="w-full sm:w-auto px-4 py-2.5 text-xs font-medium text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-800 border border-white/10 rounded-xl transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
-            <span>{copied ? 'Copied Details!' : 'Copy Summary'}</span>
+            {copied ? (
+              <Check className="w-3.5 h-3.5 text-emerald-400" />
+            ) : (
+              <Copy className="w-3.5 h-3.5" />
+            )}
+            <span>{copied ? "Copied Details!" : "Copy Summary"}</span>
           </button>
 
           <div className="flex items-center gap-2.5 w-full sm:w-auto">

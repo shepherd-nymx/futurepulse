@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   ArrowLeft,
   ShieldCheck,
@@ -12,10 +12,10 @@ import {
   ChevronRight,
   Mail,
   MessageSquare,
-} from 'lucide-react';
-import { LEGAL_POLICIES, LegalPolicy } from '../data/legalPoliciesData';
-import { COMPANY_INFO } from '../data/companyData';
-import { SectionTechBackdrop } from './SectionTechBackdrop';
+} from "lucide-react";
+import { LEGAL_POLICIES, LegalPolicy } from "../data/legalPoliciesData";
+import { COMPANY_INFO } from "../data/companyData";
+import { SectionTechBackdrop } from "./SectionTechBackdrop";
 
 interface LegalComplianceViewProps {
   initialPolicyId?: string;
@@ -24,19 +24,23 @@ interface LegalComplianceViewProps {
 }
 
 export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
-  initialPolicyId = 'privacy-policy',
+  initialPolicyId = "privacy-policy",
   onBackToHome,
   onNavigateToServices,
 }) => {
   const [activePolicyId, setActivePolicyId] = useState<string>(initialPolicyId);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Sync state if initialPolicyId prop changes
   useEffect(() => {
     if (initialPolicyId) {
-      const exists = LEGAL_POLICIES.some((p) => p.id === initialPolicyId || p.slug === initialPolicyId);
+      const exists = LEGAL_POLICIES.some(
+        (p) => p.id === initialPolicyId || p.slug === initialPolicyId,
+      );
       if (exists) {
-        const found = LEGAL_POLICIES.find((p) => p.id === initialPolicyId || p.slug === initialPolicyId);
+        const found = LEGAL_POLICIES.find(
+          (p) => p.id === initialPolicyId || p.slug === initialPolicyId,
+        );
         if (found) {
           setActivePolicyId(found.id);
         }
@@ -50,7 +54,7 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
   const handleSelectPolicy = (id: string, slug: string) => {
     setActivePolicyId(id);
     window.location.hash = `#${slug}`;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handlePrint = () => {
@@ -62,7 +66,7 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
     // Matches text inside square brackets [ ... ]
     const parts = text.split(/(\[[^\]]+\])/g);
     return parts.map((part, index) => {
-      if (part.startsWith('[') && part.endsWith(']')) {
+      if (part.startsWith("[") && part.endsWith("]")) {
         return (
           <span
             key={index}
@@ -136,23 +140,35 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
         </div>
 
         <h1 className="font-['Syne',sans-serif] text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl mx-auto leading-tight sm:leading-[1.15] [text-wrap:balance]">
-          Clarity, in writing.
+          Clarity,
+          <br />
+          <em>in writing.</em>
         </h1>
 
         <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed [text-wrap:balance]">
-          Statutory compliance disclosures, customer rights guarantees, and data protection terms formulated under the laws of Zimbabwe, including the Cyber and Data Protection Act [Chapter 12:07] and the Consumer Protection Act [Chapter 14:14].
+          The details behind working with Future Pulse. Explore our policies,
+          your rights, and how we handle your information under the laws of
+          Zimbabwe.
         </p>
 
         {/* Global Key Notice Badges */}
         <div className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-mono text-slate-400">
           <span>Republic of Zimbabwe</span>
-          <span className="text-slate-600" aria-hidden="true">·</span>
+          <span className="text-slate-600" aria-hidden="true">
+            ·
+          </span>
           <span>CDPA [Chapter 12:07]</span>
-          <span className="text-slate-600" aria-hidden="true">·</span>
+          <span className="text-slate-600" aria-hidden="true">
+            ·
+          </span>
           <span>CPA [Chapter 14:14]</span>
-          <span className="text-slate-600" aria-hidden="true">·</span>
+          <span className="text-slate-600" aria-hidden="true">
+            ·
+          </span>
           <span>POTRAZ Regulatory Notices</span>
-          <span className="text-slate-600" aria-hidden="true">·</span>
+          <span className="text-slate-600" aria-hidden="true">
+            ·
+          </span>
           <span>Zero Blanket Waivers</span>
         </div>
       </div>
@@ -173,17 +189,21 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
               </div>
 
               {/* Policy Buttons List */}
-              <nav className="flex flex-col gap-1.5" aria-label="Legal policies navigation">
+              <nav
+                className="flex flex-col gap-1.5"
+                aria-label="Legal policies navigation"
+              >
                 {LEGAL_POLICIES.map((policy) => {
                   const isActive = policy.id === activePolicy.id;
                   return (
                     <button
                       key={policy.id}
+                      aria-current={isActive ? "page" : undefined}
                       onClick={() => handleSelectPolicy(policy.id, policy.slug)}
                       className={`w-full text-left p-3 rounded-xl transition-all flex items-center justify-between cursor-pointer group ${
                         isActive
-                          ? 'bg-blue-600 text-white font-semibold shadow-md shadow-blue-600/30 border border-blue-400/40'
-                          : 'bg-slate-900/60 hover:bg-slate-900 text-slate-300 hover:text-white border border-white/5 hover:border-white/15'
+                          ? "bg-blue-600 text-white font-semibold shadow-md shadow-blue-600/30 border border-blue-400/40"
+                          : "bg-slate-900/60 hover:bg-slate-900 text-slate-300 hover:text-white border border-white/5 hover:border-white/15"
                       }`}
                     >
                       <div className="min-w-0 pr-2">
@@ -192,7 +212,9 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
                         </div>
                         <div
                           className={`text-[10px] font-mono truncate mt-0.5 ${
-                            isActive ? 'text-blue-100' : 'text-slate-500 group-hover:text-slate-400'
+                            isActive
+                              ? "text-blue-100"
+                              : "text-slate-500 group-hover:text-slate-400"
                           }`}
                         >
                           {policy.applicableLaw}
@@ -201,8 +223,8 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
                       <ChevronRight
                         className={`w-4 h-4 shrink-0 transition-transform ${
                           isActive
-                            ? 'text-white translate-x-0.5'
-                            : 'text-slate-600 group-hover:text-slate-400'
+                            ? "text-white translate-x-0.5"
+                            : "text-slate-600 group-hover:text-slate-400"
                         }`}
                       />
                     </button>
@@ -216,14 +238,22 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
                   <AlertCircle className="w-3.5 h-3.5 shrink-0" />
                   <span>Statutory Notice</span>
                 </div>
-                Placeholders marked with <span className="bg-amber-950 px-1 py-0.2 rounded border border-amber-500/40 text-amber-300">[brackets]</span> designate corporate records awaiting formal registrar stamping.
+                Placeholders marked with{" "}
+                <span className="bg-amber-950 px-1 py-0.2 rounded border border-amber-500/40 text-amber-300">
+                  [brackets]
+                </span>{" "}
+                designate corporate records awaiting formal registrar stamping.
               </div>
             </div>
           </div>
 
           {/* Active Policy Content Container (Desktop 8 Cols) */}
           <div className="lg:col-span-8">
-            <article key={activePolicy.id} data-reveal className="rounded-3xl bg-slate-950/90 border border-white/10 p-6 sm:p-10 lg:p-12 backdrop-blur-md shadow-2xl relative">
+            <article
+              key={activePolicy.id}
+              data-reveal
+              className="rounded-3xl bg-slate-950/90 border border-white/10 p-6 sm:p-10 lg:p-12 backdrop-blur-md shadow-2xl relative"
+            >
               {/* Document Header */}
               <header className="pb-8 border-b border-white/10 space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
@@ -232,7 +262,10 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
                     <span>{activePolicy.statusBadge}</span>
                   </div>
                   <div className="text-xs font-mono text-slate-400">
-                    Governing Law: <span className="text-white">{activePolicy.applicableLaw}</span>
+                    Governing Law:{" "}
+                    <span className="text-white">
+                      {activePolicy.applicableLaw}
+                    </span>
                   </div>
                 </div>
 
@@ -242,9 +275,13 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
 
                 <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400">
                   <span>Last Updated: {activePolicy.lastUpdated}</span>
-                  <span className="text-slate-600" aria-hidden="true">·</span>
+                  <span className="text-slate-600" aria-hidden="true">
+                    ·
+                  </span>
                   <span>Jurisdiction: Harare, Republic of Zimbabwe</span>
-                  <span className="text-slate-600" aria-hidden="true">·</span>
+                  <span className="text-slate-600" aria-hidden="true">
+                    ·
+                  </span>
                   <span>Future Pulse Investments</span>
                 </div>
               </header>
@@ -274,7 +311,7 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
                       href={`#${section.id}`}
                       className="text-xs font-mono text-slate-400 hover:text-blue-400 px-2.5 py-1 rounded-md bg-slate-900 border border-white/5 hover:border-white/10 transition-colors"
                     >
-                      {section.title.split('.')[0] || `Section ${idx + 1}`}
+                      {section.title.split(".")[0] || `Section ${idx + 1}`}
                     </a>
                   ))}
                 </div>
@@ -303,18 +340,19 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
                     ))}
 
                     {/* Bullet Points */}
-                    {section.bulletPoints && section.bulletPoints.length > 0 && (
-                      <ul className="space-y-2.5 pl-2 pt-1 text-xs sm:text-sm text-slate-300">
-                        {section.bulletPoints.map((item, bIdx) => (
-                          <li key={bIdx} className="flex items-start gap-2.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-blue-500/80 shrink-0 mt-2" />
-                            <span className="leading-relaxed">
-                              {renderTextWithPlaceholders(item)}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    {section.bulletPoints &&
+                      section.bulletPoints.length > 0 && (
+                        <ul className="space-y-2.5 pl-2 pt-1 text-xs sm:text-sm text-slate-300">
+                          {section.bulletPoints.map((item, bIdx) => (
+                            <li key={bIdx} className="flex items-start gap-2.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-blue-500/80 shrink-0 mt-2" />
+                              <span className="leading-relaxed">
+                                {renderTextWithPlaceholders(item)}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
 
                     {/* Subsections */}
                     {section.subsections && section.subsections.length > 0 && (
@@ -351,7 +389,8 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
                       Legal &amp; Compliance Inquiries
                     </h4>
                     <p className="text-xs text-slate-400">
-                      Submit statutory data access requests, dispute notices, or policy queries directly to our compliance desk.
+                      Submit statutory data access requests, dispute notices, or
+                      policy queries directly to our compliance desk.
                     </p>
                   </div>
                 </div>
@@ -377,7 +416,8 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
                 </div>
 
                 <div className="text-[11px] font-mono text-slate-500">
-                  Future Pulse Investments · Harare, Zimbabwe · Governing Law: Laws of Zimbabwe
+                  Future Pulse Investments · Harare, Zimbabwe · Governing Law:
+                  Laws of Zimbabwe
                 </div>
               </div>
             </article>
