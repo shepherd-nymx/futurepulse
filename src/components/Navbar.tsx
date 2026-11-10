@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 interface NavbarProps {
@@ -19,7 +20,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -139,13 +140,14 @@ export const Navbar: React.FC<NavbarProps> = ({
       </header>
 
       {/* Mobile Menu Overlay */}
+      <AnimatePresence>
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 lg:hidden">
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} className="fixed inset-0 z-40 lg:hidden">
           <div
             className="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity"
             onClick={() => setMobileMenuOpen(false)}
           />
-          <div className="fixed top-16 right-0 left-0 bg-[#070a10] border-b border-white/10 px-6 py-6 shadow-2xl flex flex-col gap-4">
+          <motion.div initial={{ y: -20 }} animate={{ y: 0 }} exit={{ y: -16 }} transition={{ type: 'spring', stiffness: 300, damping: 30 }} className="fixed top-16 right-0 left-0 bg-[#070a10] border-b border-white/10 px-6 py-6 shadow-2xl flex flex-col gap-4">
             {/* Mobile Brand Banner */}
             <div className="flex items-center gap-3 pb-3 border-b border-white/10">
               <div className="w-10 h-10 rounded-xl bg-slate-950 border border-blue-500/40 overflow-hidden shadow-md shrink-0">
@@ -164,7 +166,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </div>
               </div>
             </div>
-            <nav className="flex flex-col gap-3">
+            <nav className="fp-mobile-links flex flex-col gap-3">
               {navLinks.map((link) => {
                 const isActive =
                   (link.view === 'services' && activeView === 'services') ||
@@ -198,9 +200,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="pt-2 text-xs text-slate-500 font-mono text-center">
               Zimbabwe · Early Stage Technology Company
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
+      </AnimatePresence>
     </>
   );
 };

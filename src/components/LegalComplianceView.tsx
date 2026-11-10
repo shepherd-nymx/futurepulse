@@ -223,7 +223,7 @@ export const LegalComplianceView: React.FC<LegalComplianceViewProps> = ({
 
           {/* Active Policy Content Container (Desktop 8 Cols) */}
           <div className="lg:col-span-8">
-            <article className="rounded-3xl bg-slate-950/90 border border-white/10 p-6 sm:p-10 lg:p-12 backdrop-blur-md shadow-2xl relative">
+            <article key={activePolicy.id} data-reveal className="rounded-3xl bg-slate-950/90 border border-white/10 p-6 sm:p-10 lg:p-12 backdrop-blur-md shadow-2xl relative">
               {/* Document Header */}
               <header className="pb-8 border-b border-white/10 space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">

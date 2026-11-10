@@ -4,6 +4,8 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { MotionConfig } from 'motion/react';
+import { MotionScene, ReadingProgress } from './components/MotionScene';
 import { GlobalTechBackground } from './components/GlobalTechBackground';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -63,7 +65,7 @@ export default function App() {
       setActiveView(parsed.view);
       setActiveLegalPolicy(parsed.policyId);
       if (parsed.view === 'services' || parsed.view === 'legal') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
       }
     };
 
@@ -74,7 +76,7 @@ export default function App() {
   const scrollTo = (id: string) => {
     const el = document.querySelector(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      el.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     }
   };
 
@@ -85,13 +87,13 @@ export default function App() {
     if (view === 'services') {
       setActiveView('services');
       window.location.hash = '#services-pricing';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     } else if (view === 'legal') {
       setActiveView('legal');
       const slug = targetAnchor ? targetAnchor.replace('#', '') : 'privacy-policy';
       setActiveLegalPolicy(slug);
       window.location.hash = `#${slug}`;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     } else {
       setActiveView('home');
       if (targetAnchor && targetAnchor !== '#services-pricing' && targetAnchor !== '#legal') {
@@ -101,7 +103,7 @@ export default function App() {
         }, 50);
       } else {
         window.location.hash = '#home';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
       }
     }
   };
@@ -110,13 +112,16 @@ export default function App() {
     setActiveView('legal');
     setActiveLegalPolicy(policySlug);
     window.location.hash = `#${policySlug}`;
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   };
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="min-h-screen bg-[#05070B] text-slate-100 flex flex-col font-sans selection:bg-blue-600/30 selection:text-white relative overflow-x-hidden w-full">
       {/* Global Animated Tech Background */}
       <GlobalTechBackground />
+
+      <ReadingProgress />
 
       {/* Sticky Top Navigation */}
       <Navbar
@@ -127,6 +132,7 @@ export default function App() {
 
       {/* Main Content View Switcher */}
       <main className="flex-1 w-full overflow-x-hidden">
+        <MotionScene key={activeView} view={activeView}>
         {activeView === 'services' ? (
           /* Dedicated Services & Pricing Page */
           <ServicesPricingView
@@ -181,6 +187,7 @@ export default function App() {
             <ContactSection />
           </>
         )}
+        </MotionScene>
       </main>
 
       {/* Footer with Legal & Compliance Policy Links */}
@@ -199,5 +206,6 @@ export default function App() {
         onClose={() => setAdminModalOpen(false)}
       />
     </div>
+    </MotionConfig>
   );
 }

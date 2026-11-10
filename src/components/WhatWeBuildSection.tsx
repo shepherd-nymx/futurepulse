@@ -79,7 +79,7 @@ export const WhatWeBuildSection: React.FC = () => {
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="max-w-3xl mb-8 sm:mb-12">
+        <div data-reveal className="max-w-3xl mb-8 sm:mb-12">
           <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-blue-400 uppercase mb-3">
             <span>02</span>
             <span className="text-slate-600" aria-hidden="true">/</span>
@@ -187,7 +187,7 @@ export const WhatWeBuildSection: React.FC = () => {
         {/* Modal for detailed capability & maintenance inspection */}
         {selectedPillar && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto"
+            className="fp-dialog fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200 overflow-y-auto"
             onClick={() => setSelectedPillar(null)}
           >
             <div

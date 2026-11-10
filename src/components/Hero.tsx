@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 import { ArrowDown, ArrowRight, Code2, Smartphone, Bot, RefreshCw, Cpu } from 'lucide-react';
 
 interface HeroProps {
@@ -8,6 +9,7 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onExploreWork, onAboutClick, onViewPricing }) => {
+  const reduced = useReducedMotion();
   const [bgLoaded, setBgLoaded] = useState(false);
 
   return (
@@ -70,7 +72,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onAboutClick, onViewP
         <line x1="0" y1="40%" x2="100%" y2="40%" stroke="white" strokeWidth="1" strokeDasharray="4 8" />
       </svg>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center w-full">
+      <div data-hero-content className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center w-full">
         {/* Official Entity Crest & Lead-in */}
         <div className="flex items-center gap-2.5 sm:gap-3.5 mb-5 sm:mb-7 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl sm:rounded-2xl bg-slate-950/85 border border-blue-500/30 shadow-xl shadow-black/50 backdrop-blur-md max-w-full">
           <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-slate-950 border border-blue-400/40 overflow-hidden shadow-inner shrink-0 relative group">
@@ -92,11 +94,11 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onAboutClick, onViewP
         </div>
 
         {/* Primary Headline with fluid mobile sizing, balanced layout, and clear shadow */}
-        <h1 className="font-['Syne',sans-serif] text-[1.4rem] xs:text-[1.75rem] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.18] sm:leading-[1.08] mb-5 sm:mb-8 max-w-4xl px-1 sm:px-0 drop-shadow-[0_4px_28px_rgba(0,0,0,0.9)]">
-          <span className="block">BUILDING TECHNOLOGY.</span>
-          <span className="bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent block mt-1 sm:mt-2">
+        <h1 data-hero-title className="font-['Syne',sans-serif] text-[1.4rem] xs:text-[1.75rem] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.18] sm:leading-[1.08] mb-5 sm:mb-8 max-w-4xl px-1 sm:px-0 drop-shadow-[0_4px_28px_rgba(0,0,0,0.9)]">
+          <motion.span className="block" initial={reduced ? false : { opacity: 0, y: 34, filter: 'blur(8px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} transition={{ duration: 0.9, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}>BUILDING TECHNOLOGY.</motion.span>
+          <motion.span initial={reduced ? false : { opacity: 0, y: 34, filter: 'blur(8px)' }} animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }} transition={{ duration: 0.9, delay: 0.28, ease: [0.16, 1, 0.3, 1] }} className="bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent block mt-1 sm:mt-2">
             SOLVING REAL PROBLEMS.
-          </span>
+          </motion.span>
         </h1>
 
         {/* Supporting Narrative highlighting Software, Mobile Apps, AI Agents & Maintenance */}
