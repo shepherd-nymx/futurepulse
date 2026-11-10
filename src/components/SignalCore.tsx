@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 
 /** Original wire sculpture. One canvas, capped pixel ratio, paused offscreen. */
-export function SignalCore() {
+export function SignalCore({ compact = false }: { compact?: boolean } = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -34,34 +34,40 @@ export function SignalCore() {
           depth,
         ];
       };
-      for (let ring = 0; ring < 40; ring++) {
+      const rings = compact ? 18 : 40;
+      const segments = compact ? 48 : 84;
+      for (let ring = 0; ring < rings; ring++) {
         ctx.beginPath();
         let depth = 0;
-        for (let point = 0; point <= 84; point++) {
+        for (let point = 0; point <= segments; point++) {
           const [x, y, z] = project(
-            (ring / 40) * Math.PI * 2,
-            (point / 84) * Math.PI * 2,
+            (ring / rings) * Math.PI * 2,
+            (point / segments) * Math.PI * 2,
           );
           depth += z;
           if (!point) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
-        const alpha = 0.22 + (depth / 85 + 1.4) * 0.15;
+        const alpha =
+          (compact ? 0.4 : 0.22) + (depth / (segments + 1) + 1.4) * 0.15;
         ctx.strokeStyle = `rgba(180,165,255,${alpha})`;
         ctx.lineWidth = 0.7;
         ctx.stroke();
       }
-      for (let ring = 0; ring < 12; ring++) {
+      const crossRings = compact ? 6 : 12;
+      for (let ring = 0; ring < crossRings; ring++) {
         ctx.beginPath();
         for (let point = 0; point <= 100; point++) {
           const [x, y] = project(
             (point / 100) * Math.PI * 2,
-            (ring / 12) * Math.PI * 2,
+            (ring / crossRings) * Math.PI * 2,
           );
           if (!point) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         }
-        ctx.strokeStyle = "rgba(219,210,255,.20)";
+        ctx.strokeStyle = compact
+          ? "rgba(219,210,255,.45)"
+          : "rgba(219,210,255,.20)";
         ctx.lineWidth = 0.6;
         ctx.stroke();
       }
@@ -120,7 +126,7 @@ export function SignalCore() {
       media.removeEventListener("change", update);
       document.removeEventListener("visibilitychange", update);
     };
-  }, []);
+  }, [compact]);
   return (
     <canvas ref={canvasRef} className="signal-canvas" aria-hidden="true" />
   );

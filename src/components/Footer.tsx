@@ -1,3 +1,4 @@
+import { SignalCore } from "./SignalCore";
 import React from "react";
 import { ArrowUpRight, ArrowUp, Lock } from "lucide-react";
 import { COMPANY_INFO } from "../data/companyData";
@@ -23,7 +24,9 @@ export const Footer: React.FC<FooterProps> = ({
             onNavClick("#home");
           }}
         >
-          <img src="/future-pulse-logo.png" alt="" />
+          <div className="animated-brand-mark" aria-hidden="true">
+            <SignalCore compact />
+          </div>
           <span>
             future<span>pulse</span>
             <small>TECHNOLOGY WITH PURPOSE</small>

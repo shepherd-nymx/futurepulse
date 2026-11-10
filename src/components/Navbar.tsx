@@ -1,3 +1,4 @@
+import { SignalCore } from "./SignalCore";
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
@@ -48,14 +49,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClick={(e) => go(e, "#home")}
           aria-label="Future Pulse home"
         >
-          <img
-            src="/future-pulse-symbol.png"
-            onError={(e) => {
-              e.currentTarget.onerror = null;
-              e.currentTarget.src = "/future-pulse-logo.png";
-            }}
-            alt=""
-          />
+          <div className="animated-brand-mark" aria-hidden="true">
+            <SignalCore compact />
+          </div>
           <span>
             future<span>pulse</span>
             <small>TECHNOLOGY WITH PURPOSE</small>
