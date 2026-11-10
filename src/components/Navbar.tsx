@@ -48,18 +48,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           onClick={(e) => go(e, "#home")}
           aria-label="Future Pulse home"
         >
-          <img
-            src="/future-pulse-symbol.png"
-            onError={(e) => {
-              e.currentTarget.onerror = null;
-              e.currentTarget.src = "/future-pulse-logo.png";
-            }}
-            alt=""
-          />
-          <span>
-            future<span>pulse</span>
-            <small>TECHNOLOGY WITH PURPOSE</small>
-          </span>
+          <img className="future-pulse-lockup" src="/future-pulse-animated.svg" alt="Future Pulse" width="1880" height="350" />
         </a>
         <nav className="studio-desktop-nav" aria-label="Main navigation">
           {links.map((link) => (

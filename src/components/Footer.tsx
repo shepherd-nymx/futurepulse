@@ -23,11 +23,7 @@ export const Footer: React.FC<FooterProps> = ({
             onNavClick("#home");
           }}
         >
-          <img src="/future-pulse-logo.png" alt="" />
-          <span>
-            future<span>pulse</span>
-            <small>TECHNOLOGY WITH PURPOSE</small>
-          </span>
+          <img className="future-pulse-lockup" src="/future-pulse-animated.svg" alt="Future Pulse" width="1880" height="350" />
         </a>
         <p>
           Thoughtfully engineered.
