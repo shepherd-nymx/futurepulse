@@ -168,8 +168,10 @@ export function StudioStory() {
         <div className="studio-container founder-layout">
           <div className="founder-photo" data-reveal>
             <img
-              src="/assets/images/founder_shepherd_suit_portrait_1791398850708.jpg"
+              src="/assets/images/shepherd-mutevedzi-founder.jpg"
               alt="Shepherd Mutevedzi, founder of Future Pulse"
+              width={720}
+              height={717}
               loading="lazy"
             />
             <div>

@@ -989,7 +989,7 @@
   height: 100%;
   object-fit: cover;
   object-position: 50% 25%;
-  filter: saturate(0.65);
+  filter: none;
 }
 .founder-photo::after {
   content: "";
